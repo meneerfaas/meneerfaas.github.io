@@ -30,3 +30,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
+html_logo = "images/programmer_128.png"
+html_theme_options = {
+    "logo": {
+        "text": "Programmeren in Python",
+        "alt_text": "Programmeren in Python",
+        "image_light": "images/programmer_128.png",
+        "image_dark": "images/programmer_128.png",
+    }
+}
