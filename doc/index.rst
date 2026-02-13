@@ -1,14 +1,17 @@
-.. Example documentation master file, created by
-   sphinx-quickstart on Sat Sep 23 20:35:12 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Example's documentation!
+Programmeren in Python
 ===================================
+
+.. image:: images/bookcover.jpg
+   :alt: Book cover
+   :height: 200px
+   :align: right
+
+Op deze pagina vind je de *assets* die nodig zijn voor de Pygame Zero projecten in het boek Programmeren in Python.
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   some-feature.md
-   another-feature.md
+   01_pygame_zero_intro/pygame_zero_intro
+

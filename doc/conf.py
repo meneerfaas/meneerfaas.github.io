@@ -36,5 +36,7 @@ html_theme_options = {
         "alt_text": "Programmeren in Python",
         "image_light": "images/programmer_128.png",
         "image_dark": "images/programmer_128.png",
-    }
+    },
+    "footer_start": ["copyright"],
+    "footer_end": ["sphinx-version", "theme-version"]
 }

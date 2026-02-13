@@ -1,13 +1,7 @@
 {
-    "esbonio.sphinx.buildDir": "${workspaceFolder}/doc/build/html",
-    "esbonio.sphinx.confDir": "${workspaceFolder}\\doc",
-    "esbonio.sphinx.srcDir": "${workspaceFolder}/doc",
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
-    },
-    "restructuredtext.preview.scrollEditorWithPreview": false,
-    "restructuredtext.preview.scrollPreviewWithEditor": true,
-    "restructuredtext.linter.doc8.extraArgs": [
-        "--ignore D001 D004 D005"
-    ]
+    "esbonio.sphinx.pythonCommand": ["./env/python"],
+    "esbonio.sphinx.buildTriggers": {
+        "onSave": true,
+        "onChange": 2.0
+    }
 }
