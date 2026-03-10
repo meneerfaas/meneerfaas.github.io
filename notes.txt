@@ -1,0 +1,14 @@
+Anaconda prompt
+
+Environment gecreëerd in de folder env met mamba create -p ./env
+(Empty environment created at prefix: env)
+Environments info op te vragen met: mamba info --envs
+Te activeren met: mamba activate ./env
+
+Packages geïnstalleerd:
+mamba install sphinx-design
+mamba install pydata-sphinx-theme
+mamba install myst-parser --channel conda-forge
+mamba install sphinx=8.2.3
+
+Package list op te vragen met: mamba list
