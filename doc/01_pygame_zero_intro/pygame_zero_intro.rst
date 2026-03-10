@@ -1,6 +1,6 @@
 Introductie Pygame Zero
 =========================
-Deze sprites zijn afkomstig uit het Platformer Art Deluxe pakket, dat je kunt vinden op `kenney.nl <https://kenney.nl/>`_ De roze alien wordt ook gebruikt in de officiële Pygame Zero handleiding, die je kunt vinden op `pygame-zero.readthedocs.io <https://pygame-zero.readthedocs.io>`_
+Deze sprites zijn afkomstig uit het Platformer Art Deluxe pakket, dat je kunt vinden op `kenney.nl <https://kenney.nl/>`_. De roze alien wordt ook gebruikt in de officiële Pygame Zero handleiding op `pygame-zero.readthedocs.io <https://pygame-zero.readthedocs.io>`_
 
 .. card-carousel:: 3
 
