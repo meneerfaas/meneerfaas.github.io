@@ -41,3 +41,4 @@ html_theme_options = {
     "footer_center": ["copyright"],
     "footer_end": ["theme-version"]
 }
+html_favicon = "_static/favicon.png"
