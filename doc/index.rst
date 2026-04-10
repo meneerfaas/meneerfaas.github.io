@@ -14,4 +14,5 @@ Op deze pagina vind je de *assets* die nodig zijn voor de Pygame Zero projecten 
    :caption: Contents:
 
    01_pygame_zero_intro/pygame_zero_intro
+   02_fruit_catcher/fruitcatcher
 
