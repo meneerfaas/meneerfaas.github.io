@@ -1,7 +1,7 @@
 Fruit Catcher
 =========================
 
-De sprites voor de Fruit Catcher tutorial zijn afkomstig van `itch.io <https://itch.io/game-assets>`_. 
+De sprites voor de Fruit Catcher tutorial zijn afkomstig van `itch.io <https://itch.io/game-assets>`_. Het Boogaloo lettertype komt van `Google Fonts <https://fonts.google.com/specimen/Boogaloo>`_. 
 
 Basissprites
 --------------
@@ -35,6 +35,17 @@ Basissprites
            :alt: Hartje
 
         :download:`download <assets/game_over.png>`
+
+Font
+-----------------
+.. card-carousel:: 3
+
+    .. card:: Boogaloo
+
+        .. image:: images/boogaloo_font.png
+           :alt: Mand
+
+        :download:`download <assets/boogaloo.ttf>`
 
 Extra sprites
 -----------------
