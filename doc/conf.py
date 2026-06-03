@@ -30,6 +30,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
+html_css_files = ['custom.css']
 html_theme_options = {
     "logo": {
         "text": "Programmeren in Python",
@@ -42,3 +43,10 @@ html_theme_options = {
     "footer_end": ["theme-version"]
 }
 html_favicon = "_static/favicon.png"
+
+rst_prolog = """
+.. role:: tt
+    :class: mono
+.. role:: ttt
+    :class: mono-small
+"""

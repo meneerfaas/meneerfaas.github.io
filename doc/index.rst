@@ -10,9 +10,14 @@ Op deze pagina vind je de *assets* die nodig zijn voor de Pygame Zero projecten 
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Assets voor de projecten
 
    01_pygame_zero_intro/pygame_zero_intro
    02_fruit_catcher/fruitcatcher
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Technieken voor platformer games
+
+   platformer/lists
