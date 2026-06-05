@@ -19,6 +19,14 @@ Op deze pagina vind je de *assets* die nodig zijn voor de Pygame Zero projecten 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Technieken voor platformer games
+   :caption: Datastructuren
 
-   platformer/lists
+   datastructures/lists
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Level Devil
+
+   leveldevil/01 intro
+   leveldevil/02 rectangles
+   leveldevil/03 player

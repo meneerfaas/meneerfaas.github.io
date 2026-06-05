@@ -19,7 +19,7 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx_design', 'myst_parser']
+extensions = ['sphinx_design', 'myst_parser', 'sphinxcontrib.plantuml']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
@@ -50,3 +50,9 @@ rst_prolog = """
 .. role:: ttt
     :class: mono-small
 """
+
+# -- Options for plantuml
+local_plantuml_path = os.path.join(os.path.dirname(
+    __file__), "utils", "plantuml.jar")
+plantuml = f"java -Djava.awt.headless=true -jar {local_plantuml_path}"
+plantuml_output_format = 'svg'
