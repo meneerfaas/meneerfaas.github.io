@@ -39,10 +39,6 @@ html_theme_options = {
         "image_light": "images/programmer_128.png",
         "image_dark": "images/programmer_128.png",
     },
-    "navbar_start": ["navbar-logo"],
-    "navbar_center": ["navbar-nav"],
-    "navbar_end": ["navbar-icon-links"],
-    "navbar_persistent": ["search-button"],
     "collapse_navigation": False,
     "show_nav_level": 2,
     "navigation_depth": 2,
@@ -51,7 +47,7 @@ html_theme_options = {
     "footer_end": ["theme-version"]
 }
 html_sidebars = {
-    '**': ['globaltoc.html', 'searchbox.html'],
+    '**': ['sidebar-nav-bs.html', 'searchbox.html'],
     'using/windows': ['windows-sidebar.html', 'searchbox.html'],
 }
 html_favicon = "_static/favicon.png"
