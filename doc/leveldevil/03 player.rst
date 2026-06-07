@@ -17,15 +17,19 @@ Voor onze :python:`player` Actor gaan we verschillende sprites gebruiken. We wil
 
 .. grid:: 2
 
-   .. image:: images/player_idle.gif
-      :alt: Idle sprites
-      :align: center
-      :width: 32px
+    .. grid-item::
 
-   .. image:: images/player_run.gif
-      :alt: Run sprites
-      :align: center
-      :width: 32px
+       .. image:: images/player_idle.gif
+          :alt: Idle sprites
+          :align: center
+          :width: 32px
+
+    .. grid-item::
+
+        .. image:: images/player_run.gif
+            :alt: Run sprites
+            :align: center
+            :width: 32px
 
 Download de *zip folder* (een gecomprimeerde map) met alle sprites en pak de inhoud uit in de :file:`images` map van je project. 
 
