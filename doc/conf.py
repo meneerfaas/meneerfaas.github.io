@@ -40,14 +40,12 @@ html_theme_options = {
         "image_dark": "images/programmer_128.png",
     },
     "collapse_navigation": False,
-    "show_nav_level": 2,
-    "navigation_depth": 2,
     "footer_start": ["sphinx-version"],
     "footer_center": ["copyright"],
     "footer_end": ["theme-version"]
 }
 html_sidebars = {
-    '**': ['sidebar-nav-bs.html', 'searchbox.html'],
+    '**': ['globaltoc.html', 'searchbox.html'],
     'using/windows': ['windows-sidebar.html', 'searchbox.html'],
 }
 html_favicon = "_static/favicon.png"
