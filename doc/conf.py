@@ -39,12 +39,18 @@ html_theme_options = {
         "image_light": "images/programmer_128.png",
         "image_dark": "images/programmer_128.png",
     },
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": [],
+    "navbar_end": ["navbar-icon-links"],
+    "navbar_persistent": ["search-button"],
+    "collapse_navigation": False,
+    "show_toc_level": 1,
     "footer_start": ["sphinx-version"],
     "footer_center": ["copyright"],
     "footer_end": ["theme-version"]
 }
 html_sidebars = {
-    '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
+    '**': ['sidebar-nav-bs.html', 'searchbox.html'],
     'using/windows': ['windows-sidebar.html', 'searchbox.html'],
 }
 html_favicon = "_static/favicon.png"
