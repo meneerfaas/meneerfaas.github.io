@@ -14,6 +14,7 @@ project = 'Programmeren in Python'
 copyright = '2026, S. Faas'
 author = 'S. Faas'
 release = '0.1'
+language = 'nl'
 
 
 # -- General configuration ---------------------------------------------------
@@ -43,6 +44,7 @@ html_theme_options = {
     "footer_end": ["theme-version"]
 }
 html_favicon = "_static/favicon.png"
+html_scaled_image_link = False
 
 rst_prolog = """
 .. role:: tt
