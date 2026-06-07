@@ -189,6 +189,8 @@ De uitvoer van dit programma is:
    1 groen
    2 blauw
 
+.. _List_comprehensions:
+
 List comprehensions
 --------------------------------------------------
 

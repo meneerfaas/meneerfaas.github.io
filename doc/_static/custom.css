@@ -6,3 +6,7 @@
     font-family: monospace;
     font-size: small;
 }
+
+.wrap pre {
+    white-space: pre-wrap;
+}
