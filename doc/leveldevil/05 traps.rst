@@ -8,7 +8,7 @@
 Valkuilen
 ===================
 
-...
+In dit deel programmeren we de collisions tussen de speler en de valkuilen. We zorgen ervoor dat de valkuilen actief worden wanneer de speler in de buurt komt en dat de speler daadwerkelijk in de valkuil valt wanneer hij er overheen loopt. Ook moet de speler doodgaan wanneer hij in de valkuil valt. 
 
 Activeren
 -----------------
