@@ -11,7 +11,6 @@ Op deze pagina vind je de *assets* die nodig zijn voor de Pygame Zero projecten 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Pygame zero assets bij het boek
 
    01_pygame_zero_intro/pygame_zero_intro
    02_fruit_catcher/fruitcatcher

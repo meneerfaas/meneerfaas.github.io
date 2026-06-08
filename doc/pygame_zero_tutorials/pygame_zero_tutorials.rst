@@ -5,8 +5,8 @@ Pygame Zero tutorials
    :maxdepth: 1
    :caption: Level Devil
 
-   leveldevil/01 intro
-   leveldevil/02 rectangles
-   leveldevil/03 player
-   leveldevil/04 player_control
-   leveldevil/05 traps
+   leveldevil/01_intro
+   leveldevil/02_rectangles
+   leveldevil/03_player
+   leveldevil/04_player_control
+   leveldevil/05_traps
