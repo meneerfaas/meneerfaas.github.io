@@ -43,6 +43,9 @@ html_theme_options = {
     "footer_center": ["copyright"],
     "footer_end": ["theme-version"]
 }
+html_sidebars = {
+    '**': ["sidebar-collapse", "sidebar-nav-bs", "searchbox.html"]
+}
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
 
