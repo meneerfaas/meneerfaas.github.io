@@ -39,7 +39,6 @@ html_theme_options = {
         "image_light": "images/programmer_128.png",
         "image_dark": "images/programmer_128.png",
     },
-    "collapse_navigation": False,
     "footer_start": ["sphinx-version"],
     "footer_center": ["copyright"],
     "footer_end": ["theme-version"]
