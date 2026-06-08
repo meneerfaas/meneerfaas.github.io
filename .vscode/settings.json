@@ -5,6 +5,7 @@
         "onChange": 2.0
     },
     "esbonio.preview.synchronizeScroll": "editorWithPreview",
+    "editor.detectIndentation": false,
     "editor.tabSize": 4,
     "editor.insertSpaces": true
 }
