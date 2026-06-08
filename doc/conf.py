@@ -39,7 +39,7 @@ html_theme_options = {
         "image_light": "images/programmer_128.png",
         "image_dark": "images/programmer_128.png",
     },
-    "secondary_sidebar_items": []
+    "sidebar_secondary": {"remove": "true"}
 }
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
