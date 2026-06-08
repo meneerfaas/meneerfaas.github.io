@@ -44,7 +44,7 @@ html_theme_options = {
     "footer_end": ["theme-version"]
 }
 html_sidebars = {
-    '**': ["sidebar-collapse", "sidebar-nav-bs", "searchbox.html"]
+    '**': ["sidebar-collapse", "sidebar-nav-bs"]
 }
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
