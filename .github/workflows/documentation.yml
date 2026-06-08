@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
-          pip install sphinx pydata-sphinx-theme sphinx-design myst-parser sphinxcontrib-plantuml
+          pip install sphinx sphinx-book-theme sphinx-design myst-parser sphinxcontrib-plantuml
       - name: Sphinx build
         run: |
           sphinx-build doc _build

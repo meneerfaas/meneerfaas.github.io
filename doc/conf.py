@@ -29,7 +29,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
 html_theme_options = {
@@ -39,14 +39,6 @@ html_theme_options = {
         "image_light": "images/programmer_128.png",
         "image_dark": "images/programmer_128.png",
     },
-    "navigation_depth": 4,
-    "show_nav_level": 1,
-    "footer_start": ["sphinx-version"],
-    "footer_center": ["copyright"],
-    "footer_end": ["theme-version"]
-}
-html_sidebars = {
-    '**': ["sidebar-collapse", "sidebar-nav-bs"]
 }
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
