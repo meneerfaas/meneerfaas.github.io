@@ -5,6 +5,15 @@
 
    <br/>
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    02 rectangles
+    03 player
+    04 player_control
+    05 traps
+
 Level devil
 ===================
 

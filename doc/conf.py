@@ -43,10 +43,6 @@ html_theme_options = {
     "footer_center": ["copyright"],
     "footer_end": ["theme-version"]
 }
-html_sidebars = {
-    '**': ['globaltoc.html', 'searchbox.html'],
-    'using/windows': ['windows-sidebar.html', 'searchbox.html'],
-}
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
 
