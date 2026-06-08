@@ -11,7 +11,7 @@ from pathlib import Path
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Programmeren in Python'
-copyright = '2026, S. Faas'
+copyright = '2026'
 author = 'S. Faas'
 release = '0.1'
 language = 'nl'

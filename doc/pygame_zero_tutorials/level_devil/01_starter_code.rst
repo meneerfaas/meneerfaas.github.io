@@ -5,26 +5,8 @@
 
    <br/>
 
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-
-    02 rectangles
-    03 player
-    04 player_control
-    05 traps
-
-Level devil
-===================
-
-`Level Devil <https://poki.com/en/g/level-devil>`_ is een platformer game waarin de speler telkens wordt verrast met onverwachte valkuilen. Een platformer game programmeren is geen sinecure, maar ook voor beginnende programmeurs is het zeer wel mogelijk om met Pygame Zero enkele eenvoudige Level Devil levels te maken.
-
-.. image:: images/level_devil_demo.gif
-    :alt: Level Devil
-    :align: center
-
 Starter code
------------------
+=================
 
 Maak voor deze game een nieuwe map aan met de naam :file:`level devil`. Start in Mu editor een nieuw codebestand en sla het op in de nieuwe map onder de naam :file:`level_devil.py`. 
 
@@ -59,13 +41,4 @@ Plaats de onderstaande code in het bestand.
         pass
 
 In regels 6 en 7 worden de kleuren voor de achtergrond en de kamer gedefinieerd met RGB-waarden. De functies :python:`draw()` en :python:`update()` bevatten beide slechts één regel code. Regel 10 vult het venster met de achtergrondkleur en regel 13 is opvulling omdat je in Python geen lege functies mag hebben.
-
-.. dropdown:: Zelf typen of kopiëren?
-    :color: warning
-    :icon: alert
-    :open:
-
-    Uiteraard kun je de code in deze tutorial gewoon kopiëren en plakken in Mu editor, maar het is een beter idee om de code zelf te typen. Op die manier leer je de code goed kennen en begrijp je het beter.
-
-    Als je echt wilt leren programmeren, dan typ je zelf en stel je jezelf tijdens het typen bij elke coderegel de vraag: 'Begrijp ik wat deze code doet?' Dat is natuurlijk meer werk, maar het is de moeite waard. 
 

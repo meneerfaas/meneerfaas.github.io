@@ -3,5 +3,8 @@
     "esbonio.sphinx.buildTriggers": {
         "onSave": true,
         "onChange": 2.0
-    }
+    },
+    "esbonio.preview.synchronizeScroll": "editorWithPreview",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
 }
