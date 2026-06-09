@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Car Actor &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=4c5fae4d" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero_tutorials/car_driver/02_car_actor';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="Op de weg blijven" href="03_roads.html" />
+    <link rel="prev" title="Voorbereidingen" href="01_preparations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_programming/python_programming.html">Programmeren in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_programming/datastructures/lists.html">Werken met lijsten</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero/pygame_zero.html">Pygame Zero assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_pygame_zero_intro/pygame_zero_intro.html">Introductie Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/02_fruit_catcher/fruitcatcher.html">Fruit Catcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/03_actor_positioning/actor_positioning.html">Actor positioneren</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../pygame_zero_tutorials.html">Pygame Zero tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../level_devil.html">Level Devil</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../level_devil/01_starter_code.html">Starter code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../level_devil/02_rectangles.html">Kamer en valkuilen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../level_devil/03_player.html">Player character</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../level_devil/04_player_control.html">Player besturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../level_devil/05_traps.html">Valkuilen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../car_driver.html">Car Driver</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_preparations.html">Voorbereidingen</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Car Actor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_roads.html">Op de weg blijven</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero_tutorials/car_driver/02_car_actor.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Car Actor</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#besturing">Besturing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flippen">Flippen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animatie">Animatie</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="car-actor">
+<h1>Car Actor<a class="headerlink" href="#car-actor" title="Link to this heading">#</a></h1>
+<p>Het autootje in Car Driver is een Actor.</p>
+<figure class="align-center">
+<img alt="Car" src="../../_images/car.gif" />
+</figure>
+<p>Om te beginnen maken we een Actorvariabele <code class="code highlight python docutils literal highlight-python"><span class="n">car</span></code> aan door de <code class="code highlight python docutils literal highlight-python"><span class="n">Actor</span></code> constructor aan te roepen, waarbij we de naam van de sprite <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;car_0&#39;</span></code> meegeven. Vervolgens geven we de Actor een beginpositie door de <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span></code> eigenschap in te stellen op een tuple met de x- en y-coördinaten. In dit geval plaatsen we het autootje in het midden van het venster, dus op de helft van de breedte en de hoogte.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># WINDOW SETTINGS</span>
+<span class="linenos"> 2</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 3</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 4</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Car Driver&#39;</span>
+<span class="linenos"> 5</span>
+<span class="hll"><span class="linenos"> 6</span><span class="c1"># ACTORS</span>
+</span><span class="hll"><span class="linenos"> 7</span><span class="n">car</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;car_0&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="n">car</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1">################################</span>
+<span class="linenos">11</span><span class="c1"># DRAW()</span>
+<span class="linenos">12</span><span class="c1">################################</span>
+<span class="linenos">13</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">14</span>    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1">################################</span>
+<span class="linenos">17</span><span class="c1"># UPDATE()</span>
+<span class="linenos">18</span><span class="c1">################################</span>
+<span class="linenos">19</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">20</span>    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<p>Om het autootje zichtbaar te maken, moeten we het tekenen in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie. Daarvoor roepen we de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> methode van de Actor aan.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># WINDOW SETTINGS</span>
+<span class="linenos"> 2</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 3</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 4</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Car Driver&#39;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># ACTORS</span>
+<span class="linenos"> 7</span><span class="n">car</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;car_0&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">car</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1">################################</span>
+<span class="linenos">11</span><span class="c1"># DRAW()</span>
+<span class="linenos">12</span><span class="c1">################################</span>
+<span class="linenos">13</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">14</span>    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">15</span>    <span class="n">car</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</span><span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1">################################</span>
+<span class="linenos">18</span><span class="c1"># UPDATE()</span>
+<span class="linenos">19</span><span class="c1">################################</span>
+<span class="linenos">20</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">21</span>    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<p>Run de code om te controleren of het autootje in het midden van het venster verschijnt.</p>
+<section id="besturing">
+<h2>Besturing<a class="headerlink" href="#besturing" title="Link to this heading">#</a></h2>
+<p>We willen het autootje kunnen besturen met de pijltjestoetsen. Dat kan op verschillende manieren die elk hun eigen voor- en nadelen hebben. In deze tutorial gebruiken we niet de eenvoudigste manier, maar een manier die goed werkt en die je hopelijk beter leert begrijpen hoe je handig gebruik kunt maken van de event handler functies van Pygame Zero. We gaan namelijk de <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_down</span><span class="p">()</span></code> en de <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_up</span><span class="p">()</span></code> functies gebruiken, die worden aangeroepen wanneer een toets wordt ingedrukt of losgelaten.</p>
+<p>Voordat we de event handlers programmeren, voegen we eerst een drietal eigenschappen toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">car</span></code> Actor om de rijsnelheid van het autootje en de verplaatsingen in de x- en y-richting bij te houden.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span><span class="c1"># ACTORS</span>
+<span class="linenos"> 7</span><span class="n">car</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;car_0&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">car</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 9</span><span class="n">car</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class="hll"><span class="linenos">10</span><span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="hll"><span class="linenos">11</span><span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+</span></pre></div>
+</div>
+</div>
+<p>Nu kunnen we de event handlers maken. De <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_down</span><span class="p">()</span></code> functie ziet er zo uit:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span><span class="c1"># ACTORS</span>
+<span class="linenos"> 7</span><span class="n">car</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;car_0&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">car</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">car</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">10</span><span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">11</span><span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="c1">################################</span>
+</span><span class="hll"><span class="linenos">14</span><span class="c1"># EVENT HANDLERS</span>
+</span><span class="hll"><span class="linenos">15</span><span class="c1">################################</span>
+</span><span class="hll"><span class="linenos">16</span><span class="k">def</span> <span class="nf">on_key_down</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">17</span>    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">18</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="hll"><span class="linenos">19</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">20</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="hll"><span class="linenos">21</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">22</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="hll"><span class="linenos">23</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">24</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1">################################</span>
+<span class="linenos">27</span><span class="c1"># DRAW()</span>
+<span class="linenos">28</span><span class="c1">################################</span>
+</pre></div>
+</div>
+</div>
+<p>De variabelen <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dx</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dy</span></code> staan eigenlijk voor de snelheid van het autootje in de x- en y-richting. Wanneer je op een pijltjestoets drukt, wordt de snelheid in de bijbehorende richting verhoogd of verlaagd. Als je bijvoorbeeld op de linkerpijltjestoets drukt, wordt <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dx</span></code> met 3 verlaagd, waardoor het autootje naar links gaat bewegen.</p>
+<p>Wanneer de linkerpijltjestoets wordt losgelaten, moeten we <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dx</span></code> weer met 3 verhogen, zodat het autootje stopt met bewegen in de x-richting. De <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_up</span><span class="p">()</span></code> functie is dus een spiegelbeeld van de <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_down</span><span class="p">()</span></code> functie:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">13</span><span class="c1">################################</span>
+<span class="linenos">14</span><span class="c1"># EVENT HANDLERS</span>
+<span class="linenos">15</span><span class="c1">################################</span>
+<span class="linenos">16</span><span class="k">def</span> <span class="nf">on_key_down</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="linenos">17</span>    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+<span class="linenos">18</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">19</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+<span class="linenos">20</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">21</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">23</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">25</span>
+<span class="hll"><span class="linenos">26</span><span class="k">def</span> <span class="nf">on_key_up</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">27</span>    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">28</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="hll"><span class="linenos">29</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">30</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="hll"><span class="linenos">31</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">32</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span><span class="hll"><span class="linenos">33</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">34</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</span></pre></div>
+</div>
+</div>
+<p>Nu moeten we nog zorgen dat de snelheden <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dx</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dy</span></code> worden toegepast op de positie van het autootje. Dat doen we in de <code class="code highlight python docutils literal highlight-python"><span class="n">update</span><span class="p">()</span></code> functie,waar we nu het keyword <code class="code highlight python docutils literal highlight-python"><span class="k">pass</span></code> kunnen vervangen door echte code:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">43</span><span class="c1">################################</span>
+<span class="linenos">44</span><span class="c1"># UPDATE()</span>
+<span class="linenos">45</span><span class="c1">################################</span>
+<span class="linenos">46</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="hll"><span class="linenos">47</span>    <span class="n">car</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span>
+</span><span class="hll"><span class="linenos">48</span>    <span class="n">car</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">dy</span>
+</span></pre></div>
+</div>
+</div>
+<p>Run de code en controleer of je het autootje kunt besturen met de pijltjestoetsen. Test ook wat er gebeurt wanneer je twee pijltjestoetsen tegelijk indrukt en probeer te verklaren waarom dat gebeurt.</p>
+</section>
+<section id="flippen">
+<h2>Flippen<a class="headerlink" href="#flippen" title="Link to this heading">#</a></h2>
+<p>Wanneer je het autootje naar links laat bewegen, dan wil je dat het autootje ook daadwerkelijk naar links wijst. De <code class="file docutils literal notranslate"><span class="pre">pgzhelper</span></code> module voegt de handige eigenschap <code class="code highlight python docutils literal highlight-python"><span class="n">flip_x</span></code> toe aan de Actor klasse, waarmee je een sprite horizontaal kunt spiegelen. Deze eigenschap gebruiken we om het autootje te laten flippen wanneer het naar links beweegt.</p>
+<p>We voegen helemaal bovenaan het codebestand de volgende importregel toe om de <code class="file docutils literal notranslate"><span class="pre">pgzhelper</span></code> module te importeren:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="kn">from</span> <span class="nn">pgzhelper</span> <span class="kn">import</span> <span class="o">*</span>
+</span></pre></div>
+</div>
+</div>
+<p>Daarna creëren we twee constanten om de richting van het autootje mee aan te geven, en we voegen een nieuwe eigenschap <code class="code highlight python docutils literal highlight-python"><span class="n">direction</span></code> toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">car</span></code> Actor om de huidige rijrichting bij te houden:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 3</span><span class="c1"># WINDOW SETTINGS</span>
+<span class="linenos"> 4</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 5</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 6</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Car Driver&#39;</span>
+<span class="linenos"> 7</span>
+<span class="hll"><span class="linenos"> 8</span><span class="c1"># DIRECTION CONSTANTS</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="n">LEFT</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class="hll"><span class="linenos">10</span><span class="n">RIGHT</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># ACTORS</span>
+<span class="linenos">13</span><span class="n">car</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;car_0&#39;</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">car</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">car</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">16</span><span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">17</span><span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="hll"><span class="linenos">18</span><span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">RIGHT</span>
+</span></pre></div>
+</div>
+</div>
+<p>Het wisselen van richting gebeurt in de event handler functies. Voeg de volgende regels toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_down</span><span class="p">()</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_up</span><span class="p">()</span></code> functies:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id9" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">20</span><span class="c1">################################</span>
+<span class="linenos">21</span><span class="c1"># EVENT HANDLERS</span>
+<span class="linenos">22</span><span class="c1">################################</span>
+<span class="linenos">23</span><span class="k">def</span> <span class="nf">on_key_down</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="linenos">24</span>    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+<span class="linenos">25</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="hll"><span class="linenos">26</span>        <span class="k">if</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">27</span>            <span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">LEFT</span>
+</span><span class="linenos">28</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+<span class="linenos">29</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="hll"><span class="linenos">30</span>        <span class="k">if</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">31</span>            <span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">RIGHT</span>
+</span><span class="linenos">32</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span><span class="p">:</span>
+<span class="linenos">33</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">34</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+<span class="linenos">35</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="k">def</span> <span class="nf">on_key_up</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="linenos">38</span>    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+<span class="linenos">39</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="hll"><span class="linenos">40</span>        <span class="k">if</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">41</span>            <span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">RIGHT</span>
+</span><span class="linenos">42</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+<span class="linenos">43</span>        <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="hll"><span class="linenos">44</span>        <span class="k">if</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">45</span>            <span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">LEFT</span>
+</span><span class="linenos">46</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span><span class="p">:</span>
+<span class="linenos">47</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+<span class="linenos">48</span>    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+<span class="linenos">49</span>        <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">-=</span> <span class="n">car</span><span class="o">.</span><span class="n">speed</span>
+</pre></div>
+</div>
+</div>
+<p>Begrijp je hoe deze toevoegingen werken? De richting van het autootje zou van rechts naar links kunnen veranderen wanneer je op de linkerpijltjestoets drukt, maar ook wanneer de rechterpijltjestoets wordt losgelaten terwijl de linkerpijltjestoets nog steeds ingedrukt is. Dus zowel de <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_down</span><span class="p">()</span></code> als de <code class="code highlight python docutils literal highlight-python"><span class="n">on_key_up</span><span class="p">()</span></code> event handler krijgen een <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement om te checken of <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dx</span></code> negatief is en zonodig de richting op <code class="code highlight python docutils literal highlight-python"><span class="n">LEFT</span></code> te zetten. Op een soortgelijke manier wordt de richting op <code class="code highlight python docutils literal highlight-python"><span class="n">RIGHT</span></code> gezet wanneer dat nodig is.</p>
+<p>Nu hoeven we enkel nog de <code class="code highlight python docutils literal highlight-python"><span class="n">flip_x</span></code> eigenschap van de Actor in te stellen op basis van de huidige richting. Dat doen we in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie:</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id10" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">51</span><span class="c1">################################</span>
+<span class="linenos">52</span><span class="c1"># DRAW()</span>
+<span class="linenos">53</span><span class="c1">################################</span>
+<span class="linenos">54</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">55</span>    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">56</span>    <span class="n">car</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">LEFT</span><span class="p">)</span>
+</span><span class="linenos">57</span>    <span class="n">car</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Als <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">LEFT</span></code> naar <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code> evalueert, dan krijgt <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">flip_x</span></code> ook die waarde <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code>, waardoor de sprite horizontaal gespiegeld wordt. En als <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">LEFT</span></code> de waarde <code class="code highlight python docutils literal highlight-python"><span class="kc">False</span></code> oplevert, dan krijgt <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">flip_x</span></code> die waarde <code class="code highlight python docutils literal highlight-python"><span class="kc">False</span></code>, waardoor de sprite in zijn normale staat blijft. Vind je regel 56 lastig te begrijpen, dan zou je het ook als volgt kunnen programmeren:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">51</span><span class="c1">################################</span>
+<span class="linenos">52</span><span class="c1"># DRAW()</span>
+<span class="linenos">53</span><span class="c1">################################</span>
+<span class="linenos">54</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">55</span>    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">56</span>    <span class="k">if</span> <span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">LEFT</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">57</span>        <span class="n">car</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span class="hll"><span class="linenos">58</span>    <span class="k">else</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">59</span>        <span class="n">car</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span class="linenos">60</span>    <span class="n">car</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Maar hoe minder regels code, hoe beter, dus de eerste versie is eigenlijk het mooist.</p>
+<p>Test de code om te zien of het autootje nu ook daadwerkelijk flipt wanneer je van richting verandert.</p>
+</section>
+<section id="animatie">
+<h2>Animatie<a class="headerlink" href="#animatie" title="Link to this heading">#</a></h2>
+<p>In de <code class="file docutils literal notranslate"><span class="pre">images</span></code> map van dit project heb je vijf verschillende sprites geplaatst van het autootje, telkens in een iets andere houding. Door deze sprites snel achter elkaar te tonen, kunnen we een animatie-effect creëren waardoor het autootje lijkt te wiebelen terwijl het rijdt.</p>
+<p>Voor de animatie is het nodig dat we een lijst maken met de namen van de sprites die we willen gebruiken. Deze lijst geven we als waarde aan de eigenschap <code class="code highlight python docutils literal highlight-python"><span class="n">images</span></code> van de Actor.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">12</span><span class="c1"># ACTORS</span>
+<span class="hll"><span class="linenos">13</span><span class="n">car_images</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;car_0&#39;</span><span class="p">,</span> <span class="s1">&#39;car_1&#39;</span><span class="p">,</span> <span class="s1">&#39;car_2&#39;</span><span class="p">,</span> <span class="s1">&#39;car_3&#39;</span><span class="p">,</span> <span class="s1">&#39;car_4&#39;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">14</span><span class="n">car</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="n">car_images</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span class="hll"><span class="linenos">15</span><span class="n">car</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="n">car_images</span>
+</span><span class="hll"><span class="linenos">16</span><span class="n">car</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="mi">15</span>
+</span><span class="linenos">17</span><span class="n">car</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">car</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">19</span><span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">20</span><span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">21</span><span class="n">car</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">RIGHT</span>
+</pre></div>
+</div>
+</div>
+<p>In regel 13 maken we de lijst <code class="code highlight python docutils literal highlight-python"><span class="n">car_images</span></code> aan met de namen van de sprites. In regel 14 maken we de Actor aan met als beginbeeld de eerste sprite in de lijst (het eerste item in een lijst heeft index 0). In regel 15 kennen we de lijst <code class="code highlight python docutils literal highlight-python"><span class="n">car_images</span></code> toe aan de eigenschap <code class="code highlight python docutils literal highlight-python"><span class="n">images</span></code> van de Actor, zodat de Actor weet welke sprites hij moet gebruiken voor de animatie. Tenslotte stellen we in regel 16 in dat de animatie met 15 frames per seconde moet worden afgespeeld.</p>
+<p>In de <code class="code highlight python docutils literal highlight-python"><span class="n">update</span><span class="p">()</span></code> functie moeten we nu nog de <code class="code highlight python docutils literal highlight-python"><span class="n">animate</span><span class="p">()</span></code> methode van de Actor aanroepen om de animatie te laten lopen.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id13" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">62</span><span class="c1">################################</span>
+<span class="linenos">63</span><span class="c1"># UPDATE()</span>
+<span class="linenos">64</span><span class="c1">################################</span>
+<span class="linenos">65</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">66</span>    <span class="n">car</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span>
+<span class="linenos">67</span>    <span class="n">car</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">dy</span>
+<span class="hll"><span class="linenos">68</span>    <span class="n">car</span><span class="o">.</span><span class="n">animate</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</div>
+<p>Als je nu de code runt, zou je moeten zien dat het autootje wiebelt. Echter, het wiebelt nu de hele tijd, ook wanneer het stilstaat. Dat is niet wat we willen. Het autootje moet alleen wiebelen wanneer het rijdt. Om dat te bereiken, moeten we de <code class="code highlight python docutils literal highlight-python"><span class="n">animate</span><span class="p">()</span></code> methode alleen aanroepen wanneer <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dx</span></code> of <code class="code highlight python docutils literal highlight-python"><span class="n">car</span><span class="o">.</span><span class="n">dy</span></code> niet gelijk is aan 0. Dat kan met een eenvoudig <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement:</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">car_driver.py</span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">62</span><span class="c1">################################</span>
+<span class="linenos">63</span><span class="c1"># UPDATE()</span>
+<span class="linenos">64</span><span class="c1">################################</span>
+<span class="linenos">65</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">66</span>    <span class="n">car</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span>
+<span class="linenos">67</span>    <span class="n">car</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">car</span><span class="o">.</span><span class="n">dy</span>
+<span class="hll"><span class="linenos">68</span>    <span class="k">if</span> <span class="n">car</span><span class="o">.</span><span class="n">dx</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">car</span><span class="o">.</span><span class="n">dy</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">69</span>        <span class="n">car</span><span class="o">.</span><span class="n">animate</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</div>
+<p>Met nog geen 70 regels code hebben we nu een rijdend autootje gemaakt dat met de pijltjestoetsen bestuurd kan worden, dat van richting verandert wanneer je van rijrichting wisselt, en dat een leuke wiebelende animatie heeft terwijl het rijdt. Mooi werk!</p>
+<figure class="align-center">
+<img alt="Car driving" src="../../_images/car_driving.gif" />
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_preparations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title">Voorbereidingen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_roads.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">Op de weg blijven</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#besturing">Besturing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flippen">Flippen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animatie">Animatie</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
