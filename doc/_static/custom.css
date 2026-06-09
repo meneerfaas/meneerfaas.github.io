@@ -14,3 +14,7 @@
 .bd-sidebar-secondary {
     display: none;
 }
+
+main .bd-article-container {
+  max-width: 100%;
+}
