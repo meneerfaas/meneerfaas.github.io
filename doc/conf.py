@@ -29,12 +29,16 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'furo'
+html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
-html_logo = "images/programmer_128.png"
 html_theme_options = {
-    "sidebar_hide_name": True,
+    "logo": {
+        "text": "Programmeren in Python",
+        "alt_text": "Programmeren in Python",
+        "image_light": "images/programmer_128.png",
+        "image_dark": "images/programmer_128.png",
+    },
 }
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
