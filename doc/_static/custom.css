@@ -10,3 +10,7 @@
 .wrap pre {
     white-space: pre-wrap;
 }
+
+.bd-sidebar-secondary {
+    display: none;
+}
