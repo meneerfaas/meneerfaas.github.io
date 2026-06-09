@@ -18,3 +18,4 @@ Pygame Zero tutorials
    :hidden:
 
    level_devil
+   car_driver
