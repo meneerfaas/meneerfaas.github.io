@@ -32,13 +32,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 html_theme = 'furo'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
+html_logo = "_static/images/programmer_128.png"
 html_theme_options = {
-    "logo": {
-        "text": "Programmeren in Python",
-        "alt_text": "Programmeren in Python",
-        "image_light": "images/programmer_128.png",
-        "image_dark": "images/programmer_128.png",
-    },
+    "sidebar_hide_name": True,
 }
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
