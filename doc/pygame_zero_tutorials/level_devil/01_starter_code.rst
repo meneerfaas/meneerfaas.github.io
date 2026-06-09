@@ -42,3 +42,11 @@ Plaats de onderstaande code in het bestand.
 
 In regels 6 en 7 worden de kleuren voor de achtergrond en de kamer gedefinieerd met RGB-waarden. De functies :python:`draw()` en :python:`update()` bevatten beide slechts één regel code. Regel 10 vult het venster met de achtergrondkleur en regel 13 is opvulling omdat je in Python geen lege functies mag hebben.
 
+.. dropdown:: Kopiëren of zelf typen?
+    :color: warning
+    :icon: alert
+    :open:
+
+    Uiteraard kun je de code in deze tutorials kopiëren en plakken in Mu editor, maar het is een beter idee om de code zelf te typen. Op die manier leer je de code goed kennen en begrijp je het beter.
+
+    Als je echt wilt leren programmeren, dan typ je zelf en stel je jezelf tijdens het typen bij elke coderegel de vraag: 'Begrijp ik wat deze code doet?' Dat is natuurlijk meer werk, maar het is de moeite waard. 
