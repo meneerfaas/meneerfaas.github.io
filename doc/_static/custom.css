@@ -15,6 +15,6 @@
     display: none;
 }
 
-main .bd-article-container {
-  max-width: 100%;
+.bd-main .bd-content {
+    max-width: 100%;
 }
