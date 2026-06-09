@@ -40,6 +40,9 @@ html_theme_options = {
         "image_dark": "images/programmer_128.png",
     },
 }
+html_sidebars = {
+    "**": ["navbar-logo.html", "sbt-sidebar-nav.html", "search-button-field.html", "icon-links.html"]
+}
 html_favicon = "_static/favicon.png"
 html_scaled_image_link = False
 
