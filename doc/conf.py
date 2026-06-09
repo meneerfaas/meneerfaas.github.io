@@ -32,7 +32,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 html_theme = 'furo'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
-html_logo = "_static/images/programmer_128.png"
+html_logo = "images/programmer_128.png"
 html_theme_options = {
     "sidebar_hide_name": True,
 }
