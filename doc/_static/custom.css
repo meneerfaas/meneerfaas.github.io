@@ -14,3 +14,27 @@
 .bd-sidebar-secondary {
     display: none;
 }
+
+.image-border {
+    border: 1px solid #999999;
+}
+
+/* admonition-exercise */
+div.admonition.admonition-exercise>.admonition-title:after {
+    content: "\f304";
+    /* the fa-pen icon */
+}
+
+/* admonition-solution */
+div.admonition.admonition-solution {
+    border-color: hsl(52, 100%, 50%);
+}
+
+div.admonition.admonition-solution>.admonition-title:before {
+    background-color: hsl(52, 100%, 85%);
+}
+
+div.admonition.admonition-solution>.admonition-title:after {
+    content: "\f00c";
+    /* the fa-check icon */
+}

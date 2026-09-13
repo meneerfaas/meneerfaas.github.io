@@ -2,6 +2,8 @@ Programmeren in Python
 ===================================
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
+    :caption: Inhoudsopgave
 
-   datastructures/lists
+    basics/hello_world
+    datastructures/lists
