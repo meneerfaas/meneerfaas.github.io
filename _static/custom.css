@@ -1,0 +1,101 @@
+.mono {
+    font-family: monospace;
+}
+
+.mono-small {
+    font-family: monospace;
+    font-size: small;
+}
+
+.wrap pre {
+    white-space: pre-wrap;
+}
+
+.bd-sidebar-secondary {
+    display: none;
+}
+
+.image-border {
+    border: 1px solid #999999;
+}
+
+/* BACKGROUND COLORS */
+.bgcolor-khaki {
+    background-color: khaki;
+}
+
+.bgcolor-aquamarine {
+    background-color: aquamarine;
+}
+
+.bgcolor-bisque {
+    background-color: bisque;
+}
+
+.bgcolor-azure {
+    background-color: azure
+}
+
+.bgcolor-peachpuff {
+    background-color: peachpuff
+}
+
+.bgcolor-lavenderblush {
+    background-color: lavenderblush
+}
+
+.bgcolor-white {
+    background-color: white
+}
+
+.bgcolor-lightgray {
+    background-color: lightgray
+}
+
+/* Use original PyData theme colors */
+html[data-theme="light"] {
+    /* --- Primary: Teal --- */
+    --pst-color-primary: var(--pst-teal-500);
+    --pst-color-primary-highlight: var(--pst-teal-600);
+
+    /* --- Secondary: Violet --- */
+    --pst-color-secondary: var(--pst-violet-500);
+    --pst-color-secondary-highlight: var(--pst-violet-600);
+
+    /* --- Links & Navigatie --- */
+    --pst-color-link: var(--pst-teal-500);
+    --pst-color-link-hover: var(--pst-teal-600);
+
+    /* Sidebar actieve items */
+    --pst-color-sidebar-link-active: var(--pst-violet-500);
+    --sbt-color-active-navigation: var(--pst-violet-500);
+
+    /* Accent */
+    --pst-color-target: var(--pst-pink-500);
+}
+
+/* 2. DARK MODE */
+html[data-theme="dark"] {
+    /* --- Primary: Teal (lichtere tinten voor contrast op donker) --- */
+    --pst-color-primary: var(--pst-teal-400);
+    --pst-color-primary-highlight: var(--pst-teal-300);
+
+    /* --- Secondary: Violet --- */
+    --pst-color-secondary: var(--pst-violet-300);
+    --pst-color-secondary-highlight: var(--pst-violet-200);
+
+    /* --- Links & Navigatie --- */
+    --pst-color-link: var(--pst-teal-400);
+    --pst-color-link-hover: var(--pst-teal-300);
+
+    /* Sidebar actieve items */
+    --pst-color-sidebar-link-active: var(--pst-violet-300);
+    --sbt-color-active-navigation: var(--pst-violet-300);
+
+    /* Accent */
+    --pst-color-target: var(--pst-pink-400);
+}
+
+.bd-sidebar .nav .active>a {
+    color: var(--sbt-color-active-navigation) !important;
+}
