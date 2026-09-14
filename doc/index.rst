@@ -14,7 +14,9 @@ Programmeren in Python
    :caption: Python basics
 
    python_programming/basics/hello_world
+   python_programming/basics/shell
    python_programming/basics/arithmetic
+   python_programming/basics/datatypes
 
 .. toctree::
    :maxdepth: 1

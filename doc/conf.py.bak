@@ -1,0 +1,68 @@
+import os
+import sys
+from pathlib import Path
+
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+
+project = 'Programmeren in Python'
+copyright = '2026'
+author = 'S. Faas'
+release = '0.1'
+language = 'nl'
+
+
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+
+extensions = ['sphinx_design', 'myst_parser', 'sphinxcontrib.plantuml']
+
+templates_path = ['_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
+
+
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
+html_theme = 'sphinx_book_theme'
+html_static_path = ['_static']
+html_css_files = ['custom.css']
+html_theme_options = {
+    "logo": {
+        "text": "Programmeren in Python",
+        "alt_text": "Programmeren in Python",
+        "image_light": "images/programmer_128.png",
+        "image_dark": "images/programmer_128.png",
+    },
+}
+html_sidebars = {
+    "**": ["navbar-logo.html", "sbt-sidebar-nav.html", "search-button-field.html", "icon-links.html"]
+}
+html_favicon = "_static/favicon.png"
+html_scaled_image_link = False
+
+rst_prolog = """
+.. role:: tt
+    :class: mono
+
+.. role:: ttt
+    :class: mono-small
+
+.. role:: python(code)
+    :language: python
+
+.. |br| raw:: html
+
+    <br/>
+"""
+
+# -- Options for plantuml
+local_plantuml_path = os.path.join(os.path.dirname(
+    __file__), "utils", "plantuml.jar")
+plantuml = f"java -Djava.awt.headless=true -jar {local_plantuml_path}"
+plantuml_output_format = 'svg'

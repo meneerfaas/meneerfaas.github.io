@@ -1,10 +1,3 @@
-.. role:: python(code)
-   :language: python
-
-.. |br| raw:: html
-
-   <br/>
-
 Player character
 ===================
 
