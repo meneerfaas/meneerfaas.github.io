@@ -38,3 +38,36 @@ div.admonition.admonition-solution>.admonition-title:after {
     content: "\f00c";
     /* the fa-check icon */
 }
+
+/* BACKGROUND COLORS */
+.bgcolor-khaki {
+    background-color: khaki;
+}
+
+.bgcolor-aquamarine {
+    background-color: aquamarine;
+}
+
+.bgcolor-bisque {
+    background-color: bisque;
+}
+
+.bgcolor-azure {
+    background-color: azure
+}
+
+.bgcolor-peachpuff {
+    background-color: peachpuff
+}
+
+.bgcolor-lavenderblush {
+    background-color: lavenderblush
+}
+
+.bgcolor-white {
+    background-color: white
+}
+
+.bgcolor-lightgray {
+    background-color: lightgray
+}

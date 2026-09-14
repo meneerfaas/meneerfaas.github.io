@@ -49,8 +49,16 @@ html_scaled_image_link = False
 rst_prolog = """
 .. role:: tt
     :class: mono
+
 .. role:: ttt
     :class: mono-small
+
+.. role:: python(code)
+    :language: python
+
+.. |br| raw:: html
+
+    <br/>
 """
 
 # -- Options for plantuml

@@ -3,7 +3,6 @@ Programmeren in Python
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Voorbereidingen
 
    prerequisites/folder_structure
@@ -14,14 +13,15 @@ Programmeren in Python
    :numbered:
    :caption: Python basics
 
-   python_programming/python_programming
+   python_programming/basics/hello_world
+   python_programming/basics/arithmetic
 
 .. toctree::
    :maxdepth: 1
    :numbered:
    :caption: Pygame Zero
 
-   pygame_zero/pygame_zero
+   pygame_zero/01_pygame_zero_intro/pygame_zero_intro
    pygame_zero_tutorials/pygame_zero_tutorials
 
 .. toctree::
