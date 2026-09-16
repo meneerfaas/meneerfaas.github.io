@@ -7,6 +7,15 @@
     font-size: small;
 }
 
+.custom-card-footer{
+    font-size: 0.6rem;
+    color: #666666;
+}
+
+:root{
+    --pst-font-family-monospace-system: ui-monospace, "Source Code Pro", "Consolas", monospace;
+}
+
 .wrap pre {
     white-space: pre-wrap;
 }
