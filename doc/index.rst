@@ -17,6 +17,22 @@ Programmeren in Python
    python_programming/basics/shell
    python_programming/basics/arithmetic
    python_programming/basics/datatypes
+   python_programming/basics/variables
+   python_programming/basics/strings
+   python_programming/basics/fstrings
+   python_programming/basics/input
+   python_programming/basics/basic_functions
+
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+   :caption: Python turtle
+
+   python_turtle/turtle
+   python_turtle/while_loops
+   python_turtle/for_loops
+   python_turtle/coordinates
+   python_turtle/functions
 
 .. toctree::
    :maxdepth: 1
