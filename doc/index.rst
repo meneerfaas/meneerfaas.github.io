@@ -35,7 +35,7 @@ Programmeren in Python
    python_turtle/functions
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :numbered:
    :caption: Pygame Zero
 
