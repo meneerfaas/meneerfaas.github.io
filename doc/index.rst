@@ -39,8 +39,7 @@ Programmeren in Python
    :numbered:
    :caption: Pygame Zero
 
-   pygame_zero/01_pygame_zero_intro/pygame_zero_intro
-   pygame_zero_tutorials/pygame_zero_tutorials
+   pygame_zero/01_alien/00_jumping_aliens
 
 .. toctree::
    :maxdepth: 1

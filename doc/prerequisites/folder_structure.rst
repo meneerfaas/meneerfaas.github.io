@@ -10,7 +10,7 @@ Open in Windows een Verkenner met de toetscombinatie :kbd:`Win+E` (E van Explore
     :alt: Windows Verkenner
     :align: center
 
-Open je :file:`Documenten` map en maak daarin een map (bijvoorbeeld met :kbd:`Ctrl+Shift+N`) :file:`Python Projecten`. Eventueel kun je daarin nog submappen aanmaken voor bijvoorbeeld :file:`Oefeningen` of :file:`Experimenten`.
+Open je :file:`Documenten` map en maak daarin een map (bijvoorbeeld met :kbd:`Ctrl+Shift+N`) met de naam :file:`Python Projecten`. Eventueel kun je daarin nog submappen aanmaken voor bijvoorbeeld :file:`Oefeningen` of :file:`Experimenten`.
 
 .. uml::
     :align: center
