@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Berekeningen in de shell &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_programming/basics/arithmetic';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="4. Datatypes" href="datatypes.html" />
+    <link rel="prev" title="2. Editor en Shell" href="shell.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero/01_alien/00_jumping_aliens.html">1. Jumping aliens</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/python_programming/basics/arithmetic.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Berekeningen in de shell</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optellen-aftrekken-vermenigvuldigen-en-delen">3.1. Optellen, aftrekken, vermenigvuldigen en delen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haakjes-veranderen-de-rekenvolgorde">3.2. Haakjes veranderen de rekenvolgorde</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machtsverheffen">3.3. Machtsverheffen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delen-met-rest">3.4. Delen met rest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overzicht-rekenkundige-operatoren">3.5. Overzicht rekenkundige operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten">3.6. Opdrachten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antwoorden">3.7. Antwoorden</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="berekeningen-in-de-shell">
+<h1><span class="section-number">3. </span>Berekeningen in de shell<a class="headerlink" href="#berekeningen-in-de-shell" title="Link to this heading">#</a></h1>
+<p>Het woord ‘computer’ komt van het Latijnse <em>computare</em>, dat ‘berekenen’ betekent. Soms ook wordt een computer gekscherend een uit de kluiten gewassen rekenmachine genoemd. Het is vrijwel onmogelijk een computerprogramma te maken waarin níets wordt berekend. Daarom is het belangrijk dat je leert hoe rekenen in Python werkt.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-book" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg></span><span class="sd-summary-text">Wat leer je in dit hoofdstuk</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Wat zijn de rekenkundige operatoren in Python.</p></li>
+<li><p class="sd-card-text">Hoe voer je berekeningen uit in de shell.</p></li>
+</ul>
+</div>
+</details><section id="optellen-aftrekken-vermenigvuldigen-en-delen">
+<h2><span class="section-number">3.1. </span>Optellen, aftrekken, vermenigvuldigen en delen<a class="headerlink" href="#optellen-aftrekken-vermenigvuldigen-en-delen" title="Link to this heading">#</a></h2>
+<p>In het dagelijks leven gebruiken we meestal de symbolen <span class="math notranslate nohighlight">\(+\)</span>, <span class="math notranslate nohighlight">\(-\)</span>, <span class="math notranslate nohighlight">\(\times\)</span> en <span class="math notranslate nohighlight">\(:\)</span> voor optellen, aftrekken, vermenigvuldigen en delen. In Python noemen we de symbolen voor berekeningen <em>operatoren</em> en ze wijken voor vermenigvuldigen en delen af van de symbolen die je gewend bent.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Rekenkundige operatoren</div>
+<div class="pst-scrollable-table-container"><table class="table table-center">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Berekening</p></th>
+<th class="head"><p class="sd-card-text">Dagelijks leven</p></th>
+<th class="head"><p class="sd-card-text">Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">Optellen</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Aftrekken</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Vermenigvuldigen</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\times\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(*\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Delen</p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(:\)</span></p></td>
+<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(/\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Probeer de rekenkundige operatoren eens uit in de shell. Voer bijvoorbeeld de volgende berekeningen in en druk telkens op <kbd class="kbd docutils literal notranslate">Enter</kbd> om Python het antwoord te laten geven:</p>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">15</span> <span class="o">+</span> <span class="mi">49</span>
+<span class="go">64</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1048</span> <span class="o">-</span> <span class="mi">256</span>
+<span class="go">792</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">12</span> <span class="o">*</span> <span class="mi">14</span>
+<span class="go">168</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">345</span> <span class="o">/</span> <span class="mi">23</span>
+<span class="go">15.0</span>
+</pre></div>
+</div>
+<p>Het antwoord op de deling <code class="code highlight python docutils literal highlight-python"><span class="mi">345</span> <span class="o">/</span> <span class="mi">23</span></code> wekt misschien enige verbazing. Waarom antwoordt Python hier <code class="code highlight python docutils literal highlight-python"><span class="mf">15.0</span></code> en niet gewoon <code class="code highlight python docutils literal highlight-python"><span class="mi">15</span></code>? Daar komen we later op terug in het hoofdstuk datatypes.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Spaties</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wellicht is je opgevallen dat in de voorbeelden spaties zijn gebruikt in de berekeningen: <code class="code highlight python docutils literal highlight-python"><span class="mi">15</span> <span class="o">+</span> <span class="mi">49</span></code> in plaats van <code class="code highlight python docutils literal highlight-python"><span class="mi">15</span><span class="o">+</span><span class="mi">49</span></code>. De reden hiervoor is betere leesbaarheid. Voor Python maakt het niet uit of je wel of geen spaties tussen de operator en de getallen typt.</p>
+</div>
+</details></section>
+<section id="haakjes-veranderen-de-rekenvolgorde">
+<h2><span class="section-number">3.2. </span>Haakjes veranderen de rekenvolgorde<a class="headerlink" href="#haakjes-veranderen-de-rekenvolgorde" title="Link to this heading">#</a></h2>
+<p>Door haakjes te gebruiken in berekeningen kun je de <a class="reference external" href="https://nl.wikipedia.org/wiki/Bewerkingsvolgorde">standaard rekenvolgorde</a> aanpassen. Kijk maar eens naar de volgende twee berekeningen:</p>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="go">14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>In de berekening <code class="code highlight python docutils literal highlight-python"><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span></code> wordt volgens de standaard rekenvolgorde eerst de vermenigvuldiging <code class="code highlight python docutils literal highlight-python"><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">12</span></code> uitgevoerd en daarna pas de optelling <code class="code highlight python docutils literal highlight-python"><span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">=</span> <span class="mi">14</span></code>. In de berekening <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span></code> geven de haakjes voorrang aan de optelling <code class="code highlight python docutils literal highlight-python"><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">5</span></code> en wordt pas naarna vermenigvuldigd: <code class="code highlight python docutils literal highlight-python"><span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">20</span></code>.</p>
+</section>
+<section id="machtsverheffen">
+<h2><span class="section-number">3.3. </span>Machtsverheffen<a class="headerlink" href="#machtsverheffen" title="Link to this heading">#</a></h2>
+<p>De vermenigvuldiging <span class="math notranslate nohighlight">\(2\times2\times2\)</span> kun je korter schrijven als <span class="math notranslate nohighlight">\(2^{3}\)</span>. Dit noemen we machtsverheffen: we verheffen <span class="math notranslate nohighlight">\(2\)</span> tot de macht <span class="math notranslate nohighlight">\(3\)</span>. Het getal <span class="math notranslate nohighlight">\(2\)</span> heet in deze berekening het <em>grondtal</em> en het getal <span class="math notranslate nohighlight">\(3\)</span> heet de <em>exponent</em>.</p>
+<figure class="align-center">
+<img alt="machtsverheffen" src="../../_images/machtsverheffen.svg" />
+</figure>
+<p>De exponent geeft aan hoe vaak je het grondtal met zichzelf vermenigvuldigt. Bijvoorbeeld de machtsverheffing <span class="math notranslate nohighlight">\(3^{5}\)</span> betekent <span class="math notranslate nohighlight">\(3\times3\times3\times3\times3\)</span>. Je spreekt de berekening uit als ‘drie tot de macht vijf’ of ‘drie tot de vijfde (macht)’.</p>
+<p>De Python operator voor machtsverheffen is <code class="code highlight python docutils literal highlight-python"><span class="o">**</span></code>. Best logisch als je bedenkt dat machtsverheffen neerkomt op herhaald vermenigvuldigen.</p>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">**</span> <span class="mi">5</span>
+<span class="go">243</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">243</span>
+</pre></div>
+</div>
+</section>
+<section id="delen-met-rest">
+<h2><span class="section-number">3.4. </span>Delen met rest<a class="headerlink" href="#delen-met-rest" title="Link to this heading">#</a></h2>
+<p>Wanneer je in Python twee getallen deelt met de <code class="code highlight python docutils literal highlight-python"><span class="o">/</span></code> operator, is het resultaat een decimaal getal: een getal met een komma.</p>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">345</span> <span class="o">/</span> <span class="mi">23</span>
+<span class="go">15.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">345</span> <span class="o">/</span> <span class="mi">12</span>
+<span class="go">28.75</span>
+</pre></div>
+</div>
+<p>Op de basisschool heb je waarschijnlijk ‘delen met rest’ geleerd, bijvoorbeeld door een staartdeling te maken zoals hieronder.</p>
+<figure class="align-center">
+<img alt="staartdeling" src="../../_images/staartdeling.svg" />
+</figure>
+<p>De uitkomst van <span class="math notranslate nohighlight">\(345:12\)</span> is volgens deze berekening <span class="math notranslate nohighlight">\(28\text{ rest }9\)</span>. In Python heb je voor dit resultaat twee aparte operatoren nodig: <code class="code highlight python docutils literal highlight-python"><span class="o">//</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="o">%</span></code>. Met de operator <code class="code highlight python docutils literal highlight-python"><span class="o">//</span></code> verkrijg je de <em>naar beneden afgeronde uitkomst</em> van de deling en met <code class="code highlight python docutils literal highlight-python"><span class="o">%</span></code> de rest van de deling.</p>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">345</span> <span class="o">//</span> <span class="mi">12</span>
+<span class="go">28</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">345</span> <span class="o">%</span> <span class="mi">12</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+</section>
+<section id="overzicht-rekenkundige-operatoren">
+<h2><span class="section-number">3.5. </span>Overzicht rekenkundige operatoren<a class="headerlink" href="#overzicht-rekenkundige-operatoren" title="Link to this heading">#</a></h2>
+<p>In dit hoofdstuk heb je de onderstaande rekenkundige operatoren leren kennen.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Rekenkundige operatoren</div>
+<div class="pst-scrollable-table-container"><table class="table table-center">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Operator</p></th>
+<th class="head"><p class="sd-card-text">Naam</p></th>
+<th class="head"><p class="sd-card-text">Voorbeeld</p></th>
+<th class="head"><p class="sd-card-text">Uitkomst</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">+</span></code></p></td>
+<td><p class="sd-card-text">Optellen (som)</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">+</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">10</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">-</span></code></p></td>
+<td><p class="sd-card-text">Aftrekken (verschil)</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">-</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">4</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">*</span></code></p></td>
+<td><p class="sd-card-text">Vermenigvuldigen (product)</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">*</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">21</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">/</span></code></p></td>
+<td><p class="sd-card-text">Delen (quotiënt)</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">/</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mf">2.3333333333333335</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">**</span></code></p></td>
+<td><p class="sd-card-text">Machtsverheffen</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">**</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">343</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">//</span></code></p></td>
+<td><p class="sd-card-text">Geheeltallige deling</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">//</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="o">%</span></code></p></td>
+<td><p class="sd-card-text">Rest of modulus</p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span></code></p></td>
+<td><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="mi">1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="opdrachten">
+<h2><span class="section-number">3.6. </span>Opdrachten<a class="headerlink" href="#opdrachten" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 01</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Maak in de shell de volgende berekeningen. Noteer je antwoorden op een kladblaadje (of gebruik bijvoorbeeld Windows Kladblok op je PC), zodat je ze later kunt nakijken.</p>
+<ol class="loweralpha simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(525 + 935\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(1024 - 32 \times 4\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(182 : (2 \times 13)\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(6^5 + 4^3\)</span></p></li>
+</ol>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 02</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Bereken in de shell welke rest je overhoudt als je <span class="math notranslate nohighlight">\(999999\)</span> deelt door <span class="math notranslate nohighlight">\(34\)</span>.</p>
+</div>
+</details></section>
+<section id="antwoorden">
+<h2><span class="section-number">3.7. </span>Antwoorden<a class="headerlink" href="#antwoorden" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Antwoord opdracht 01</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="loweralpha simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(1460\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(896\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(7.0\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(7840\)</span></p></li>
+</ol>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Antwoord opdracht 02</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(25\)</span></p>
+</div>
+</details></section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="shell.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Editor en Shell</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="datatypes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Datatypes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optellen-aftrekken-vermenigvuldigen-en-delen">3.1. Optellen, aftrekken, vermenigvuldigen en delen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haakjes-veranderen-de-rekenvolgorde">3.2. Haakjes veranderen de rekenvolgorde</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machtsverheffen">3.3. Machtsverheffen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delen-met-rest">3.4. Delen met rest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overzicht-rekenkundige-operatoren">3.5. Overzicht rekenkundige operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten">3.6. Opdrachten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antwoorden">3.7. Antwoorden</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

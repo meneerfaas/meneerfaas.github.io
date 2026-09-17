@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.2. Sprites &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero/01_alien/02_sprites';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="1.3. Beweging" href="03_movement.html" />
+    <link rel="prev" title="1.1. Pygame Zero" href="01_pygame.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_jumping_aliens.html">1. Jumping aliens</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero/01_alien/02_sprites.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sprites</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images-map">1.2.1. Images map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actors">1.2.2. Actors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionering">1.2.3. Positionering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vensterafmetingen-gebruiken">1.2.3.1. Vensterafmetingen gebruiken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ankerpunten">1.2.3.2. Ankerpunten</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sprites">
+<h1><span class="section-number">1.2. </span>Sprites<a class="headerlink" href="#sprites" title="Link to this heading">#</a></h1>
+<p>Zoals gezegd is een zwart venster niet heel spannend. Laten we er daarom  snel wat leven in brengen, door onze hoofdrolspeler te introduceren: een roze alien.</p>
+<img alt="../../_images/alien_centered.png" src="../../_images/alien_centered.png" />
+<p>De alien is een afbeelding (Engels: image) die we straks uiteraard gaan laten bewegen. Afbeeldingen van karakters en objecten in games noemen we <strong>sprites</strong>.</p>
+<section id="images-map">
+<h2><span class="section-number">1.2.1. </span>Images map<a class="headerlink" href="#images-map" title="Link to this heading">#</a></h2>
+<p>Voordat je hem kunt gebruiken, moet je de alien sprite downloaden en in de juiste map plaatsen. Volg onderstaande stappen om dat te doen.</p>
+<ol class="arabic">
+<li><p>Klik in Mu editor op de knop <span class="guilabel">Images</span>. Daardoor creëert Mu editor zelf een map met de naam <code class="file docutils literal notranslate"><span class="pre">images</span></code> in je <code class="file docutils literal notranslate"><span class="pre">alien</span></code> map. Er wordt automatisch een Windows Verkenner geopend waarin je dat kunt zien.</p>
+<img alt="../../_images/images_folder_01.png" src="../../_images/images_folder_01.png" />
+<p>Alle sprites die je gebruikt in een game moeten in deze map staan, anders kan Mu editor ze niet vinden.</p>
+</li>
+<li><p>Download de <a class="reference download internal" download="" href="../../_downloads/d969992c7e018490a8826812552d0e70/alien_pink.png"><code class="xref download docutils literal notranslate"><span class="pre">alien</span> <span class="pre">sprite</span></code></a>.</p>
+<img alt="../../_images/alien_pink.png" src="../../_images/alien_pink.png" />
+</li>
+<li><p>Het gedownloade bestand komt waarschijnlijk terecht in je <code class="file docutils literal notranslate"><span class="pre">Downloads</span></code> map. Verplaats het bestand met behulp van de Windows Verkenner naar de <code class="file docutils literal notranslate"><span class="pre">alien/images</span></code> map. Dit kan op verschillende manieren, bijvoorbeeld door het bestand van het ene venster naar het andere te verslepen. Je kunt ook het bestand in de <code class="file docutils literal notranslate"><span class="pre">Downloads</span></code> map selecteren, vervolgens <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">X</kbd> gebruiken om het te knippen en <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">V</kbd> in de <code class="file docutils literal notranslate"><span class="pre">alien/images</span></code> map om het te plakken.</p>
+<img alt="../../_images/download_move.png" src="../../_images/download_move.png" />
+<p><br/></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Tip</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In plaats van met de linker muisknop kun je ook met de rechter muisknop op de downloadlink klikken. Als je vervolgens <span class="guilabel">Link opslaan als</span> selecteert, kun je de sprite direct in de <code class="file docutils literal notranslate"><span class="pre">alien/images</span></code> map opslaan. Je hoeft hem dan niet meer uit je <code class="file docutils literal notranslate"><span class="pre">Downloads</span></code> map te halen.</p>
+<img alt="../../_images/context_menu.png" src="../../_images/context_menu.png" />
+</div>
+</details></li>
+<li><p>Als je dit goed hebt gedaan, dan bevindt het bestand <code class="file docutils literal notranslate"><span class="pre">alien_pink.png</span></code> zich nu op de juiste plek.</p>
+<img alt="../../_images/images_folder_02.png" src="../../_images/images_folder_02.png" />
+<p>Ziet het er bij jou iets anders uit? Je kunt in het lint van de Verkenner het tablad <span class="guilabel">Beeld</span> selecteren en daar kiezen voor grotere icoontjes en het tonen van bestandsextensies. Een bestandsextensie is de toevoeging aan een bestandsnaam die achter de punt staat. Dus van het bestand <code class="file docutils literal notranslate"><span class="pre">alien_pink.png</span></code> is de naam <code class="file docutils literal notranslate"><span class="pre">alien_pink</span></code> en de extensie <code class="file docutils literal notranslate"><span class="pre">png</span></code>.</p>
+<img alt="../../_images/images_folder_03.png" src="../../_images/images_folder_03.png" />
+</li>
+</ol>
+<p>Het is heel belangrijk dat <code class="file docutils literal notranslate"><span class="pre">alien_pink.png</span></code> in de <code class="file docutils literal notranslate"><span class="pre">alien/images</span></code> map staat. Als je het bestand in een andere map plaatst, kan Mu editor het niet vinden en zal je game niet werken.</p>
+<figure class="align-center">
+<p class="plantuml">
+<object data="../../_images/plantuml-4f7a8c53c457525f15c0dfa973b579662f90cdc3.svg" type="image/svg+xml" style="width:266px;height:191px;background:#FFFFFF;">
+<img src="../../_images/plantuml-4f7a8c53c457525f15c0dfa973b579662f90cdc3.png" alt="&#64;startuml
+    &#64;startfiles
+    /Documenten/Python Projecten/Games/alien/images/alien_pink.png
+    /Documenten/Python Projecten/Games/alien/alien.py
+    &#64;endfiles
+&#64;enduml"/>
+
+</object></p>
+</figure>
+</section>
+<section id="actors">
+<h2><span class="section-number">1.2.2. </span>Actors<a class="headerlink" href="#actors" title="Link to this heading">#</a></h2>
+<p>Om de alien sprite in je game te laten verschijnen, moet je drie dingen doen:</p>
+<ol class="arabic simple">
+<li><p>Een <code class="code highlight python docutils literal highlight-python"><span class="n">Actor</span></code> variabele aanmaken.</p></li>
+<li><p>De <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie van je game definiëren.</p></li>
+<li><p>De <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie van de <code class="code highlight python docutils literal highlight-python"><span class="n">Actor</span></code> variabele aanroepen.</p></li>
+</ol>
+<p>In de volgende code zie je deze stappen in de regels 5 tot en met 10.</p>
+<div class="literal-block-wrapper docutils container" id="alien-v02">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v02" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Vensterafmetingen</span>
+<span class="linenos"> 2</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 3</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 4</span>
+<span class="hll"><span class="linenos"> 5</span><span class="c1"># Roze alien Actor</span>
+</span><span class="hll"><span class="linenos"> 6</span><span class="n">alien</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 7</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="c1"># De draw() functie van de game</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+</span><span class="hll"><span class="linenos">10</span>   <span class="n">alien</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</div>
+<p>Op regel 6 wordt met <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span></code> een Actor variabele aangemaakt met de naam <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span></code>. Tussen de haakjes staat de naam van de sprite die we willen gebruiken voor deze Actor.</p>
+<p>Op regel 9 definiëren we de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie. Elk Pygame Zero programma moet zo’n functie bevatten. Pygame roept deze functie automatisch aan wanneer het game venster opnieuw moet worden getekend. Als we de sprite straks laten bewegen, wordt <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> heel vaak aangeroepen, telkens wanneer de sprite een stukje is verplaatst. Let op: je programma kan niet meer dan één <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie hebben; alle tekenwerk moet door deze ene functie worden geregeld.</p>
+<p>Op regel 10 roepen we <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></code> aan. Dat is de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie van de <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span></code> Actor (en dus een andere dan de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie die we op regel 9 definieerden). Elke Actor in Pygame Zero heeft een eigen voorgeprogrammeerde <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie die ervoor zorgt dat de sprite wordt getekend.</p>
+<p>Run je code om te zien of het werkt.</p>
+<img alt="../../_images/alien_topleft.png" src="../../_images/alien_topleft.png" />
+</section>
+<section id="positionering">
+<h2><span class="section-number">1.2.3. </span>Positionering<a class="headerlink" href="#positionering" title="Link to this heading">#</a></h2>
+<p>Op dit moment staat de alien linksboven in het venster. Om de sprite op een andere positie te plaatsen, gaan we coördinaten gebruiken. Hieronder lees je hoe dat werkt.</p>
+<p>In regel 2 en 3 van <code class="file docutils literal notranslate"><span class="pre">alien.py</span></code> stelden we de breedte en de hoogte van ons game venster in op 600 en 400 pixels:</p>
+<figure class="align-default">
+<img alt="../../_images/coordinates_01.png" src="../../_images/coordinates_01.png" />
+</figure>
+<p>Elke pixel in dit venster heeft twee coördinaten:</p>
+<ul class="simple">
+<li><p>x-coördinaat: de horizontale afstand tot de linker bovenhoek.</p></li>
+<li><p>y-coördinaat: de verticale afstand tot de linker bovenhoek.</p></li>
+</ul>
+<p>Vaak schrijf je de twee coördinaten van een pixel tussen haakjes, gescheiden door een komma. Dus <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span></code> is de pixel met x-coördinaat <code class="code highlight python docutils literal highlight-python"><span class="mi">200</span></code> en y-coördinaat <code class="code highlight python docutils literal highlight-python"><span class="mi">100</span></code>. De hoekpunten van ons venster hebben dus de coördinaten <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span></code>.</p>
+<figure class="align-default">
+<img alt="../../_images/coordinates_02.png" src="../../_images/coordinates_02.png" />
+</figure>
+<p>De pixel die vanuit de linker bovenhoek 200 naar rechts en 100 naar beneden ligt, heeft de coördinaten <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span></code>:</p>
+<figure class="align-default">
+<img alt="../../_images/coordinates_03.png" src="../../_images/coordinates_03.png" />
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Verschillende coördinatenstelsels</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let op het verschil tussen het coördinatenstelsel in Pygame Zero en dat in de turtle module. In de turtle module is <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code> het midden van het venster. In Pygame Zero is <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code>  de linker bovenhoek. Bovendien is de positieve richting van de y-as in de turtle module naar boven en in Pygame Zero naar beneden!</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<img alt="../../_images/turtle_axes.png" src="../../_images/turtle_axes.png" />
+<p class="sd-card-text">Coördinatenstelsel turtle</p>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<img alt="../../_images/pygame_axes.png" src="../../_images/pygame_axes.png" />
+<p class="sd-card-text">Coördinatenstelsel Pygame</p>
+</div>
+</div>
+</div>
+</div>
+</details><p>Laten we de alien eens op dit punt <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span></code> positioneren:</p>
+<div class="literal-block-wrapper docutils container" id="alien-v03">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v03" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Vensterafmetingen</span>
+<span class="linenos"> 2</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 3</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Roze alien Actor</span>
+<span class="linenos"> 6</span><span class="n">alien</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">200</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># De draw() functie van de game</span>
+<span class="linenos">11</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">12</span>   <span class="n">alien</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Run de code om te controleren of de alien inderdaad op de juiste positie staat.</p>
+<img alt="../../_images/alien_200_100.png" src="../../_images/alien_200_100.png" />
+<p><br/></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 01</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wijzig de code in <code class="file docutils literal notranslate"><span class="pre">alien.py</span></code> zodat de alien op 500 pixels van de linkerzijde en 300 pixels van de bovenzijde van het venster staat.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Vensterafmetingen</span>
+<span class="linenos"> 2</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 3</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Roze alien Actor</span>
+<span class="linenos"> 6</span><span class="n">alien</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">500</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">300</span>
+</span><span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># De draw() functie van de game</span>
+<span class="linenos">11</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">12</span>   <span class="n">alien</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 02</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wijzig de code in <code class="file docutils literal notranslate"><span class="pre">alien.py</span></code> zodat de alien op 150 pixels van de <strong>rechter</strong>zijde en 50 pixels van de <strong>onder</strong>zijde van het venster staat.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 03</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wijzig de code in <code class="file docutils literal notranslate"><span class="pre">alien.py</span></code> zodat de alien exact in het midden van het venster staat.</p>
+</div>
+</details><section id="vensterafmetingen-gebruiken">
+<h3><span class="section-number">1.2.3.1. </span>Vensterafmetingen gebruiken<a class="headerlink" href="#vensterafmetingen-gebruiken" title="Link to this heading">#</a></h3>
+<p>Wellicht heb je de opdrachten 02 en 03 als volgt opgelost:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Opdracht 02</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">450</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">350</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Opdracht 03</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Met deze code komt de alien inderdaad op de juiste plek terecht. Het is echter beter om bij deze opdrachten de vensterafmetingen <code class="code highlight python docutils literal highlight-python"><span class="n">WIDTH</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">HEIGHT</span></code> te gebruiken voor het positioneren van de alien:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Opdracht 02</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">-</span> <span class="mi">150</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">-</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Opdracht 03</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-question" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Vraag 01</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Waarom is het beter <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">2</span></code> te gebruiken dan <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">300</span></code> om de sprite horizontaal in het midden van het venster te positioneren?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Antwoord</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Met <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">2</span></code> is je code flexibeler. Stel dat je later besluit om de breedte van je venster te vergroten naar 800 pixels, dan komt de sprite nog steeds in het midden terecht. Had je <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">300</span></code> gebruikt, dan zou de sprite niet meer in het midden staan.</p>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 04</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wijzig de code in <code class="file docutils literal notranslate"><span class="pre">alien.py</span></code> zodat de alien op een kwart van de vensterbreedte en de helft van de vensterhoogte staat.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Opdracht 04</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">4</span>     <span class="c1"># Of alien.x = 0.25 * WIDTH</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">/</span> <span class="mi">2</span>    <span class="c1"># Of alien.y = 0.5 * HEIGHT</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details></section>
+<section id="ankerpunten">
+<h3><span class="section-number">1.2.3.2. </span>Ankerpunten<a class="headerlink" href="#ankerpunten" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 05</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Plaats de alien in de rechter onderhoek van het venster. Gebruik niet de getallen <code class="code highlight python docutils literal highlight-python"><span class="mi">600</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="mi">400</span></code>, maar de constanten <code class="code highlight python docutils literal highlight-python"><span class="n">WIDTH</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">HEIGHT</span></code>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="alien-v06">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v06" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Vensterafmetingen</span>
+<span class="linenos"> 2</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="linenos"> 3</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Roze alien Actor</span>
+<span class="linenos"> 6</span><span class="n">alien</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 7</span><span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">WIDTH</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+</span><span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># De draw() functie van de game</span>
+<span class="linenos">11</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">12</span>   <span class="n">alien</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details><p>Als je de vorige opdracht goed hebt uitgevoerd, dan was dit het resultaat:</p>
+<img alt="../../_images/alien_bottomright_wrong.png" src="../../_images/alien_bottomright_wrong.png" />
+<p>Dat is waarschijnlijk niet helemaal wat je voor ogen hebt wanneer je de alien in de rechter onderhoek wilt positioneren. Kijk even goed naar de onderstaande afbeeldingen om de oorzaak te begrijpen van deze ‘fout’.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-auto sd-col-xs-auto sd-col-sm-auto sd-col-md-auto sd-col-lg-auto docutils">
+<img alt="../../_images/sides.png" height="178" src="../../_images/sides.png" width="286" />
+</div>
+<div class="sd-col sd-d-flex-column sd-col-auto sd-col-xs-auto sd-col-sm-auto sd-col-md-auto sd-col-lg-auto docutils">
+<img alt="../../_images/anchorpoints.png" height="178" src="../../_images/anchorpoints.png" width="286" />
+</div>
+</div>
+</div>
+<p>De alien sprite heeft een breedte en een hoogte. Wanneer je <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">x</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">y</span></code> een waarde geeft, zorgt Pygame ervoor dat het middelpunt (<code class="code highlight python docutils literal highlight-python"><span class="n">center</span></code>) van de sprite op die positie terecht komt. Het middelpunt is namelijk het standaard <em>ankerpunt</em>  van een sprite. Wij willen echter graag dat het punt rechtsonder (<code class="code highlight python docutils literal highlight-python"><span class="n">bottomright</span></code>) op de coördinaten <code class="code highlight python docutils literal highlight-python"><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span></code> terecht komt. Dit kun je doen door regels 7 en 8 van je programma als volgt aan te passen:</p>
+<div class="literal-block-wrapper docutils container" id="alien-v07">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v07" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">WIDTH</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+</pre></div>
+</div>
+</div>
+<p>Je kunt het ook in één regel doen:</p>
+<div class="literal-block-wrapper docutils container" id="alien-v08">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v08" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">bottomright</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Nu staat de alien precies op de plek die we wilden:</p>
+<img alt="../../_images/alien_bottomright_right.png" src="../../_images/alien_bottomright_right.png" />
+<p><br/></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 06</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Plaats de alien in de rechter bovenhoek van het venster.</p>
+<img alt="../../_images/alien_topright.png" height="324" src="../../_images/alien_topright.png" width="452" />
+<p class="sd-card-text"><br/></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="alien-v09">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v09" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">WIDTH</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text">of</p>
+<div class="literal-block-wrapper docutils container" id="alien-v10">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v10" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">topright</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 07</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Plaats de alien in de linker onderhoek van het venster.</p>
+<img alt="../../_images/alien_bottomleft.png" height="324" src="../../_images/alien_bottomleft.png" width="452" />
+<p class="sd-card-text"><br/></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="alien-v11">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#alien-v11" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text">of</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="n">alien</span><span class="o">.</span><span class="n">bottomleft</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details></section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_pygame.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Pygame Zero</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_movement.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Beweging</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images-map">1.2.1. Images map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actors">1.2.2. Actors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionering">1.2.3. Positionering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vensterafmetingen-gebruiken">1.2.3.1. Vensterafmetingen gebruiken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ankerpunten">1.2.3.2. Ankerpunten</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

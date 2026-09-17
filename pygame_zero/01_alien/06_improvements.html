@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.6. Extra uitbreidingen &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero/01_alien/06_improvements';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="1. Fruit Catcher" href="../../pygame_zero_tutorials/fruit_catcher/00_fruitcatcher.html" />
+    <link rel="prev" title="1.5. Winnen en verliezen" href="05_score.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_jumping_aliens.html">1. Jumping aliens</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero_tutorials/fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero/01_alien/06_improvements.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Extra uitbreidingen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwaartekracht">1.6.1. Zwaartekracht</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beweging-in-twee-richtingen">1.6.2. Beweging in twee richtingen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meerdere-aliens">1.6.3. Meerdere aliens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenslotte">1.6.4. Tenslotte</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="extra-uitbreidingen">
+<h1><span class="section-number">1.6. </span>Extra uitbreidingen<a class="headerlink" href="#extra-uitbreidingen" title="Link to this heading">#</a></h1>
+<section id="zwaartekracht">
+<h2><span class="section-number">1.6.1. </span>Zwaartekracht<a class="headerlink" href="#zwaartekracht" title="Link to this heading">#</a></h2>
+<p>De alien beweegt nu met een constante snelheid naar beneden. In de echte wereld vallen objecten niet op die manier. Om de beweging realistischer te maken, kun je zwaartekracht aan je spel toevoegen.</p>
+<ol class="arabic">
+<li><p>Maak een variabele <code class="code highlight python docutils literal highlight-python"><span class="n">GRAVITY</span></code> aan. Deze variabele verandert gedurende het spel niet van waarde. Zo’n onveranderlijke variabele noemen we een <em>constante</em>. In Python is het de gewoonte om constanten met hoofdletters te schrijven (net zoals <code class="code highlight python docutils literal highlight-python"><span class="n">WIDTH</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">HEIGHT</span></code> voor de vensterafmetingen).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">19</span><span class="c1"># Constants</span>
+<span class="linenos">20</span><span class="n">GRAVITY</span> <span class="o">=</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Wijzig regels 8 en 9 als volgt:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">8</span><span class="n">alien</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">9</span><span class="n">alien</span><span class="o">.</span><span class="n">jump_speed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<p>Hiermee wordt de aanvangssnelheid van de alien op 1 gezet. En in plaats van hem bij een jump 150 pixels omhoog te verplaatsen, geven we hem een negatieve snelheid (dus omhoog) van -5.</p>
+</li>
+<li><p>Voeg aan de <code class="code highlight python docutils literal highlight-python"><span class="n">update</span><span class="p">()</span></code> functie een regel toe waarmee de snelheid toeneemt met de zwaartekracht:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">35</span><span class="c1"># De update() functie van de game</span>
+<span class="linenos">36</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">37</span>   <span class="k">global</span> <span class="n">game_over</span>
+<span class="linenos">38</span>   <span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">alien</span><span class="o">.</span><span class="n">speed</span>
+<span class="hll"><span class="linenos">39</span>   <span class="n">alien</span><span class="o">.</span><span class="n">speed</span> <span class="o">+=</span> <span class="n">GRAVITY</span>
+</span><span class="linenos">40</span>   <span class="k">if</span> <span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span><span class="p">:</span>
+<span class="linenos">41</span>      <span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+<span class="linenos">42</span>      <span class="n">game_over</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">43</span>      <span class="n">clock</span><span class="o">.</span><span class="n">unschedule</span><span class="p">(</span><span class="n">increment_score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Wijzig de jump actie in <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">45</span><span class="c1"># Mouse down event handler</span>
+<span class="linenos">46</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="linenos">47</span>   <span class="k">if</span> <span class="n">game_over</span><span class="p">:</span>
+<span class="linenos">48</span>      <span class="k">return</span>
+<span class="linenos">49</span>   <span class="k">if</span> <span class="n">alien</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="hll"><span class="linenos">50</span>      <span class="n">alien</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">alien</span><span class="o">.</span><span class="n">jump_speed</span>
+</span></pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p>Dat is alles. Bekijk het resultaat van deze uitbreiding. Dat ziet er al meteen een stuk realistischer uit toch?</p>
+</section>
+<section id="beweging-in-twee-richtingen">
+<h2><span class="section-number">1.6.2. </span>Beweging in twee richtingen<a class="headerlink" href="#beweging-in-twee-richtingen" title="Link to this heading">#</a></h2>
+<p>Momenteel beweegt de alien alleen verticaal. Het spel wordt interessanter als hij ook horizontaal beweegt. Om dat voor elkaar te krijgen, moeten we de snelheid opsplitsen in twee componenten: een horizontale snelheid en een verticale snelheid.</p>
+<ol class="arabic">
+<li><p>Vervang <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span></code> in regel 8 door de volgende twee regels:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="c1"># Roze alien Actor</span>
+<span class="linenos"> 6</span><span class="n">alien</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">alien</span><span class="o">.</span><span class="n">midbottom</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 8</span><span class="n">alien</span><span class="o">.</span><span class="n">vx</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="n">alien</span><span class="o">.</span><span class="n">vy</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class="linenos">10</span><span class="n">alien</span><span class="o">.</span><span class="n">jump_speed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<p>In de natuurkunde wordt voor snelheid vaak de letter <em>v</em> gebruikt. Daarom noemen we hier de horizontale snelheid <code class="code highlight python docutils literal highlight-python"><span class="n">vx</span></code> (de snelheid in x-richting) en de verticale snelheid <code class="code highlight python docutils literal highlight-python"><span class="n">vy</span></code> (de snelheid in y-richting).</p>
+</li>
+<li><p>Vervang overal in je code <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">speed</span></code> door <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span><span class="o">.</span><span class="n">vy</span></code>. Je kunt dit handmatig doen, of in één keer door in Mu editor op <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">F</kbd> te drukken, waarmee je het Find / Replace venster opent:</p>
+<figure class="align-default">
+<img alt="../../_images/find_replace.png" src="../../_images/find_replace.png" />
+</figure>
+</li>
+<li><p>Voeg de horizontale beweging toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">update</span><span class="p">()</span></code> functie en zorg er voor dat de alien weer verschijnt wanneer hij uit beeld is verdwenen.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">36</span><span class="c1"># De update() functie van de game</span>
+<span class="linenos">37</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">38</span>   <span class="k">global</span> <span class="n">game_over</span>
+<span class="hll"><span class="linenos">39</span>   <span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">alien</span><span class="o">.</span><span class="n">vx</span>
+</span><span class="linenos">40</span>   <span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">alien</span><span class="o">.</span><span class="n">vy</span>
+<span class="linenos">41</span>   <span class="n">alien</span><span class="o">.</span><span class="n">vy</span> <span class="o">+=</span> <span class="n">GRAVITY</span>
+<span class="hll"><span class="linenos">42</span>   <span class="k">if</span> <span class="n">alien</span><span class="o">.</span><span class="n">left</span> <span class="o">&gt;</span> <span class="n">WIDTH</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">43</span>      <span class="n">alien</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="linenos">44</span>   <span class="k">if</span> <span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span><span class="p">:</span>
+<span class="linenos">45</span>      <span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+<span class="linenos">46</span>      <span class="n">game_over</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">47</span>      <span class="n">clock</span><span class="o">.</span><span class="n">unschedule</span><span class="p">(</span><span class="n">increment_score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Wanneer je deze code test, zul je merken dat de alien blijft bewegen na een ‘game over’. Dit is snel opgelost:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">36</span><span class="c1"># De update() functie van de game</span>
+<span class="linenos">37</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">38</span>   <span class="k">global</span> <span class="n">game_over</span>
+<span class="hll"><span class="linenos">39</span>   <span class="k">if</span> <span class="n">game_over</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">40</span>      <span class="k">return</span>
+</span><span class="linenos">41</span>   <span class="n">alien</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">alien</span><span class="o">.</span><span class="n">vx</span>
+<span class="linenos">42</span>   <span class="n">alien</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">alien</span><span class="o">.</span><span class="n">vy</span>
+<span class="linenos">43</span>   <span class="n">alien</span><span class="o">.</span><span class="n">vy</span> <span class="o">+=</span> <span class="n">GRAVITY</span>
+<span class="linenos">44</span>   <span class="k">if</span> <span class="n">alien</span><span class="o">.</span><span class="n">left</span> <span class="o">&gt;</span> <span class="n">WIDTH</span><span class="p">:</span>
+<span class="linenos">45</span>      <span class="n">alien</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">46</span>   <span class="k">if</span> <span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span><span class="p">:</span>
+<span class="linenos">47</span>      <span class="n">alien</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+<span class="linenos">48</span>      <span class="n">game_over</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">49</span>      <span class="n">clock</span><span class="o">.</span><span class="n">unschedule</span><span class="p">(</span><span class="n">increment_score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Nu springt de alien vrolijk van links naar rechts door het venster.</p>
+</li>
+</ol>
+</section>
+<section id="meerdere-aliens">
+<h2><span class="section-number">1.6.3. </span>Meerdere aliens<a class="headerlink" href="#meerdere-aliens" title="Link to this heading">#</a></h2>
+<p>Met één alien is het spel tamelijk eenvoudig. Je kunt de uitdaging vergroten door aliens toe te voegen.</p>
+<ol class="arabic">
+<li><p>Download de volgende sprites naar je <code class="file docutils literal notranslate"><span class="pre">alien/images</span></code> map:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../_downloads/c853ad4f298b6a17b3966fad0a13060a/alien_green.png"><code class="xref download docutils literal notranslate"><span class="pre">alien_green</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/f334898dd3ee4d5a72c34fa39e8f4b63/alien_blue.png"><code class="xref download docutils literal notranslate"><span class="pre">alien_blue</span></code></a></p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-auto sd-col-xs-auto sd-col-sm-auto sd-col-md-auto sd-col-lg-auto docutils">
+<img alt="../../_images/alien_green.png" src="../../_images/alien_green.png" />
+</div>
+<div class="sd-col sd-d-flex-column sd-col-auto sd-col-xs-auto sd-col-sm-auto sd-col-md-auto sd-col-lg-auto docutils">
+<img alt="../../_images/alien_blue.png" src="../../_images/alien_blue.png" />
+</div>
+</div>
+</div>
+</li>
+<li><p>Hernoem de variabele <code class="code highlight python docutils literal highlight-python"><span class="n">alien</span></code> in je gehele code naar <code class="code highlight python docutils literal highlight-python"><span class="n">alien_pink</span></code>. Dit kan weer met <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">F</kbd>:</p>
+<figure class="align-default">
+<img alt="../../_images/find_replace_02.png" src="../../_images/find_replace_02.png" />
+</figure>
+<p>Maar pas op, met deze ‘Replace all’ actie vervang je eigenlijk teveel!</p>
+<figure class="align-default">
+<img alt="../../_images/find_replace_03.png" src="../../_images/find_replace_03.png" />
+</figure>
+<p>Omdat in de naam van de sprite <code class="code highlight python docutils literal highlight-python"><span class="n">alien_pink</span></code> ook het woord alien voorkomt, leidt onze vervangingsactie tot <code class="code highlight python docutils literal highlight-python"><span class="n">alien_pink_pink</span></code>. Gelukkig markeert Mu editor alle vervangingen grijs, zodat je eventuele foute vervangingen kunt terugdraaien. In ons geval betreft het slechts de vervangingen in regels 5 en 6. Pas deze met de hand aan.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">5</span><span class="c1"># Roze alien Actor</span>
+<span class="linenos">6</span><span class="n">alien_pink</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_pink&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Nu kun je een extra <code class="code highlight python docutils literal highlight-python"><span class="n">Actor</span></code> toevoegen. Kies zelf de beginpositie en de snelheden.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id9" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span><span class="c1"># Groene alien Actor</span>
+<span class="linenos">15</span><span class="n">alien_green</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;alien_green&#39;</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">alien_green</span><span class="o">.</span><span class="n">midbottom</span> <span class="o">=</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">alien_green</span><span class="o">.</span><span class="n">vx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos">18</span><span class="n">alien_green</span><span class="o">.</span><span class="n">vy</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="linenos">19</span><span class="n">alien_green</span><span class="o">.</span><span class="n">jump_speed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Maak de nieuwe alien zichtbaar in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id10" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span><span class="c1"># De draw() functie van de game</span>
+<span class="linenos">38</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">39</span>   <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="s1">&#39;background&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="linenos">40</span>   <span class="n">alien_pink</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="hll"><span class="linenos">41</span>   <span class="n">alien_green</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</span><span class="linenos">42</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+<span class="linenos">43</span>   <span class="k">if</span> <span class="n">game_over</span><span class="p">:</span>
+<span class="linenos">44</span>      <span class="n">game_over_message</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Breid de <code class="code highlight python docutils literal highlight-python"><span class="n">update</span><span class="p">()</span></code> functie uit om de alien in beweging te krijgen.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">46</span><span class="c1"># De update() functie van de game</span>
+<span class="linenos">47</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">48</span>   <span class="k">global</span> <span class="n">game_over</span>
+<span class="linenos">49</span>   <span class="k">if</span> <span class="n">game_over</span><span class="p">:</span>
+<span class="linenos">50</span>      <span class="k">return</span>
+<span class="linenos">51</span>   <span class="n">alien_pink</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">alien_pink</span><span class="o">.</span><span class="n">vx</span>
+<span class="linenos">52</span>   <span class="n">alien_pink</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">alien_pink</span><span class="o">.</span><span class="n">vy</span>
+<span class="linenos">53</span>   <span class="n">alien_pink</span><span class="o">.</span><span class="n">vy</span> <span class="o">+=</span> <span class="n">GRAVITY</span>
+<span class="hll"><span class="linenos">54</span>   <span class="n">alien_green</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">alien_green</span><span class="o">.</span><span class="n">vx</span>
+</span><span class="hll"><span class="linenos">55</span>   <span class="n">alien_green</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">alien_green</span><span class="o">.</span><span class="n">vy</span>
+</span><span class="hll"><span class="linenos">56</span>   <span class="n">alien_green</span><span class="o">.</span><span class="n">vy</span> <span class="o">+=</span> <span class="n">GRAVITY</span>
+</span><span class="linenos">57</span>   <span class="k">if</span> <span class="n">alien_pink</span><span class="o">.</span><span class="n">left</span> <span class="o">&gt;</span> <span class="n">WIDTH</span><span class="p">:</span>
+<span class="linenos">58</span>      <span class="n">alien_pink</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="hll"><span class="linenos">59</span>   <span class="k">if</span> <span class="n">alien_green</span><span class="o">.</span><span class="n">right</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">60</span>      <span class="n">alien_green</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">WIDTH</span>
+</span><span class="hll"><span class="linenos">61</span>   <span class="k">if</span> <span class="n">alien_pink</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span> <span class="ow">or</span> <span class="n">alien_green</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span><span class="p">:</span>
+</span><span class="linenos">62</span>      <span class="n">alien_pink</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+<span class="hll"><span class="linenos">63</span>      <span class="n">alien_green</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+</span><span class="linenos">64</span>      <span class="n">game_over</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">65</span>      <span class="n">clock</span><span class="o">.</span><span class="n">unschedule</span><span class="p">(</span><span class="n">increment_score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Voeg aan de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> event handler de verwerking van een muisklik op de nieuwe alien toe.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">alien.py</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">67</span><span class="c1"># Mouse down event handler</span>
+<span class="linenos">68</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="linenos">69</span>   <span class="k">if</span> <span class="n">game_over</span><span class="p">:</span>
+<span class="linenos">70</span>      <span class="k">return</span>
+<span class="linenos">71</span>   <span class="k">if</span> <span class="n">alien_pink</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">72</span>      <span class="n">alien_pink</span><span class="o">.</span><span class="n">vy</span> <span class="o">=</span> <span class="n">alien_pink</span><span class="o">.</span><span class="n">jump_speed</span>
+<span class="hll"><span class="linenos">73</span>   <span class="k">elif</span> <span class="n">alien_green</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">74</span>      <span class="n">alien_green</span><span class="o">.</span><span class="n">vy</span> <span class="o">=</span> <span class="n">alien_green</span><span class="o">.</span><span class="n">jump_speed</span>
+</span></pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="tenslotte">
+<h2><span class="section-number">1.6.4. </span>Tenslotte<a class="headerlink" href="#tenslotte" title="Link to this heading">#</a></h2>
+<p>Het doel van deze les was je kennis te laten maken met het programmeren van een game in Pygame Zero. Je hebt ongetwijfeld gemerkt dat daar veel bij komt kijken. Toch hebben we slechts een glimp gezien van wat allemaal mogelijk is. Zo kun je bijvoorbeeld Actors animeren om ze levendiger te maken. En wat dacht je van geluidseffecten wanneer je op een alien klikt of wanneer het ‘game over’ is. De mogelijkheden zijn eindeloos.</p>
+<p>Wil je meer weten over programmeren in Pygame Zero, kijk dan op de <a class="reference external" href="https://pygame-zero.readthedocs.io/">officiële website van Pygame Zero</a>. Je vindt daar onze roze alien ook (waarvan je trouwens nog meer versies kunt downloaden op <a class="reference external" href="https://kenney.nl/assets">Kenney</a>), alsmede verschillende tutorials voor het maken van games.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_score.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Winnen en verliezen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../pygame_zero_tutorials/fruit_catcher/00_fruitcatcher.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Fruit Catcher</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwaartekracht">1.6.1. Zwaartekracht</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beweging-in-twee-richtingen">1.6.2. Beweging in twee richtingen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meerdere-aliens">1.6.3. Meerdere aliens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenslotte">1.6.4. Tenslotte</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

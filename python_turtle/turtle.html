@@ -1,0 +1,1537 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Tekenen met Turtle &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_turtle/turtle';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="2. While loops" href="while_loops.html" />
+    <link rel="prev" title="9. Functiebeginselen" href="../python_programming/basics/basic_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pygame_zero/01_alien/00_jumping_aliens.html">1. Jumping aliens</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero/01_alien/01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero/01_alien/02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero/01_alien/03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero/01_alien/04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero/01_alien/05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero/01_alien/06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pygame_zero_tutorials/fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/python_turtle/turtle.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tekenen met Turtle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turtle-variabelen">1.1. Turtle variabelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-basisbewegingen">1.2. De basisbewegingen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pen-up-pen-down-en-pen-size">1.3. Pen up, pen down en pen size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kleuren">1.4. Kleuren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#draaiingshoeken">1.5. Draaiingshoeken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figuurvulling">1.6. Figuurvulling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cirkels">1.7. Cirkels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overzicht-turtle-functies">1.8. Overzicht turtle functies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oefeningen">1.9. Oefeningen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oplossingen">1.10. Oplossingen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tekenen-met-turtle">
+<h1><span class="section-number">1. </span>Tekenen met Turtle<a class="headerlink" href="#tekenen-met-turtle" title="Link to this heading">#</a></h1>
+<img alt="../_images/mindstorms_turtle2.jpg" class="align-right" height="208" src="../_images/mindstorms_turtle2.jpg" width="320" />
+<p>Halverwege de vorige eeuw ontwikkelden de makers van de programmeertaal <a class="reference external" href="https://nl.wikipedia.org/wiki/Logo_(programmeertaal)">LOGO</a> een robotschildpad waarmee ze kinderen wilden leren programmeren. Door de schildpad instructies te geven, bewoog deze zich over een vel papier. Aan de schildpad was een viltstift gemonteerd. Op die manier kon je de robot een tekening laten maken. <br/> Met de <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span></code> module kunnen we in Python hetzelfde doen.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-book" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg></span><span class="sd-summary-text">Wat leer je in dit hoofdstuk</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Hoe importeer je de <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span></code> module in je programma.</p></li>
+<li><p class="sd-card-text">Hoe maak je een turtle aan.</p></li>
+<li><p class="sd-card-text">Hoe laat je de turtle bewegen.</p></li>
+<li><p class="sd-card-text">Hoe verander je het uiterlijk van de turtle.</p></li>
+<li><p class="sd-card-text">Hoe haal je de pen van het tekenpapier en hoe zet je hem weer neer.</p></li>
+<li><p class="sd-card-text">Hoe wijzig je de dikte en de kleur van de pen.</p></li>
+<li><p class="sd-card-text">Hoe vul je een getekende figuur op met een kleur.</p></li>
+<li><p class="sd-card-text">Hoe laat je de turtle een cirkel tekenen.</p></li>
+</ul>
+</div>
+</details><section id="turtle-variabelen">
+<h2><span class="section-number">1.1. </span>Turtle variabelen<a class="headerlink" href="#turtle-variabelen" title="Link to this heading">#</a></h2>
+<p>Start in Mu editor met een nieuw bestand door op de knop <span class="guilabel">New</span> te klikken. Typ onderstaande code in het bestand en let daarbij goed op het verschil tussen hoofdletters en kleine letters! Sla het bestand op als <code class="file docutils literal notranslate"><span class="pre">hello_turtle.py</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="hello-turtle-v01">
+<div class="code-block-caption"><span class="caption-text">hello_turtle.py</span><a class="headerlink" href="#hello-turtle-v01" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Run deze code om het resultaat te bekijken.</p>
+<p>Sommige functies zoals <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span><span class="p">()</span></code> zitten standaard in Python, maar om met de schildpad te kunnen werken is het nodig de module <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span></code> te importeren. Dat gebeurt op regel 1. Op regel 3 maken we met de functie <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span></code> een schildpad aan met de naam <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code>. Op regel 5 sturen we <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> 100 pixels naar voren.</p>
+<figure class="align-default">
+<img alt="../_images/turtle_01.png" height="178" src="../_images/turtle_01.png" width="248" />
+</figure>
+<p>Maar wat is dat nu? Onze Tony lijkt helemaal niet op een schildpad! Hij lijkt meer op een pijlpunt! Daar gaan we verandering in brengen. En we gaan hem ook van richting laten veranderen. Pas je code als volgt aan (de nieuwe regels zijn gemarkeerd):</p>
+<div class="literal-block-wrapper docutils container" id="hello-turtle-v02">
+<div class="code-block-caption"><span class="caption-text">hello_turtle.py</span><a class="headerlink" href="#hello-turtle-v02" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="hll"><span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+</span><span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="hll"><span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<p>Op regel 4 zorgt <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span></code> ervoor dat onze schildpad er ook uitziet als een schildpad. De regels 7, 9 en 11 laten <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> linksaf slaan alvorens verder te lopen.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Meer weten over turtle shapes?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Om de vorm van <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> in een schildpad te veranderen, gaven we de functie <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">shape</span><span class="p">()</span></code> de waarde <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;turtle&#39;</span></code> mee. Er zijn echter nog andere vormen mogelijk. Dit is de volledige lijst:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;arrow&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;turtle&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;circle&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;square&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;triangle&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;classic&#39;</span></code></p></li>
+</ul>
+</div>
+</details><p>De waarde die je tussen de haakjes aan de functie <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span></code> meegeeft, is het aantal pixels dat de schildpad vooruit moet bewegen. Maar wat doet het getal <code class="code highlight python docutils literal highlight-python"><span class="mi">90</span></code> tussen de haakjes van <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">left</span><span class="p">()</span></code>?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-question" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Vraag</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wat betekent het getal <code class="code highlight python docutils literal highlight-python"><span class="mi">90</span></code> tussen de haakjes van <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">()</span></code>?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Antwoord</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Dat getal geeft aan hoeveel <strong>graden</strong> de turtle moet draaien. Een hoek van 90° is een rechte hoek. De aanroep <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span></code> zorgt er dus voor dat de turtle 90° naar links draait, oftewel linksaf slaat.</p>
+<p class="sd-card-text">In onderstaande figuur zie je hoe een cirkel in graden is verdeeld. Hoeveel graden zitten er in een volledige cirkel denk je?</p>
+<img alt="../_images/turtle_angles.png" src="../_images/turtle_angles.png" />
+</div>
+</details></div>
+</details><p>Regel 3 in onze code bevat het assignment statement <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span></code>. Je weet dat met een assignment statement een variabele wordt gemaakt. Dat betekent dat <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> een variabele is. Maar wat is het datatype van deze variabele? Het is geen integer, float of string, maar wat is het wel? De functie <code class="code highlight python docutils literal highlight-python"><span class="nb">type</span><span class="p">()</span></code> biedt uitkomst:</p>
+<figure class="align-default">
+<img alt="../_images/turtle_datatype.png" src="../_images/turtle_datatype.png" />
+</figure>
+<p>Blijkbaar heeft de variabele <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> het datatype <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span></code>. Een variabele hoeft dus niet altijd een getal of tekst te bevatten maar kan ook een <em>object</em> bevatten zoals in dit geval een virtuele schildpad.</p>
+<p>Niets belet ons om meer dan één turtle variabele te maken. Probeer het volgende maar eens:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">hello_turtle.py</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="no-copybutton highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tina</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;circle&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">shapesize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">tina</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">tina</span><span class="o">.</span><span class="n">shapesize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="n">tina</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">tina</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>In dit voorbeeld zijn <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">tina</span></code> twee turtle variabelen, waarvan de eerste eruitziet als een cirkel en de tweede als een vierkant. Met <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">shapesize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">tina</span><span class="o">.</span><span class="n">shapesize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code> maken we hun vormen iets groter, zodat je ze beter kunt zien.</p>
+<figure class="align-default">
+<img alt="../_images/turtle_tony_and_tina.png" height="178" src="../_images/turtle_tony_and_tina.png" width="248" />
+</figure>
+</section>
+<section id="de-basisbewegingen">
+<h2><span class="section-number">1.2. </span>De basisbewegingen<a class="headerlink" href="#de-basisbewegingen" title="Link to this heading">#</a></h2>
+<p>Tot nu toe hebben we in onze code voor de beweging van de schilpad de functies <code class="code highlight python docutils literal highlight-python"><span class="n">forward</span><span class="p">()</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">left</span><span class="p">()</span></code> gebruikt. Kun je voorspellen welke bewegingsfuncties er nog meer zijn? Juist, <code class="code highlight python docutils literal highlight-python"><span class="n">backward</span><span class="p">()</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">right</span><span class="p">()</span></code>. Omdat je deze vier functies heel vaak gebruikt, zijn er afkortingen voor, zodat je minder hoeft te typen.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-text">Afkortingen van de turtle functies</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functie</p></th>
+<th class="head"><p>Afkorting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span></code></p></td>
+<td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">fd</span><span class="p">()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span></code></p></td>
+<td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">bk</span><span class="p">()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">()</span></code></p></td>
+<td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">lt</span><span class="p">()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">()</span></code></p></td>
+<td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">rt</span><span class="p">()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Let op: in je eigen code vervang je bij het aanroepen van een turtle functie het woord <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span></code> door de naam van jouw schildpad, dus bijvoorbeeld <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">()</span></code> in plaats van <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">rt</span><span class="p">()</span></code> .</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 01</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Vervang de code in <code class="file docutils literal notranslate"><span class="pre">hello_turtle.py</span></code> door onderstaande code. Je hoeft de code niet over te typen, je kunt kopiëren en plakken.</p>
+<div class="literal-block-wrapper docutils container" id="hello-turtle-oef01">
+<div class="code-block-caption"><span class="caption-text">hello_turtle.py</span><a class="headerlink" href="#hello-turtle-oef01" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text">Run de code om te zien dat de schildpad het begin van een hoofdletter H tekent. Maak de code af zodat een volledige hoofdletter H wordt getekend.</p>
+</div>
+</details></section>
+<section id="pen-up-pen-down-en-pen-size">
+<h2><span class="section-number">1.3. </span>Pen up, pen down en pen size<a class="headerlink" href="#pen-up-pen-down-en-pen-size" title="Link to this heading">#</a></h2>
+<p>Zoals je hebt gemerkt, is <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> een schildpad die van tekenen houdt, want hij heeft een pen vast waarmee hij zijn afgelegde weg tekent. Soms wil je echter dat <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> zijn pen even van het ‘papier’ haalt. Met de volgende twee functies kun je de pen van de schildpad bedienen:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Functie</p></th>
+<th class="head"><p>Afkorting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span></code></p></td>
+<td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span></code> of <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">up</span><span class="p">()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span></code></p></td>
+<td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span></code> of <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">down</span><span class="p">()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Daarnaast kun je de pendikte instellen met de volgende functie:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Functie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Bij de functies <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span></code> zet je niks tussen de haakjes, maar de functie <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">()</span></code> heeft wél input nodig. Tussen de haakjes zet je een geheel getal dat de pendikte in pixels aangeeft. Dus bijvoorbeeld <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 02</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Breid je code in <code class="file docutils literal notranslate"><span class="pre">hello_turtle.py</span></code> uit zodat naast de letter H ook een hoofdletter E wordt getekend, met pendikte 5.</p>
+<img alt="../_images/turtle_HE.png" src="../_images/turtle_HE.png" />
+<p class="sd-card-text">Kies zelf mooie lengtes voor de drie horizontale lijnen van de letter E, zodat je resultaat lijkt op het bovenstaande plaatje.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Na de code die de letter H tekent, moet je dus eerst <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span></code> aanroepen om de pen van het papier te halen. Vervolgens beweeg je de schildpad 20 pixels vooruit met <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span></code> (misschien moet je hem eerst nog draaien, zodat hij de goede kant op gaat). Daarna roep je <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span></code> aan om de pen weer op het papier te zetten. Als je dat voor elkaar hebt, kun je de code maken die de letter E tekent.</p>
+</div>
+</details></div>
+</details></section>
+<section id="kleuren">
+<h2><span class="section-number">1.4. </span>Kleuren<a class="headerlink" href="#kleuren" title="Link to this heading">#</a></h2>
+<p>Onze schildpad tekent vooralsnog zwarte lijnen; tijd voor wat fleurigheid! Uiteraard is er een functie om de penkleur van <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code> te veranderen.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Functie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tussen de haakjes geef je de gewenste kleur mee met de Engelse naam tussen aanhalingstekens, bijvoorbeeld <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span></code> of <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span></code>. Andere kleuren zijn <code class="code highlight python docutils literal highlight-python"><span class="n">gold</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">orange</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">red</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">maroon</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">violet</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">magenta</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">purple</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">navy</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">blue</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">skyblue</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">cyan</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">turquoise</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">lightgreen</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">darkgreen</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">chocolate</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">brown</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">black</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">gray</span></code>. En er zijn er nog veel meer! Op <a class="reference external" href="https://trinket.io/docs/colors">deze website</a> kun je een kleurenpalet vinden.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 03</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Breid je code in <code class="file docutils literal notranslate"><span class="pre">hello_turtle.py</span></code> uit zodat de schildpad het woord HELLO tekent, waarbij elke letter een andere kleur en een andere pendikte heeft. Je mag zelf je favoriete kleuren en pendiktes kiezen. Hieronder staat een voorbeeldje.</p>
+<img alt="../_images/turtle_HELLO.png" src="../_images/turtle_HELLO.png" />
+</div>
+</details></section>
+<section id="draaiingshoeken">
+<h2><span class="section-number">1.5. </span>Draaiingshoeken<a class="headerlink" href="#draaiingshoeken" title="Link to this heading">#</a></h2>
+<p>Draaien met een hoek van 90° is niet zo moeilijk. Draaiingshoeken met een andere grootte zijn lastiger dan je misschien denkt. Probeer de onderstaande opdracht maar eens.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 04</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Begin met een nieuw codebestand (via de <span class="guilabel">New</span> knop). Importeer de <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span></code> module en maak een turtle aan. In de vorige opdrachten heette de turtle <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span></code>, maar je mag nu ook zelf een naam verzinnen. Sla het bestand op onder de naam <code class="file docutils literal notranslate"><span class="pre">turtle_house.py</span></code>.</p>
+<p class="sd-card-text">Maak een algoritme dat de onderstaande figuur tekent zónder de pen van het papier te halen, zónder de <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">bk</span><span class="p">()</span></code> functie te gebruiken en zónder een draai van 180° te maken.</p>
+<img alt="../_images/turtle_house.png" class="align-center" src="../_images/turtle_house.png" />
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 1</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Teken de figuur eerst eens zelf op papier zonder je pen op te tillen. Kun je erachter komen in welk punt je het beste kunt beginnen?</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 2</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Begin in de hoek linksonder en teken eerst het vierkant van 80 bij 80 pixels. Maak dan de diagonaal, het dak en tenslotte de diagonaal naar rechtsonder.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 3</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De hoeken in de figuur zijn niet altijd de hoeken die je moet invullen bij <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">lt</span><span class="p">()</span></code> of <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">rt</span><span class="p">()</span></code>. Kijk maar eens naar de onderstaande afbeelding. De turtle komt van boven naar beneden aangelopen en moet vervolgens de diagonaal van linksonder naar rechtsboven maken. Om dat te doen moet hij niet 45° draaien, maar 90° + 45° = 135°. Ook bij het tekenen van het dak moet je goed nadenken over de te draaien hoeken.</p>
+<img alt="../_images/turtle_house_hint.png" src="../_images/turtle_house_hint.png" />
+</div>
+</details></div>
+</details></section>
+<section id="figuurvulling">
+<h2><span class="section-number">1.6. </span>Figuurvulling<a class="headerlink" href="#figuurvulling" title="Link to this heading">#</a></h2>
+<p>Het is mogelijk om een door de turtle getekende figuur op te vullen met een kleur. Daarvoor gebruik je de volgende functies:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Functie</p></th>
+<th class="head"><p>Werking</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">()</span></code></p></td>
+<td><p>Op dezelfde manier als <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span></code></p></td>
+<td><p>Roep deze functie aan juist voordat de te vullen vorm wordt getekend.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span></code></p></td>
+<td><p>Roep deze functie aan meteen nadat de te vullen vorm is getekend.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Je kunt dit uitproberen met het onderstaande codevoorbeeld. Maak hiervoor weer een nieuw bestand aan, met de naam <code class="file docutils literal notranslate"><span class="pre">turtle_fill.py</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="turtle-fill">
+<div class="code-block-caption"><span class="caption-text">turtle_fill.py</span><a class="headerlink" href="#turtle-fill" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">tony</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Stel de penkleur en de vulkleur in</span>
+<span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Teken een driehoek met vulling</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">13</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 05</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Breid de code in <code class="file docutils literal notranslate"><span class="pre">turtle_fill.py</span></code> uit, zodat links van het driehoekje een regelmatige vijfhoek met rode vulling wordt getekend, zoals in onderstaande figuur. De zijden van de vijfhoek zijn 60 pixels lang.</p>
+<img alt="../_images/turtle_fill.png" class="align-center" src="../_images/turtle_fill.png" />
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Om te berekenen hoeveel graden de turtle telkens moet draaien, kun je bedenken dat gedurende het tekenen van de vijfhoek de turtle in totaal precies één hele draai maakt van 360°. Deze draai wordt gelijk verdeeld over de vijf hoeken.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Vorm</p></th>
+<th class="head"><p class="sd-card-text">Aantal hoeken</p></th>
+<th class="head"><p class="sd-card-text">Turtle draaihoek</p></th>
+<th class="head"><p class="sd-card-text">Totale draaiing</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">Driehoek</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">120°</p></td>
+<td><p class="sd-card-text">3 * 120° = 360°</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Vierhoek</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">90°</p></td>
+<td><p class="sd-card-text">4 * 90° = 360°</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Vijfhoek</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">?°</p></td>
+<td><p class="sd-card-text">5 * ?° = 360°</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details></div>
+</details></section>
+<section id="cirkels">
+<h2><span class="section-number">1.7. </span>Cirkels<a class="headerlink" href="#cirkels" title="Link to this heading">#</a></h2>
+<p>Veelhoeken zijn leuke figuren, en we zullen er later nog vaker op terugkomen, maar soms wil je gewoon een cirkel tekenen. Met Python turtle kan dat op twee manieren; met <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span></code> en met <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">()</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Functie</p></th>
+<th class="head"><p>Werking</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span></code></p></td>
+<td><p>Tekent een ronde stip met een diameter die je aangeeft met <code class="code highlight python docutils literal highlight-python"><span class="n">size</span></code> en een kleur die je aangeeft met <code class="code highlight python docutils literal highlight-python"><span class="n">color</span></code>. Bijvoorbeeld <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></code></p></td>
+<td><p>Tekent een cirkel met een straal (dat is de afstand tussen het middelpunt van de cirkel en de rand, dus eigenlijk de halve diameter) die je aangeeft met <code class="code highlight python docutils literal highlight-python"><span class="n">radius</span></code>. Bijvoorbeeld <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Probeer beide functies uit met onderstaande code. Gebruik een nieuw bestand, met de naam <code class="file docutils literal notranslate"><span class="pre">turtle_circles.py</span></code></p>
+<div class="literal-block-wrapper docutils container" id="turtle-circles">
+<div class="code-block-caption"><span class="caption-text">turtle_circles.py</span><a class="headerlink" href="#turtle-circles" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Zie je het verschil tussen de beide functies? <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span></code> levert een gevulde cirkel (een stip) en <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">()</span></code> een niet-gevulde cirkel. Je kunt met <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span></code> de niet-gevulde cirkel natuurlijk alsnog vullen, zoals in onderstaand voorbeeld. Om het verschil tussen rand en vulling goed zichtbaar te maken worden in dit voorbeeld ook de pendikte en de kleuren ingesteld.</p>
+<div class="literal-block-wrapper docutils container" id="turtle-circles-v02">
+<div class="code-block-caption"><span class="caption-text">turtle_circles.py</span><a class="headerlink" href="#turtle-circles-v02" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="hll"><span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 5</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</span><span class="linenos"> 7</span>
+<span class="hll"><span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+</span><span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="hll"><span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</span><span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Meer weten over extra mogelijkheden met turtle.circle()?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Behalve de straal van de cirkel, kun je aan <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">()</span></code> nóg een getal meegeven. Probeer de volgende code maar eens:</p>
+<div class="literal-block-wrapper docutils container" id="turtle-circles-v03">
+<div class="code-block-caption"><span class="caption-text">turtle_circles.py</span><a class="headerlink" href="#turtle-circles-v03" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text">Run het programma en wijzig daarna regel 5 in <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span></code>. Run weer en wijzig daarna regel 5 in <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">270</span><span class="p">)</span></code>. Zie je wat dat tweede getal doet?</p>
+<p class="sd-card-text">Je kunt zelfs nog een derde getal toevoegen binnen de haakjes. Probeer het volgende:</p>
+<div class="literal-block-wrapper docutils container" id="turtle-circles-v04">
+<div class="code-block-caption"><span class="caption-text">turtle_circles.py</span><a class="headerlink" href="#turtle-circles-v04" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text">Run het programma en wijzig daarna regel 5 in <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code>. Run weer en wijzig daarna regel 5 in <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span></code>. Zie je wat het derde getal doet?</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 06</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Vervang de code in <code class="file docutils literal notranslate"><span class="pre">turtle_circles.py</span></code> door een programma dat een stoplicht tekent zoals hieronder getoond. De afmetingen mag je zelf kiezen en hoeven niet exact overeen te komen met het voorbeeld.</p>
+<img alt="../_images/turtle_trafficlight.png" class="align-center" src="../_images/turtle_trafficlight.png" />
+</div>
+</details></section>
+<section id="overzicht-turtle-functies">
+<h2><span class="section-number">1.8. </span>Overzicht turtle functies<a class="headerlink" href="#overzicht-turtle-functies" title="Link to this heading">#</a></h2>
+<p>Hier nog eens een overzicht van alle turtle functies die je tot nu toe bent tegengekomen en nog een paar meer. Een veel uitgebreider overzicht vind je in de (Engelstalige) <a class="reference external" href="https://docs.python.org/3/library/turtle.html">Python documentatie</a>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Turtle eigenschappen</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head stub"><p class="sd-card-text">Functie</p></th>
+<th class="head"><p class="sd-card-text">Werking</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Maakt een nieuwe turtle variabele. Let op de hoofdletter T in <code class="code highlight python docutils literal highlight-python"><span class="n">Turtle</span><span class="p">()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Stelt de vorm van de turtle in. Mogelijke waarden voor <code class="code highlight python docutils literal highlight-python"><span class="n">name</span></code> zijn <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;arrow&#39;</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;turtle&#39;</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;circle&#39;</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;square&#39;</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;triangle&#39;</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;classic&#39;</span></code>.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">shapesize</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">outline</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Stelt de grootte van de turtle in. Met de parameters <code class="code highlight python docutils literal highlight-python"><span class="n">width</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">length</span></code> bepaal je de breedte en lengte van de turtle. De waarde van <code class="code highlight python docutils literal highlight-python"><span class="n">outline</span></code> bepaalt de lijndikte van de schildpadvorm. Als je slechts één waarde aan deze functie meegeeft, wordt die gebruikt voor de breedte én de lengte.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Stelt de snelheid van de turtle in. Voor de parameter <code class="code highlight python docutils literal highlight-python"><span class="n">speed</span></code> worden waarden tussen <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="mi">10</span></code> geaccepteerd. De hoogste snelheid krijg je met de waarde <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">hideturtle</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Maakt de turtle onzichtbaar.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">showturtle</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Maakt de turtle zichtbaar.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Bewegingen</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head stub"><p class="sd-card-text">Functie</p></th>
+<th class="head"><p class="sd-card-text">Werking</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Verplaatst de turtle vooruit met de gegeven afstand.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Verplaatst de turtle achteruit met de gegeven afstand.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Draait de turtle linksom over de gegeven hoek.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Draait de turtle rechtsom over de gegeven hoek.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="sd-card-text">Meestal gebruiken we de afgekorte versies van deze functies <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></code>.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Pen eigenschappen</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head stub"><p class="sd-card-text">Functie</p></th>
+<th class="head"><p class="sd-card-text">Werking</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">up</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Haalt de pen van het papier.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">down</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Plaatst de pen op het papier.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">width</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Stelt de dikte van de pen in.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="n">colorstring</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Stelt de kleur van de pen in.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="n">colorstring</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Stelt de kleur waarmee een figuur wordt opgevuld in.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Aan te roepen juist voor het tekenen van de figuur die moet worden opgevuld.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Aan te roepen juist na het tekenen van de figuur die moet worden opgevuld.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Vormen</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head stub"><p class="sd-card-text">Functie</p></th>
+<th class="head"><p class="sd-card-text">Werking</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">extent</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Tekent een cirkel met de gegeven radius. Als je een waarde voor <code class="code highlight python docutils literal highlight-python"><span class="n">extent</span></code> tussen <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="mi">360</span></code> meegeeft, wordt slechts een gedeelte van een cirkel getekend. Als je een waarde voor <code class="code highlight python docutils literal highlight-python"><span class="n">steps</span></code> meegeeft, wordt de cirkel in dat aantal stappen getekend.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">colorstring</span><span class="p">)</span></code></p></th>
+<td><p class="sd-card-text">Tekent een stip met de gegeven diameter en kleur. Je mag de kleur weglaten; dan wordt de huidige penkleur gebruikt.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span></code></p></th>
+<td><p class="sd-card-text">Stempelt een afdruk van de turtlevorm op het papier.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="oefeningen">
+<h2><span class="section-number">1.9. </span>Oefeningen<a class="headerlink" href="#oefeningen" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 07 - Windows logo</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Schrijf een programma dat een eenvoudige versie van het Windows logo tekent:</p>
+<figure class="align-center">
+<img alt="../_images/turtle_windows_logo.png" src="../_images/turtle_windows_logo.png" />
+</figure>
+<p class="sd-card-text">Het logo bestaat uit vier vierkantjes met zijden van 100 pixels. De ruimte tussen de vierkantjes is 20 pixels. De in het voorbeeld gebruikte kleuren heten:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;tomato&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;yellow green&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;deep sky blue&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;gold&#39;</span></code></p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 1</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De vierkantjes hebben geen zichtbare rand. Dat kun je voor elkaar krijgen door de penkleur en de vulkleur voor elk vierkant dezelfde waarde te geven:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Het is ook mogelijk dit met één regel code te bewerkstelligen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Met de functie <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">color</span><span class="p">()</span></code> kun je in één keer de penkleur én de vulkleur instellen.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 2</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Het is handig om je code netjes te structureren in een aantal blokken:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Tekenen van het rode vierkant.</p></li>
+<li><p class="sd-card-text">De turtle verplaatsen.</p></li>
+<li><p class="sd-card-text">Tekenen van het groene vierkant.</p></li>
+<li><p class="sd-card-text">De turtle verplaatsen.</p></li>
+<li><p class="sd-card-text">Tekenen van het gele vierkant.</p></li>
+<li><p class="sd-card-text">De turtle verplaatsen.</p></li>
+<li><p class="sd-card-text">Tekenen van het blauwe vierkant.</p></li>
+</ul>
+<p class="sd-card-text">Door dat te doen, kun je veel code copy-pasten. Het tekenen van een vierkant is namelijk elke keer hetzelfde.</p>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 08 - Zandloper</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Schrijf een programma dat een zandloper tekent:</p>
+<figure class="align-center">
+<img alt="../_images/turtle_hourglass.png" src="../_images/turtle_hourglass.png" />
+</figure>
+<p class="sd-card-text">De zandloper bestaat uit twee gelijkzijdige driehoeken met zijden van 200 pixels. Voor het zand is in het voorbeeld de kleur <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;sandy brown&#39;</span></code> gebruikt en voor het glas de kleur <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;alice blue&#39;</span></code>. De pendikte in het voorbeeld is 5 pixels.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Bij deze opdracht zou je verschillende driehoeken over elkaar kunnen tekenen. Voor de bovenste helft bijvoorbeeld eerst een driehoek met een lichtblauwe vulling en daaroverheen een driehoek met een zandkleurige vulling.</p>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 09 - Olympische ringen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Schrijf een programma dat de Olympische ringen tekent:</p>
+<figure class="align-center">
+<img alt="../_images/turtle_olympic_rings.png" src="../_images/turtle_olympic_rings.png" />
+</figure>
+<p class="sd-card-text">In het voorbeeld hebben de ringen een straal van 80 pixels (dus een diameter van 160 pixels) en is de pendikte 15 pixels. De gebruikte kleuren zijn:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;royal blue&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;black&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;crimson&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;sea green&#39;</span></code></p></li>
+<li><p class="sd-card-text"><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;orange&#39;</span></code></p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-note" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z"></path></svg></span><span class="sd-summary-text">Opmerking</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De echte Olympische ringen zien er iets anders uit. Kijk maar eens hoe de ringen voor en achter elkaar zijn geplaatst:</p>
+<figure class="align-center">
+<img alt="../_images/turtle_olympic_rings_2.png" height="293" src="../_images/turtle_olympic_rings_2.png" width="444" />
+</figure>
+<p class="sd-card-text">Je zou dit met de turtle wel voor elkaar kunnen krijgen, maar dat is niet eenvoudig!</p>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Opdracht 10 - Sheriff ster</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Schrijf een programma dat de ster van een Sheriff tekent:</p>
+<figure class="align-center">
+<img alt="../_images/turtle_sheriff_star.png" src="../_images/turtle_sheriff_star.png" />
+</figure>
+<p class="sd-card-text">In het voorbeeld is de pendikte 5 pixels, de penkleur <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;orange&#39;</span></code> en de vulkleur <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;gold&#39;</span></code>. De lijnstukjes zijn 80 pixels lang en de rondjes hebben een diameter van 32 pixels.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 1</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Bedenk op welke manier je de rondjes gaat tekenen. Gebruik je daar de <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">()</span></code> functie voor of liever <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span></code>?</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Hint 2</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De punten van de ster kun je beschouwen als gelijkzijdige driehoeken rondom een regelmatige zeshoek. Kun je daaruit afleiden wat de draaiingshoeken zijn? Je moet de turtle afwisselend linksom en rechtsom laten draaien.</p>
+</div>
+</details></div>
+</details></section>
+<section id="oplossingen">
+<h2><span class="section-number">1.10. </span>Oplossingen<a class="headerlink" href="#oplossingen" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing opdracht 07</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">turtle_windows_logo.py</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Teken rood vierkant</span>
+<span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># Verplaats 120 pixels naar rechts</span>
+<span class="linenos">19</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">20</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c1"># Teken groen vierkant</span>
+<span class="linenos">24</span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;yellow green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow green&#39;</span><span class="p">)</span>
+<span class="linenos">25</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">26</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">27</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">28</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">30</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">31</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="c1"># Verplaats 120 pixels naar beneden</span>
+<span class="linenos">37</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">38</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">41</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="c1"># Teken geel vierkant</span>
+<span class="linenos">44</span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">)</span>
+<span class="linenos">45</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">46</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">47</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">48</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">49</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">50</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">51</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">52</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">53</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">54</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="c1"># Verplaats 120 pixels naar links</span>
+<span class="linenos">57</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">58</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">59</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span><span class="c1"># Teken blauw vierkant</span>
+<span class="linenos">62</span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;deep sky blue&#39;</span><span class="p">,</span> <span class="s1">&#39;deep sky blue&#39;</span><span class="p">)</span>
+<span class="linenos">63</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">64</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">65</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">66</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">67</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">68</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">69</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">70</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">71</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">72</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing opdracht 08</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">turtle_zandloper.py</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># Teken bovenste driehoek</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;alice blue&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Teken zandvulling in bovenste driehoek</span>
+<span class="linenos">17</span><span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;sandy brown&#39;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">20</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">140</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">22</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">140</span><span class="p">)</span>
+<span class="linenos">23</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">24</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">140</span><span class="p">)</span>
+<span class="linenos">25</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1"># Teken onderste driehoek</span>
+<span class="linenos">28</span><span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;alice blue&#39;</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">30</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">31</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">35</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="c1"># Teken zandvulling in onderste driehoek</span>
+<span class="linenos">38</span><span class="n">tony</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;sandy brown&#39;</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos">41</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">42</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">43</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">140</span><span class="p">)</span>
+<span class="linenos">44</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">45</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">46</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">47</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">48</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing opdracht 09</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">turtle_olympische_ringen.py</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># Teken blauwe ring</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;royal blue&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Verplaats 200 pixels naar rechts</span>
+<span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Teken zwarte ring</span>
+<span class="linenos">16</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Verplaats 200 pixels naar rechts</span>
+<span class="linenos">20</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">21</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">22</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># Teken rode ring</span>
+<span class="linenos">25</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;crimson&#39;</span><span class="p">)</span>
+<span class="linenos">26</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1"># Verplaats 80 pixels naar beneden en 100 pixels naar links</span>
+<span class="linenos">29</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">30</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">31</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="c1"># Teken groene ring</span>
+<span class="linenos">37</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;sea green&#39;</span><span class="p">)</span>
+<span class="linenos">38</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="c1"># Verplaats 200 pixels naar links</span>
+<span class="linenos">41</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">42</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">43</span><span class="n">tony</span><span class="o">.</span><span class="n">pd</span><span class="p">()</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="c1"># Teken gele ring</span>
+<span class="linenos">46</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="linenos">47</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing opdracht 10</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">turtle_sheriff_ster.py</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">22</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">23</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">24</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">25</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">28</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">30</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">31</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">35</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">36</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">37</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">tony</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">41</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="linenos">42</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">43</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plus-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v2.5h2.5a.75.75 0 0 1 0 1.5h-2.5v2.5a.75.75 0 0 1-1.5 0v-2.5h-2.5a.75.75 0 0 1 0-1.5h2.5v-2.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Extra - Tekst tonen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Als je de tekst ‘Sheriff’ op de ster wilt tonen, kun je de volgende code toevoegen:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">turtle_sheriff_ster.py</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">47</span><span class="c1"># Tekst</span>
+<span class="linenos">48</span><span class="n">tony</span><span class="o">.</span><span class="n">pu</span><span class="p">()</span>
+<span class="linenos">49</span><span class="n">tony</span><span class="o">.</span><span class="n">bk</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos">50</span><span class="n">tony</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">51</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos">52</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">53</span><span class="n">tony</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="s1">&#39;dark goldenrod&#39;</span><span class="p">)</span>
+<span class="linenos">54</span><span class="n">tony</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;SHERIFF&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">align</span> <span class="o">=</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Arial Narrow&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;bold&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plus-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v2.5h2.5a.75.75 0 0 1 0 1.5h-2.5v2.5a.75.75 0 0 1-1.5 0v-2.5h-2.5a.75.75 0 0 1 0-1.5h2.5v-2.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Extra - Cirkels in plaats van stippen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Wanneer je in plaats van <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span></code> de functie <code class="code highlight python docutils literal highlight-python"><span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">()</span></code> gebruikt, kun je de volgende ster tekenen:</p>
+<img alt="../_images/turtle_sheriff_star_2.png" class="align-center" src="../_images/turtle_sheriff_star_2.png" />
+<p class="sd-card-text">In dit voorbeeld is er met de aanroep <code class="code highlight python docutils literal highlight-python"><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">320</span><span class="p">)</span></code> voor gezorgd, dat de turtle 320° van een hele cirkel (360°) met straal 16 tekent. Echter direct vóór en ná deze aanroep moet de turtle 100° rechtsom draaien.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-secondary sd-bg-text-secondary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-check-circle" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></span><span class="sd-summary-text">Oplossing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">turtle_sheriff_ster_v2.py</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">tony</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="n">tony</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">tony</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">tony</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">20</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">24</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">25</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="linenos">26</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">27</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">28</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">31</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">35</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">38</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">41</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">42</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">45</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">46</span><span class="n">tony</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="linenos">47</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">48</span><span class="n">tony</span><span class="o">.</span><span class="n">fd</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">49</span><span class="n">tony</span><span class="o">.</span><span class="n">rt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span><span class="n">tony</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details></div>
+</details></section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../python_programming/basics/basic_functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Functiebeginselen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="while_loops.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>While loops</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turtle-variabelen">1.1. Turtle variabelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-basisbewegingen">1.2. De basisbewegingen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pen-up-pen-down-en-pen-size">1.3. Pen up, pen down en pen size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kleuren">1.4. Kleuren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#draaiingshoeken">1.5. Draaiingshoeken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figuurvulling">1.6. Figuurvulling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cirkels">1.7. Cirkels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overzicht-turtle-functies">1.8. Overzicht turtle functies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oefeningen">1.9. Oefeningen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oplossingen">1.10. Oplossingen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
