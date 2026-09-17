@@ -43,6 +43,13 @@ Programmeren in Python
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
+   :caption: Pygame Zero Tutorials
+
+   pygame_zero_tutorials/fruit_catcher/00_fruitcatcher
+
+.. toctree::
+   :maxdepth: 1
    :caption: Appendices
 
    glossary
