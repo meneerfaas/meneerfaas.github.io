@@ -11,7 +11,6 @@ In dit deel maak je kennis met Pygame Zero door het programmeren van een eenvoud
 
 .. toctree::
     :maxdepth: 1
-    :numbered:
     :caption: Inhoudsopgave
 
     01_pygame
