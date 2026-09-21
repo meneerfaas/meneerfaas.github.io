@@ -49,6 +49,7 @@ Programmeren in Python
    pygame_zero_tutorials/fruit_catcher/00_fruitcatcher
    pygame_zero_tutorials/endless_runner/00_endless_runner
    pygame_zero_tutorials/level_devil/00_level_devil
+   pygame_zero_tutorials/alchemy/00_alchemy
 
 .. toctree::
    :maxdepth: 1

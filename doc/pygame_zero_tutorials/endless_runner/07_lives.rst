@@ -10,7 +10,7 @@ Als de dinosaurus een cactus raakt, en de speler een leven verliest, willen we d
 
 .. figure:: images/flash.gif
 
-Er zijn meerdere manieren om het knippereffect te programmeren. Je zou bijvoorbeeld de :python:`player.images` lijst kunnen wijzigen naar een lijst waarin zich ook *lege* sprites bevinden. Dat zijn sprites die volledig transparant zijn. Als je dit wilt proberen, download dan :download:`empty.png <../game_assets/endless_runner/images/empty.png>` en plaats het in de :file:`images` map. Vervolgens voeg je aan je code een tweede lijst met sprites toe:
+Er zijn meerdere manieren om het knippereffect te programmeren. Je zou bijvoorbeeld de :python:`player.images` lijst kunnen wijzigen naar een lijst waarin zich ook *lege* sprites bevinden. Dat zijn sprites die volledig transparant zijn. Als je dit wilt proberen, download dan :download:`empty.png <assets/images/empty.png>` en plaats het in de :file:`images` map. Vervolgens voeg je aan je code een tweede lijst met sprites toe:
 
 .. code-block:: python
    :caption: endlessrunner.py

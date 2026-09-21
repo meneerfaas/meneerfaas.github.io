@@ -53,7 +53,7 @@ Mu Editor zoekt de sprites in de map :file:`images` die in dezelfde map staat al
 .. figure:: images/mu_images_button.png
    :width: 800px
 
-Wil je dit zelf proberen, download dan de sprites :download:`alien_pink.png <../game_assets/alien/images/alien_pink.png>` en :download:`alien_green.png <../game_assets/alien/images/alien_green.png>` en plaats ze in de juiste :file:`images` map.
+Wil je dit zelf proberen, download dan de sprites :download:`alien_pink.png <assets/images/alien_pink.png>` en :download:`alien_green.png <assets/images/alien_green.png>` en plaats ze in de juiste :file:`images` map.
 
 Actor tonen in het gamevenster
 -------------------------------
