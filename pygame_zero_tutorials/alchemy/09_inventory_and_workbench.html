@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.9. Venster in twee delen &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero_tutorials/alchemy/09_inventory_and_workbench';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="4.10. Elementen combineren" href="10_combining_cards.html" />
+    <link rel="prev" title="4.8. Drag and drop" href="08_drag_and_drop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero/01_alien/00_jumping_aliens.html">1. Jumping aliens</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../endless_runner/00_endless_runner.html">2. Endless Runner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/01_preparations.html">2.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/02_background.html">2.2. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/03_animation.html">2.3. Animatie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/04_jumping.html">2.4. Springen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/05_obstacles.html">2.5. Obstakels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/06_scoring_dying.html">2.6. Score en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/07_lives.html">2.7. Levens verliezen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../level_devil/00_level_devil.html">3. Level Devil</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/01_starter_code.html">3.1. Starter code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/02_rectangles.html">3.2. Kamer en valkuilen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/03_player.html">3.3. Player character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/04_player_control.html">3.4. Player besturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/05_traps.html">3.5. Valkuilen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_alchemy.html">4. Alchemy game</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_preparations.html">4.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_lists.html">4.2. Lijsten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alchemytxt.html">4.3. Alchemy tekstversie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_dictionaries.html">4.4. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_files.html">4.5. Bestanden lezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_alchemy_pygame.html">4.6. Alchemy in Pygame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_drawing_elements.html">4.7. Elementen tekenen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_drag_and_drop.html">4.8. Drag and drop</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.9. Venster in twee delen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_combining_cards.html">4.10. Elementen combineren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_resizing_inventory.html">4.11. Formaat inventory wijzigen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero_tutorials/alchemy/09_inventory_and_workbench.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Venster in twee delen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inventory">4.9.1. Inventory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slepen-vanuit-de-inventory-of-workbench">4.9.2. Slepen vanuit de inventory of workbench</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="venster-in-twee-delen">
+<h1><span class="section-number">4.9. </span>Venster in twee delen<a class="headerlink" href="#venster-in-twee-delen" title="Link to this heading">#</a></h1>
+<p>In deze stap gaan we het venster in twee delen splitsen. Aan de linkerkant komt de lijst met elementen die je hebt ontdekt, en aan de rechterkant het gebied waar je elementen kunt combineren. De lijst met elementen noemen we de <em>inventory</em> en het gebied waar je elementen kunt combineren is de <em>workbench</em>.</p>
+<section id="inventory">
+<h2><span class="section-number">4.9.1. </span>Inventory<a class="headerlink" href="#inventory" title="Link to this heading">#</a></h2>
+<p>De gebieden voor de inventory en de workbench zijn twee rechthoeken. Voeg de volgende drie regels toe aan de <code class="code highlight python docutils literal highlight-python"><span class="c1"># WINDOW SETTINGS</span></code> sectie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span><span class="c1"># WINDOW SETTINGS</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="linenos">11</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">450</span>
+<span class="linenos">12</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Alchemy&#39;</span>
+<span class="linenos">13</span>
+<span class="hll"><span class="linenos">14</span><span class="n">inventory_width</span> <span class="o">=</span> <span class="mi">300</span>
+</span><span class="hll"><span class="linenos">15</span><span class="n">inventory_rect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">16</span><span class="n">workbench_rect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="n">inventory_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">))</span>
+</span></pre></div>
+</div>
+<p>Voeg ook een lijst toe voor de elementen in de inventory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="c1"># DICTIONARIES AND LISTS</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">33</span><span class="n">recipes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">34</span><span class="n">workbench</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="hll"><span class="linenos">35</span><span class="n">inventory</span> <span class="o">=</span> <span class="p">[]</span>
+</span></pre></div>
+</div>
+<p>De element cards in de inventory worden naast elkaar getekend, maar als er niet meer genoeg ruimte is, moeten ze naar een volgende regel gaan. Om het rekenwerk een beetje makkelijker te maken, voegen we het volgende <code class="code highlight python docutils literal highlight-python"><span class="k">return</span></code> statement toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">()</span></code> functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 95</span><span class="k">def</span> <span class="nf">draw_element_card</span><span class="p">(</span><span class="n">element_id</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">bordercolor</span><span class="o">=</span><span class="s1">&#39;azure4&#39;</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontcolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">):</span>
+<span class="linenos"> 96</span>   <span class="n">element</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">element_id</span><span class="p">]</span>
+<span class="linenos"> 97</span>   <span class="n">lbl</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+<span class="linenos"> 98</span>   <span class="n">img_name</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+<span class="linenos"> 99</span>   <span class="n">rect</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+<span class="linenos">100</span>   <span class="n">img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;images.</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">ICONSIZE</span><span class="p">,</span> <span class="n">ICONSIZE</span><span class="p">))</span>
+<span class="linenos">101</span>   <span class="n">rect</span><span class="o">.</span><span class="n">topleft</span> <span class="o">=</span> <span class="n">pos</span>
+<span class="linenos">102</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">filled_rect</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">bgcolor</span><span class="p">)</span>
+<span class="linenos">103</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">bordercolor</span><span class="p">)</span>
+<span class="linenos">104</span>   <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">left</span> <span class="o">+</span> <span class="n">LEFTMARGIN</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">top</span> <span class="o">+</span> <span class="n">TOPMARGIN</span><span class="p">))</span>
+<span class="linenos">105</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">lbl</span><span class="p">,</span> <span class="n">midleft</span> <span class="o">=</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">midleft</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">LEFTMARGIN</span> <span class="o">+</span> <span class="n">ICONSIZE</span> <span class="o">+</span> <span class="n">HSPACE</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">midleft</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">FONTSIZE</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">fontcolor</span><span class="p">)</span>
+<span class="hll"><span class="linenos">106</span>   <span class="k">return</span> <span class="n">rect</span>
+</span></pre></div>
+</div>
+<p>Deze regel zorgt ervoor dat de functie het <code class="code highlight python docutils literal highlight-python"><span class="n">Rect</span></code> object van de zojuist getekende element card retourneert, dat we later kunnen gebruiken om de positie van de volgende card te bepalen.</p>
+<p>Voor het tekenen van de inventory maken we een functie <code class="code highlight python docutils literal highlight-python"><span class="n">draw_inventory</span><span class="p">()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">108</span><span class="k">def</span> <span class="nf">draw_inventory</span><span class="p">():</span>
+<span class="linenos">109</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">filled_rect</span><span class="p">(</span><span class="n">inventory_rect</span><span class="p">,</span> <span class="s1">&#39;azure2&#39;</span><span class="p">)</span>
+<span class="linenos">110</span>   <span class="n">last_pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">111</span>   <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">:</span>
+<span class="linenos">112</span>      <span class="n">card_width</span> <span class="o">=</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">width</span>
+<span class="linenos">113</span>      <span class="k">if</span> <span class="p">(</span><span class="n">last_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">card_width</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">inventory_width</span><span class="p">:</span>
+<span class="linenos">114</span>         <span class="n">last_pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">CARD_HEIGHT</span><span class="p">)</span>
+<span class="linenos">115</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">draw_element_card</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">last_pos</span><span class="p">)</span>
+<span class="linenos">116</span>      <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+<span class="linenos">117</span>      <span class="n">last_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">top</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De achtergrond van de inventoryrechthoek maken we <code class="code highlight python docutils literal highlight-python"><span class="n">azure2</span></code>, zodat hij contrasteert met de rest van het venster. In de variabele <code class="code highlight python docutils literal highlight-python"><span class="n">last_pos</span></code> houden we de positie van rechterbovenhoek van de laatste getekende element card bij. Het <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement in regel 113 checkt of het nodig is naar een nieuw regel te gaan. Als de rechterkant van de laatste card verder naar rechts zou komen dan de breedte van de inventory, dan zetten we <code class="code highlight python docutils literal highlight-python"><span class="n">last_pos</span></code> op de linkerbovenhoek van de volgende regel. In regel 116 updaten we het <code class="code highlight python docutils literal highlight-python"><span class="n">Rect</span></code> object van de element card.</p>
+<p>In de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie roepen we nu de <code class="code highlight python docutils literal highlight-python"><span class="n">draw_inventory</span><span class="p">()</span></code> functie aan en we tekenen een lijn om de inventory van de rest van het venster te scheiden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">123</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">124</span>   <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;azure&#39;</span><span class="p">)</span>
+<span class="linenos">125</span>   <span class="n">draw_workbench</span><span class="p">()</span>
+<span class="hll"><span class="linenos">126</span>   <span class="n">draw_inventory</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">127</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">((</span><span class="n">inventory_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">),</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</span><span class="linenos">128</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">129</span>      <span class="n">draw_element_card</span><span class="p">(</span><span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">topleft</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Om te testen voegen we in het hoofdprogramma een paar elementen toe aan de inventory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">137</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="linenos">140</span><span class="n">calc_card_rects</span><span class="p">()</span>
+<span class="hll"><span class="linenos">141</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;fire&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">142</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">143</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;wind&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">144</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;earth&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Test het programma nu uit. Je zou nu een venster moeten zien met aan de linkerkant de inventory met de vier elementen die we hebben toegevoegd. De elementen staan naast elkaar en gaan naar een nieuwe regel als er niet genoeg ruimte is.</p>
+<figure class="align-default">
+<img alt="../../_images/inventory_01.png" src="../../_images/inventory_01.png" />
+</figure>
+<p>De element cards in de inventory kunnen nog niet worden versleept, maar we gaan ze eerst nog iets mooier positioneren. Ze staan nu namelijk dicht tegen elkaar aan en het is mooier als er wat ruimte tussen zit. We voegen een constante toe voor de ruimte tussen de cards:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span><span class="n">inventory_width</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="linenos">15</span><span class="n">inventory_rect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">))</span>
+<span class="linenos">16</span><span class="n">workbench_rect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="n">inventory_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">))</span>
+<span class="hll"><span class="linenos">17</span><span class="n">PADDING</span> <span class="o">=</span> <span class="mi">3</span>
+</span></pre></div>
+</div>
+<p>En we passen de <code class="code highlight python docutils literal highlight-python"><span class="n">draw_inventory</span><span class="p">()</span></code> functie aan om rekening te houden met deze ruimte:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">109</span><span class="k">def</span> <span class="nf">draw_inventory</span><span class="p">():</span>
+<span class="linenos">110</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">filled_rect</span><span class="p">(</span><span class="n">inventory_rect</span><span class="p">,</span> <span class="s1">&#39;azure2&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">111</span>   <span class="n">last_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">PADDING</span><span class="p">,</span> <span class="n">PADDING</span><span class="p">)</span>
+</span><span class="linenos">112</span>   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">:</span>
+<span class="linenos">113</span>      <span class="n">card_width</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">width</span>
+<span class="hll"><span class="linenos">114</span>      <span class="k">if</span> <span class="p">(</span><span class="n">last_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">card_width</span> <span class="o">+</span> <span class="n">PADDING</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">inventory_width</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">115</span>         <span class="n">last_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">PADDING</span><span class="p">,</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">CARD_HEIGHT</span> <span class="o">+</span> <span class="n">PADDING</span><span class="p">)</span>
+</span><span class="linenos">116</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">draw_element_card</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">last_pos</span><span class="p">)</span>
+<span class="linenos">117</span>      <span class="n">i</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+<span class="hll"><span class="linenos">118</span>      <span class="n">last_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">right</span> <span class="o">+</span> <span class="n">PADDING</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">top</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Dit ziet er beter uit:</p>
+<figure class="align-default">
+<img alt="../../_images/inventory_02.png" src="../../_images/inventory_02.png" />
+</figure>
+<p>In het hoofdprogramma hebben we zojuist handmatig vier elementen toegevoegd aan de inventory, maar in de tekstversie van het spel maakten we de functie <code class="code highlight python docutils literal highlight-python"><span class="n">build_recipes</span><span class="p">()</span></code> die automatisch de <em>primes</em> (de basiselementen) kan toevoegen aan de inventory. We kunnen deze functie bijna identiek gebruiken in de Pygame Zero versie. Voeg onderstaande code toe na de <code class="code highlight python docutils literal highlight-python"><span class="n">add_element_to_list</span><span class="p">()</span></code> functie. De regel die verschilt van de tekstversie is gemarkeerd.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">66</span><span class="k">def</span> <span class="nf">build_recipes</span><span class="p">():</span>
+<span class="linenos">67</span>   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;recipes.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="linenos">68</span>      <span class="n">recipes_txt</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">69</span>   <span class="n">first_part</span><span class="p">,</span> <span class="n">second_part</span> <span class="o">=</span> <span class="n">recipes_txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">-</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">70</span>   <span class="n">primes</span> <span class="o">=</span> <span class="n">first_part</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">71</span>   <span class="n">combinations</span> <span class="o">=</span> <span class="n">second_part</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">72</span>   <span class="k">for</span> <span class="n">prime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
+<span class="linenos">73</span>      <span class="k">if</span> <span class="n">prime</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+<span class="linenos">74</span>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Recipe error: unknown prime element.&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">75</span>      <span class="n">add_element_to_list</span><span class="p">(</span><span class="n">prime</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+</span><span class="linenos">76</span>   <span class="k">for</span> <span class="n">combination</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">:</span>
+<span class="linenos">77</span>      <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">combination</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+<span class="linenos">78</span>      <span class="n">ingredients</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="linenos">79</span>      <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ingredients</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">):</span>
+<span class="linenos">80</span>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Recipe error: number of ingredients must be exactly 2.&#39;</span><span class="p">)</span>
+<span class="linenos">81</span>      <span class="k">if</span> <span class="n">ingredients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">elements</span> <span class="ow">or</span> <span class="n">ingredients</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+<span class="linenos">82</span>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Recipe error: unknown ingredients.&#39;</span><span class="p">)</span>
+<span class="linenos">83</span>      <span class="n">ingredients</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="linenos">84</span>      <span class="k">if</span> <span class="n">ingredients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">recipes</span><span class="p">:</span>
+<span class="linenos">85</span>            <span class="n">recipes</span><span class="p">[</span><span class="n">ingredients</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="n">ingredients</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">right</span><span class="p">}</span>
+<span class="linenos">86</span>      <span class="k">else</span><span class="p">:</span>
+<span class="linenos">87</span>            <span class="n">recipes</span><span class="p">[</span><span class="n">ingredients</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">ingredients</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">right</span>
+</pre></div>
+</div>
+<p>Verwijder nu de vier <code class="code highlight python docutils literal highlight-python"><span class="n">add_element_to_list</span><span class="p">()</span></code> aanroepen uit het hoofdprogramma en roep in plaats daarvan de <code class="code highlight python docutils literal highlight-python"><span class="n">build_recipes</span><span class="p">()</span></code> functie aan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">160</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">161</span>
+<span class="linenos">162</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="linenos">163</span><span class="n">calc_card_rects</span><span class="p">()</span>
+<span class="hll"><span class="linenos">164</span><span class="n">build_recipes</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>Run het programma opnieuw. Je zou dezelfde vier elementen in de inventory moeten zien, maar nu zijn ze automatisch toegevoegd vanuit de <code class="code highlight python docutils literal highlight-python"><span class="n">recipes</span><span class="o">.</span><span class="n">txt</span></code> file.</p>
+</section>
+<section id="slepen-vanuit-de-inventory-of-workbench">
+<h2><span class="section-number">4.9.2. </span>Slepen vanuit de inventory of workbench<a class="headerlink" href="#slepen-vanuit-de-inventory-of-workbench" title="Link to this heading">#</a></h2>
+<p>Nu we het venster in twee delen hebben gesplitst, moeten we daar bij het slepen van elementen rekening mee houden. Het maakt namelijk uit of een element vanuit de inventory wordt gesleept of vanuit de workbench. En ook bij het ‘droppen’ van een element moeten we detecteren of dat gebeurt in de inventory of in de workbench.</p>
+<p>In de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> functie plaatsen we een <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement om te controleren of de muis zich in de inventory of in de workbench bevindt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 91</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos"> 92</span>   <span class="k">global</span> <span class="n">dragged</span><span class="p">,</span> <span class="n">dragging</span>
+<span class="hll"><span class="linenos"> 93</span>   <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">inventory_width</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos"> 94</span>      <span class="c1"># Clicked in inventory</span>
+</span><span class="hll"><span class="linenos"> 95</span>      <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos"> 96</span>            <span class="n">r</span> <span class="o">=</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos"> 97</span>            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos"> 98</span>               <span class="n">dragged</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll"><span class="linenos"> 99</span>                  <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+</span><span class="hll"><span class="linenos">100</span>                  <span class="s1">&#39;rect&#39;</span> <span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+</span><span class="hll"><span class="linenos">101</span>                  <span class="s1">&#39;click_pos&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
+</span><span class="hll"><span class="linenos">102</span>               <span class="p">}</span>
+</span><span class="hll"><span class="linenos">103</span>               <span class="n">dragging</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span class="hll"><span class="linenos">104</span>               <span class="k">return</span>
+</span><span class="hll"><span class="linenos">105</span>   <span class="k">else</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">106</span>      <span class="c1"># Clicked in workbench</span>
+</span><span class="linenos">107</span>      <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">workbench</span><span class="p">):</span>
+<span class="linenos">108</span>            <span class="n">r</span> <span class="o">=</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+<span class="linenos">109</span>            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">110</span>               <span class="n">dragged</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">111</span>                  <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+<span class="linenos">112</span>                  <span class="s1">&#39;rect&#39;</span> <span class="p">:</span> <span class="n">r</span><span class="p">,</span>
+<span class="linenos">113</span>                  <span class="s1">&#39;click_pos&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
+<span class="linenos">114</span>               <span class="p">}</span>
+<span class="linenos">115</span>               <span class="n">workbench</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+<span class="linenos">116</span>               <span class="n">dragging</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">117</span>               <span class="k">return</span>
+</pre></div>
+</div>
+<p>In regel 93 controleren we of de x-coördinaat van muis <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code> kleiner is dan de breedte van de inventory. Als dat zo is, dan is de muis in de inventory en gaan we zoeken naar een element card die overeenkomt met de muispositie. De <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop waarmee we dat doen lijkt sterk die in regels 107-117, maar er zijn enkele verschillen:</p>
+<ul class="simple">
+<li><p>De <code class="code highlight python docutils literal highlight-python"><span class="n">workbench</span></code> lijst doorlopen we in omgekeerde volgorde, omdat we de laatst getekende element cards het eerst willen checken. Voor de inventory is dat niet nodig, want daarin overlappen de element cards elkaar niet.</p></li>
+<li><p>Een belangrijker verschil is dat in regel 115 de opgepikte element card wordt verwijderd uit de workbench, terwijl we dat in de inventory niet doen. In de inventory blijven de element cards altijd staan, ook als je ze oppakt.</p></li>
+<li><p>In regel 100 maken we een kopie van de <code class="code highlight python docutils literal highlight-python"><span class="n">Rect</span></code> van de opgepikte element card, zodat we de positie kunnen wijzigen zonder de <code class="code highlight python docutils literal highlight-python"><span class="n">Rect</span></code> van de card in de inventory te veranderen.</p></li>
+</ul>
+<p>Run het programma en sleep elementen vanuit de inventory naar de workbench. Versleep daarna ook elementen binnen de workbench. Je ziet dat van de element cards in de inventory een kopie wordt gemaakt, terwijl de element cards in de workbench daadwerkelijk worden verplaatst. Dit is precies wat we willen.</p>
+<figure class="align-default">
+<img alt="../../_images/drag_and_drop_03.png" src="../../_images/drag_and_drop_03.png" />
+</figure>
+<p>Wat zou er gebeuren als we een element in de inventory droppen? We hebben nog geen code geschreven om die gebeurtenis af te handelen, maar het lijkt erop dat de element card dan verdwijnt. Hoe komt dat, denk je? Als je geen idee hebt, verwissel dan de volgorde van de regels 163 en 164 in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">161</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">162</span>   <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;azure&#39;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">163</span>   <span class="n">draw_workbench</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">164</span>   <span class="n">draw_inventory</span><span class="p">()</span>
+</span><span class="linenos">165</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">((</span><span class="n">inventory_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">),</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="linenos">166</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">167</span>      <span class="n">draw_element_card</span><span class="p">(</span><span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">topleft</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Als we eerst de workbench tekenen en daarna de inventory, dan zie je dat element cards die in de inventory worden gedropt daar gewoon blijven staan. Eerder zagen we dat niet, doordat het inventory gebied bovenop de workbench werd getekend. We lossen het probleem op door in de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_up</span><span class="p">()</span></code> functie te controleren of de element card wordt gedropt in de workbench:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">124</span><span class="k">def</span> <span class="nf">on_mouse_up</span><span class="p">():</span>
+<span class="linenos">125</span>   <span class="k">global</span> <span class="n">dragging</span>
+<span class="linenos">126</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">127</span>      <span class="n">dragging</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="hll"><span class="linenos">128</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">129</span>      <span class="k">if</span> <span class="n">workbench_rect</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">130</span>            <span class="n">add_element_to_list</span><span class="p">(</span><span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">workbench</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class="linenos">131</span>      <span class="n">dragged</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In regel 129 gebruiken we <code class="code highlight python docutils literal highlight-python"><span class="n">workbench_rect</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></code> om te controleren of de <code class="code highlight python docutils literal highlight-python"><span class="n">Rect</span></code> van de opgepikte element card binnen de workbench valt. Als dat zo is, dan voegen we de element card toe aan de workbench. Test de code om te zien of het werkt. Als je een element card in de workbench dropt, dan zou deze daar moeten blijven staan. Maar als een stukje van de card zich buiten de workbench bevindt, dan verdwijnt de card.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08_drag_and_drop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">4.8. </span>Drag and drop</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_combining_cards.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">4.10. </span>Elementen combineren</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inventory">4.9.1. Inventory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slepen-vanuit-de-inventory-of-workbench">4.9.2. Slepen vanuit de inventory of workbench</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

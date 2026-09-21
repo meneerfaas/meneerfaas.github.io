@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.8. Drag and drop &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero_tutorials/alchemy/08_drag_and_drop';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="4.9. Venster in twee delen" href="09_inventory_and_workbench.html" />
+    <link rel="prev" title="4.7. Elementen tekenen" href="07_drawing_elements.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero/01_alien/00_jumping_aliens.html">1. Jumping aliens</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../endless_runner/00_endless_runner.html">2. Endless Runner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/01_preparations.html">2.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/02_background.html">2.2. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/03_animation.html">2.3. Animatie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/04_jumping.html">2.4. Springen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/05_obstacles.html">2.5. Obstakels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/06_scoring_dying.html">2.6. Score en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/07_lives.html">2.7. Levens verliezen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../level_devil/00_level_devil.html">3. Level Devil</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/01_starter_code.html">3.1. Starter code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/02_rectangles.html">3.2. Kamer en valkuilen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/03_player.html">3.3. Player character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/04_player_control.html">3.4. Player besturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/05_traps.html">3.5. Valkuilen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_alchemy.html">4. Alchemy game</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_preparations.html">4.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_lists.html">4.2. Lijsten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alchemytxt.html">4.3. Alchemy tekstversie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_dictionaries.html">4.4. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_files.html">4.5. Bestanden lezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_alchemy_pygame.html">4.6. Alchemy in Pygame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_drawing_elements.html">4.7. Elementen tekenen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.8. Drag and drop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_inventory_and_workbench.html">4.9. Venster in twee delen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_combining_cards.html">4.10. Elementen combineren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_resizing_inventory.html">4.11. Formaat inventory wijzigen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero_tutorials/alchemy/08_drag_and_drop.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Drag and drop</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workbench-list">4.8.1. Workbench list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecteren-slepen-en-loslaten">4.8.2. Selecteren, slepen en loslaten</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="drag-and-drop">
+<h1><span class="section-number">4.8. </span>Drag and drop<a class="headerlink" href="#drag-and-drop" title="Link to this heading">#</a></h1>
+<p>De speler moet element cards met de muis kunnen verslepen. In het Engels noem je dit <em>drag and drop</em>. Om deze functionaliteit te implementeren, gebruiken we de drie mouse event handlers van Pygame Zero:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_move</span><span class="p">()</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_up</span><span class="p">()</span></code></p></li>
+</ul>
+<p>Meer informatie over deze functies vind je in de <a class="reference external" href="https://pygame-zero.readthedocs.io/en/stable/hooks.html#event-handling-hooks">Pygame Zero documentatie:</a>.</p>
+<section id="workbench-list">
+<h2><span class="section-number">4.8.1. </span>Workbench list<a class="headerlink" href="#workbench-list" title="Link to this heading">#</a></h2>
+<p>In het volgende deel gaan we het spelvenster in twee delen splitsen. Aan de linkerkant komt een lijst met de elementen die de speler heeft ontdekt. Aan de rechterkant komt het werkgebied waar de speler elementen kan combineren. Dit werkgebied noemen we de <em>workbench</em>. Om bij te houden welke element cards zich in de workbench bevinden, maken we een lijst genaamd <code class="code highlight python docutils literal highlight-python"><span class="n">workbench</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">26</span><span class="c1"># DICTIONARIES AND LISTS</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">29</span><span class="n">recipes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="hll"><span class="linenos">30</span><span class="n">workbench</span> <span class="o">=</span> <span class="p">[]</span>
+</span></pre></div>
+</div>
+<p>Voor het toevoegen van elementen aan een lijst maken we een nieuwe helper functie genaamd <code class="code highlight python docutils literal highlight-python"><span class="n">add_element_to_list</span><span class="p">()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">47</span><span class="k">def</span> <span class="nf">add_element_to_list</span><span class="p">(</span><span class="n">element_id</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="n">rect</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="linenos">48</span>   <span class="k">if</span> <span class="n">rect</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">49</span>      <span class="n">rect</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">element_id</span><span class="p">][</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="linenos">50</span>   <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+<span class="linenos">51</span>      <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">element_id</span><span class="p">,</span>
+<span class="linenos">52</span>      <span class="s1">&#39;rect&#39;</span><span class="p">:</span> <span class="n">rect</span>
+<span class="linenos">53</span>   <span class="p">})</span>
+</pre></div>
+</div>
+<p>Zoals je ziet, heeft de functie drie parameters:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">element_id</span></code>: de key van het element dat we willen toevoegen.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">lst</span></code>: de lijst waaraan we het element willen toevoegen.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code>: de rect van het element. Als deze waarde niet wordt meegegeven in de aanroep, krijgt <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> de default waarde <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>.</p></li>
+</ul>
+<p>De eerste actie die de functie uitvoert, is controleren of de <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> parameter de waarde <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code> heeft. Als dat het geval is, wordt een kopie gemaakt van de <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> van het element zoals dat in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary staat. Vervolgens voegen we een dictionary toe aan de lijst. Deze dictionary bevat de <code class="code highlight python docutils literal highlight-python"><span class="nb">id</span></code> van het element en de <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> van het element. Deze twee gegevens zijn namelijk voldoende om het element later weer te kunnen tekenen in de workbench.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Waarom een kopie van de rect?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Je vraagt je misschien af waarom we een kopie van de rect maken. Waarom zouden we niet gewoon zeggen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">49</span>      <span class="n">rect</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">element_id</span><span class="p">][</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="sd-card-text">We maken een kopie omdat we de rect van het element in de workbench willen kunnen aanpassen zonder dat dit invloed heeft op de rect van het element in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary. Als we geen kopie zouden maken, zou het aanpassen van de rect in de workbench ook de rect in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary aanpassen.</p>
+</div>
+</details><p>Aan het hoofdprogramma voegen we tijdelijk twee regels toe om de functie te testen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">78</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">79</span>
+<span class="linenos">80</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="linenos">81</span><span class="n">calc_card_rects</span><span class="p">()</span>
+<span class="hll"><span class="linenos">82</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;fire&#39;</span><span class="p">,</span> <span class="n">workbench</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">83</span><span class="nb">print</span><span class="p">(</span><span class="n">workbench</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Met regel 83 kunnen we in de console zien of de functie werkt. Als je het programma nu uitvoert, zou je in de console de volgende output moeten zien:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[{&#39;id&#39;: &#39;fire&#39;, &#39;rect&#39;: &lt;rect(0, 0, 91, 38)&gt;}]
+</pre></div>
+</div>
+<p>Verwijder regel 83 weer uit het programma en voeg onder de <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">()</span></code> functie een nieuwe functie toe die de elementen in de workbench tekent:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">69</span><span class="k">def</span> <span class="nf">draw_workbench</span><span class="p">():</span>
+<span class="linenos">70</span>   <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">workbench</span><span class="p">:</span>
+<span class="linenos">71</span>      <span class="n">draw_element_card</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">topleft</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deze functie roepen we aan in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie. Vervang de aanroep <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">(</span><span class="s1">&#39;earth&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span></code> in regel 75 door <code class="code highlight python docutils literal highlight-python"><span class="n">draw_workbench</span><span class="p">()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">73</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">74</span>   <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;azure&#39;</span><span class="p">)</span>
+<span class="linenos">75</span>   <span class="n">draw_workbench</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Run de code en je zou nu een element card van het element vuur moeten zien in de workbench.</p>
+<figure class="align-default">
+<img alt="../../_images/workbench_list_test.png" src="../../_images/workbench_list_test.png" />
+</figure>
+</section>
+<section id="selecteren-slepen-en-loslaten">
+<h2><span class="section-number">4.8.2. </span>Selecteren, slepen en loslaten<a class="headerlink" href="#selecteren-slepen-en-loslaten" title="Link to this heading">#</a></h2>
+<p>Om bij te houden of de speler een element card aan het verslepen is, maken we twee nieuwe variabelen aan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">26</span><span class="c1"># DICTIONARIES AND LISTS</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">29</span><span class="n">recipes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">30</span><span class="n">workbench</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">31</span>
+<span class="hll"><span class="linenos">32</span><span class="c1"># VARIABLES</span>
+</span><span class="hll"><span class="linenos">33</span>
+</span><span class="hll"><span class="linenos">34</span><span class="n">dragging</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span class="hll"><span class="linenos">35</span><span class="n">dragged</span> <span class="o">=</span> <span class="p">{}</span>
+</span></pre></div>
+</div>
+<p>De variabele <code class="code highlight python docutils literal highlight-python"><span class="n">dragging</span></code> is een boolean die aangeeft of de speler een element card aan het verslepen is. De variabele <code class="code highlight python docutils literal highlight-python"><span class="n">dragged</span></code> is een dictionary die de gegevens van het element dat de speler aan het verslepen is gaat bevatten.</p>
+<p>Nu gaan we de drie mouse event handlers implementeren. We beginnen met de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">60</span><span class="c1"># MOUSE EVENTS</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">63</span>   <span class="k">global</span> <span class="n">dragged</span><span class="p">,</span> <span class="n">dragging</span>
+<span class="linenos">64</span>   <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">workbench</span><span class="p">:</span>
+<span class="linenos">65</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+<span class="linenos">66</span>      <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">67</span>            <span class="n">dragged</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">68</span>               <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+<span class="linenos">69</span>               <span class="s1">&#39;rect&#39;</span> <span class="p">:</span> <span class="n">r</span>
+<span class="linenos">70</span>            <span class="p">}</span>
+<span class="linenos">71</span>            <span class="n">workbench</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+<span class="linenos">72</span>            <span class="n">dragging</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">73</span>            <span class="k">return</span>
+</pre></div>
+</div>
+<p>De <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> functie wordt aangeroepen wanneer de speler op de muisknop klikt. De functie loopt alle element cards in de workbench na en controleert of de muisklik binnen de rect van een element card valt. Als dat het geval is, wordt de <code class="code highlight python docutils literal highlight-python"><span class="n">dragged</span></code> dictionary gevuld met de gegevens van het element. Vervolgens verwijderen we het element uit de workbench. Dat lijkt misschien een beetje vreemd. Je kunt dit zien alsof de speler het element van de werkbank pakt, waardoor het in de lucht zweeft en niet op de werkbank ligt. Straks in de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_up</span><span class="p">()</span></code> functie zullen we het element weer toevoegen. In regel 72 wordt de <code class="code highlight python docutils literal highlight-python"><span class="n">dragging</span></code> variabele op <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code> gezet om aan te geven dat de speler een element card aan het verslepen is. De <code class="code highlight python docutils literal highlight-python"><span class="k">return</span></code> in regel 73 zorgt ervoor dat we de functie <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> direct verlaten (en dus ook niet verder gaan met de <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop) zodra we een element hebben gevonden dat de speler heeft aangeklikt.</p>
+<p>In de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_move</span><span class="p">()</span></code> functie gaan we controleren of de speler een element aan het verslepen is. Als dat het geval is, verplaatsen we de rect van het element naar de positie van de muis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">75</span><span class="k">def</span> <span class="nf">on_mouse_move</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">76</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">77</span>      <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">78</span>      <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>De parameter <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span></code> bevat de positie van de muis, opgeslagen in een tuple. De x-coördinaat van de muis is de eerste waarde in de tuple, de y-coördinaat de tweede waarde. Met <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code> krijgen we dus respectievelijk de x- en y-coördinaat van de muis.</p>
+<p>Tenslotte implementeren we de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_up</span><span class="p">()</span></code> functie. Deze functie wordt aangeroepen wanneer de speler de muisknop loslaat. We controleren of de speler een element aan het verslepen is en voegen het element weer toe aan de workbench:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">80</span><span class="k">def</span> <span class="nf">on_mouse_up</span><span class="p">():</span>
+<span class="linenos">81</span>   <span class="k">global</span> <span class="n">dragging</span>
+<span class="linenos">82</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">83</span>      <span class="n">dragging</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">84</span>      <span class="n">add_element_to_list</span><span class="p">(</span><span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">workbench</span><span class="p">,</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">])</span>
+<span class="linenos">85</span>      <span class="n">dragged</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Als het goed is, spreekt deze code voor zich. We zetten de <code class="code highlight python docutils literal highlight-python"><span class="n">dragging</span></code> variabele op <code class="code highlight python docutils literal highlight-python"><span class="kc">False</span></code>, voegen het element weer toe aan de workbench (nu met de <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> van de huidige positie) en legen de <code class="code highlight python docutils literal highlight-python"><span class="n">dragged</span></code> dictionary.</p>
+<p>Run de code om te zien dat je het element kunt verslepen. Er is echter nog wel iets vreemds aan de hand: tijdens het slepen is het element onzichtbaar! Dit komt doordat tijdens het slepen het element zich niet in de <code class="code highlight python docutils literal highlight-python"><span class="n">workbench</span></code> lijst bevindt en dus ook niet wordt getekend. Voeg het volgende <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">105</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">106</span>   <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;azure&#39;</span><span class="p">)</span>
+<span class="linenos">107</span>   <span class="n">draw_workbench</span><span class="p">()</span>
+<span class="hll"><span class="linenos">108</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">109</span>      <span class="n">draw_element_card</span><span class="p">(</span><span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">topleft</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Dit zorgt ervoor dat het element dat de speler aan het verslepen is, wordt getekend met een gele achtergrond. Dit maakt het ook makkelijker om te zien waar het element zich bevindt tijdens het slepen.</p>
+<figure class="align-default">
+<img alt="../../_images/drag_and_drop.png" src="../../_images/drag_and_drop.png" />
+</figure>
+<p>Valt je iets op tijdens het verslepen van de element card? Wanneer je start met slepen, verspringt de card zodat de linkerbovenhoek van de card precies op de muispositie komt te liggen. Dat komt door de twee regels in de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_move</span><span class="p">()</span></code> functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">77</span>     <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">78</span>     <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>De <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">y</span></code> van een <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> verwijzen altijd naar de linkerbovenhoek van de <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code>. Om te voorkomen dat de card verspringt, moeten we de positie van de muis <em>ten opzichte van de linkerbovenhoek van de card</em> berekenen. Voeg de volgende regel toe aan de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">62</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">63</span>   <span class="k">global</span> <span class="n">dragged</span><span class="p">,</span> <span class="n">dragging</span>
+<span class="linenos">64</span>   <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">workbench</span><span class="p">:</span>
+<span class="linenos">65</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+<span class="linenos">66</span>      <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">67</span>            <span class="n">dragged</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">68</span>               <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+<span class="linenos">69</span>               <span class="s1">&#39;rect&#39;</span> <span class="p">:</span> <span class="n">r</span><span class="p">,</span>
+<span class="hll"><span class="linenos">70</span>               <span class="s1">&#39;click_pos&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span><span class="linenos">71</span>            <span class="p">}</span>
+<span class="linenos">72</span>            <span class="n">workbench</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+<span class="linenos">73</span>            <span class="n">dragging</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">74</span>            <span class="k">return</span>
+</pre></div>
+</div>
+<p>En wijzig de twee regels in de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_move</span><span class="p">()</span></code> functie naar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">76</span><span class="k">def</span> <span class="nf">on_mouse_move</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">77</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="hll"><span class="linenos">78</span>      <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;click_pos&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">79</span>      <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;click_pos&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<p>Wat gebeurt hier precies? In regel 70 berekenen we met <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span></code> de horizontale en de verticale afstand tussen de muispositie en de linkerbovenhoek van de card. Deze afstanden slaan we op als een tuple in de <code class="code highlight python docutils literal highlight-python"><span class="n">dragged</span></code> dictionary onder de key <code class="code highlight python docutils literal highlight-python"><span class="n">click_pos</span></code>. In de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_move</span><span class="p">()</span></code> functie gebruiken we de afstanden weer om de juiste positie van de linkerbovenhoek van de card te berekenen. Nu verspringt de card niet meer wanneer je begint met slepen.</p>
+<p>Om nog iets beter te testen of de drag and drop goed werkt, voegen we een tweede element toe aan de workbench:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">117</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="linenos">120</span><span class="n">calc_card_rects</span><span class="p">()</span>
+<span class="linenos">121</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;fire&#39;</span><span class="p">,</span> <span class="n">workbench</span><span class="p">)</span>
+<span class="hll"><span class="linenos">122</span><span class="n">add_element_to_list</span><span class="p">(</span><span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="n">workbench</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Test de code door de twee elementen te verslepen en let vooral op wat er gebeurt als de twee elementen elkaar overlappen. De element card die bovenop ligt, is de card die je als laatste hebt versleept. Wanneer je echter met de muis klikt op een positie die binnen beide elementen valt, wordt niet het bovenste element geselecteerd, maar het onderste. Dat is niet wat je als speler zou verwachten. Kun je zelf bedenken wat de oorzaak hiervan is?</p>
+<p>De functie <code class="code highlight python docutils literal highlight-python"><span class="n">draw_workbench</span><span class="p">()</span></code> tekent de element cards in de volgorde waarin ze zijn toegevoegd aan de lijst. Het laatst toegevoegde element wordt dus bovenop de andere elementen getekend. Bij het selecteren van een element in de <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code> functie wordt de lijst echter van het begin tot het einde doorlopen en het eerste element waarmee een collision wordt gedetecteerd, wordt geselecteerd. Dit is dus het element dat het eerst in de lijst staat, en dat is het onderste element. We kunnen dit oplossen door in <code class="code highlight python docutils literal highlight-python"><span class="n">on_mouse_down</span><span class="p">()</span></code>  de lijst in omgekeerde volgorde te doorlopen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">62</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">63</span>   <span class="k">global</span> <span class="n">dragged</span><span class="p">,</span> <span class="n">dragging</span>
+<span class="hll"><span class="linenos">64</span>   <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">workbench</span><span class="p">):</span>
+</span><span class="linenos">65</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+<span class="linenos">66</span>      <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">67</span>            <span class="n">dragged</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">68</span>               <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="n">card</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+<span class="linenos">69</span>               <span class="s1">&#39;rect&#39;</span> <span class="p">:</span> <span class="n">r</span><span class="p">,</span>
+<span class="linenos">70</span>               <span class="s1">&#39;click_pos&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">71</span>            <span class="p">}</span>
+<span class="linenos">72</span>            <span class="n">workbench</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+<span class="linenos">73</span>            <span class="n">dragging</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">74</span>            <span class="k">return</span>
+</pre></div>
+</div>
+<p>Test nogmaals het programma. Nu zou alles moeten werken zoals je verwacht: het bovenste element wordt geselecteerd wanneer je erop klikt.</p>
+<figure class="align-default">
+<img alt="../../_images/drag_and_drop_02.png" src="../../_images/drag_and_drop_02.png" />
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="07_drawing_elements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">4.7. </span>Elementen tekenen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="09_inventory_and_workbench.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">4.9. </span>Venster in twee delen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workbench-list">4.8.1. Workbench list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecteren-slepen-en-loslaten">4.8.2. Selecteren, slepen en loslaten</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
