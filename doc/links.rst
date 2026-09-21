@@ -17,7 +17,7 @@ Boeken
 ---------------------------
 .. card-carousel:: 3
 
-    .. card::
+    .. card:: Pieter Spronck
         :link: https://www.spronck.net/pythonbook/dutchindex.xhtml
         :link-alt: De Programmeursleerling
 
@@ -25,7 +25,7 @@ Boeken
            :alt: De Programmeursleerling
            :width: 256px
 
-    .. card::
+    .. card:: Al Sweigart
         :link: https://inventwithpython.com/
         :link-alt: Al Sweigart Books
 

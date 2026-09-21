@@ -47,6 +47,7 @@ Programmeren in Python
    :caption: Pygame Zero Tutorials
 
    pygame_zero_tutorials/fruit_catcher/00_fruitcatcher
+   pygame_zero_tutorials/endless_runner/00_endless_runner
 
 .. toctree::
    :maxdepth: 1

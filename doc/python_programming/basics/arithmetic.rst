@@ -27,16 +27,16 @@ In het dagelijks leven gebruiken we meestal de symbolen :math:`+`, :math:`-`, :m
           - Python
         * - Optellen
           - :math:`+`
-          - :math:`+`
+          - :tt:`+`
         * - Aftrekken
           - :math:`-`
-          - :math:`-`
+          - :tt:`-`
         * - Vermenigvuldigen
           - :math:`\times`
-          - :math:`*`
+          - :tt:`*`
         * - Delen
           - :math:`:`
-          - :math:`/`
+          - :tt:`/`
 
 Probeer de rekenkundige operatoren eens uit in de shell. Voer bijvoorbeeld de volgende berekeningen in en druk telkens op :kbd:`Enter` om Python het antwoord te laten geven:
 
