@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.11. Formaat inventory wijzigen &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero_tutorials/alchemy/11_resizing_inventory';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="Verklarende woordenlijst" href="../../glossary.html" />
+    <link rel="prev" title="4.10. Elementen combineren" href="10_combining_cards.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero/01_alien/00_jumping_aliens.html">1. Jumping aliens</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../endless_runner/00_endless_runner.html">2. Endless Runner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/01_preparations.html">2.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/02_background.html">2.2. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/03_animation.html">2.3. Animatie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/04_jumping.html">2.4. Springen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/05_obstacles.html">2.5. Obstakels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/06_scoring_dying.html">2.6. Score en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/07_lives.html">2.7. Levens verliezen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../level_devil/00_level_devil.html">3. Level Devil</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/01_starter_code.html">3.1. Starter code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/02_rectangles.html">3.2. Kamer en valkuilen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/03_player.html">3.3. Player character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/04_player_control.html">3.4. Player besturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/05_traps.html">3.5. Valkuilen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_alchemy.html">4. Alchemy game</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_preparations.html">4.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_lists.html">4.2. Lijsten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alchemytxt.html">4.3. Alchemy tekstversie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_dictionaries.html">4.4. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_files.html">4.5. Bestanden lezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_alchemy_pygame.html">4.6. Alchemy in Pygame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_drawing_elements.html">4.7. Elementen tekenen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_drag_and_drop.html">4.8. Drag and drop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_inventory_and_workbench.html">4.9. Venster in twee delen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_combining_cards.html">4.10. Elementen combineren</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.11. Formaat inventory wijzigen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero_tutorials/alchemy/11_resizing_inventory.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Formaat inventory wijzigen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="formaat-inventory-wijzigen">
+<h1><span class="section-number">4.11. </span>Formaat inventory wijzigen<a class="headerlink" href="#formaat-inventory-wijzigen" title="Link to this heading">#</a></h1>
+<p>De breedte van de inventory hebben met <code class="code python docutils literal notranslate"><span class="pre">inventory_width</span> <span class="pre">=</span> <span class="pre">300</span></code> ingesteld op 300 pixels. We kunnen de speler de mogelijkheid geven om de breedte van de inventory te wijzigen door de muiscursor op de rand tussen de inventory en de workbench te plaatsen en vervolgens te slepen. Hiervoor maken we eerst twee nieuwe variabelen aan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span><span class="c1"># WINDOW SETTINGS</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="linenos">11</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">450</span>
+<span class="linenos">12</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Alchemy&#39;</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="n">inventory_width</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="hll"><span class="linenos">15</span><span class="n">inventory_min_width</span> <span class="o">=</span> <span class="mi">300</span>
+</span><span class="linenos">16</span><span class="n">inventory_rect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">))</span>
+<span class="linenos">17</span><span class="n">workbench_rect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="n">inventory_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="n">inventory_width</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">))</span>
+<span class="linenos">18</span><span class="n">PADDING</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c1"># CARD SETTINGS</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="n">ICONSIZE</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="linenos">23</span><span class="n">LEFTMARGIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">24</span><span class="n">RIGHTMARGIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos">25</span><span class="n">TOPMARGIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">26</span><span class="n">BOTTOMMARGIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">27</span><span class="n">HSPACE</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos">28</span><span class="n">FONTSIZE</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="linenos">29</span><span class="n">card_font</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">SysFont</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">FONTSIZE</span><span class="p">)</span>
+<span class="linenos">30</span><span class="n">CARD_HEIGHT</span> <span class="o">=</span> <span class="n">TOPMARGIN</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">ICONSIZE</span><span class="p">,</span> <span class="n">FONTSIZE</span><span class="p">)</span> <span class="o">+</span> <span class="n">BOTTOMMARGIN</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="c1"># DICTIONARIES AND LISTS</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">35</span><span class="n">recipes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">36</span><span class="n">workbench</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">37</span><span class="n">inventory</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="c1"># VARIABLES</span>
+<span class="linenos">40</span>
+<span class="hll"><span class="linenos">41</span><span class="n">resizing</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span class="linenos">42</span><span class="n">dragging</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">43</span><span class="n">dragged</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">44</span><span class="n">other</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>De <code class="code python docutils literal notranslate"><span class="pre">inventory_min_width</span></code> variabele geeft de minimaal benodigde breedte van de inventory aan. We zetten deze in eerste instantie even op 300 pixels, maar gaan de juiste waarde straks berekenen in de <code class="code python docutils literal notranslate"><span class="pre">calc_card_rects()</span></code> functie. De boolean variabele <code class="code python docutils literal notranslate"><span class="pre">resizing</span></code> geeft aan of de speler het formaat van de inventory aan het aanpassen is. We zetten deze standaard op <code class="code python docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>In de <code class="code python docutils literal notranslate"><span class="pre">calc_card_rects()</span></code> functie berekenen we de juiste waarde van <code class="code python docutils literal notranslate"><span class="pre">inventory_min_width</span></code> door de breedte van de grootste card in de inventory te nemen en daar 2 keer de <code class="code python docutils literal notranslate"><span class="pre">PADDING</span></code> waarde bij op te tellen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span><span class="k">def</span> <span class="nf">calc_card_rects</span><span class="p">():</span>
+<span class="hll"><span class="linenos"> 9</span>   <span class="k">global</span> <span class="n">inventory_min_width</span>
+</span><span class="hll"><span class="linenos">10</span>   <span class="n">max_card_width</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="linenos">11</span>   <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">12</span>      <span class="n">lbl_width</span><span class="p">,</span> <span class="n">lbl_height</span> <span class="o">=</span> <span class="n">card_font</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+<span class="linenos">13</span>      <span class="n">rect_width</span> <span class="o">=</span> <span class="n">LEFTMARGIN</span> <span class="o">+</span> <span class="n">ICONSIZE</span> <span class="o">+</span> <span class="n">HSPACE</span> <span class="o">+</span> <span class="n">lbl_width</span> <span class="o">+</span> <span class="n">RIGHTMARGIN</span>
+<span class="linenos">14</span>      <span class="n">rect_height</span> <span class="o">=</span> <span class="n">CARD_HEIGHT</span>
+<span class="linenos">15</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">rect_width</span><span class="p">,</span> <span class="n">rect_height</span><span class="p">))</span>
+<span class="hll"><span class="linenos">16</span>      <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">inventory_width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PADDING</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">17</span>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Width of element </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="se">\&quot;</span><span class="s1"> (</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s1"> px) too large for side bar (</span><span class="si">{</span><span class="n">inventory_width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PADDING</span><span class="si">}</span><span class="s1"> px).&#39;</span><span class="p">)</span>
+</span><span class="linenos">18</span>      <span class="n">elements</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+<span class="hll"><span class="linenos">19</span>      <span class="n">max_card_width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_card_width</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">20</span>   <span class="n">inventory_min_width</span> <span class="o">=</span> <span class="n">max_card_width</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PADDING</span>
+</span></pre></div>
+</div>
+<p>In regel 10 maken we een lokale variabele <code class="code python docutils literal notranslate"><span class="pre">max_card_width</span></code> aan die we gaan gebruiken om de breedte van de grootste card in de inventory te bepalen. In de <code class="code python docutils literal notranslate"><span class="pre">for</span></code> loop zetten we op regel 19 de waarde van <code class="code python docutils literal notranslate"><span class="pre">max_card_width</span></code> op <code class="code python docutils literal notranslate"><span class="pre">max(max_card_width,</span> <span class="pre">r.width)</span></code>, oftewel de grootste waarde van <code class="code python docutils literal notranslate"><span class="pre">max_card_width</span></code> en <code class="code python docutils literal notranslate"><span class="pre">r.width</span></code>. Dat betekent: als <code class="code python docutils literal notranslate"><span class="pre">max_card_width</span></code> groter is dan de breedte van de huidige card, dan blijft de waarde van <code class="code python docutils literal notranslate"><span class="pre">max_card_width</span></code> gelijk. Is de breedte van de huidige card echter groter, dan wordt <code class="code python docutils literal notranslate"><span class="pre">max_card_width</span></code> aangepast naar die waarde. <br/>
+In regels 16 en 17 is een extra check toegevoegd om ervoor te zorgen dat de breedte van de element cards niet te groot is voor de inventory.</p>
+<p>Nu moeten we nog de drie mouse event handlers aanpassen om het resizen van de inventory mogelijk te maken. Maar voordat we dat doen, maken we een eenvoudige functie om te checken of de muiscursor op de rand van de inventory staat:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">107</span><span class="k">def</span> <span class="nf">mouse_on_resize</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="linenos">108</span>   <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">inventory_width</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Als de absolute waarde van het verschil tussen de x-coördinaat van de muiscursor en de breedte van de inventory kleiner of gelijk is aan 2, dan retourneert de functie <code class="code python docutils literal notranslate"><span class="pre">mouse_on_resize()</span></code> <code class="code python docutils literal notranslate"><span class="pre">True</span></code> en anders <code class="code python docutils literal notranslate"><span class="pre">False</span></code>. Er is dus een marge van 2 pixels aan beide zijden van de rand van de inventory.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Absolute waarde</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De absolute waarde van een getal is de waarde zonder teken. Dus de absolute waarde van <code class="code python docutils literal notranslate"><span class="pre">-5</span></code> is <code class="code python docutils literal notranslate"><span class="pre">5</span></code> en de absolute waarde van <code class="code python docutils literal notranslate"><span class="pre">5</span></code> is ook <code class="code python docutils literal notranslate"><span class="pre">5</span></code>. In Python kun je de absolute waarde van een getal berekenen met de <code class="code python docutils literal notranslate"><span class="pre">abs()</span></code> functie.</p>
+<p class="sd-card-text">In regel 108 gebruiken we deze functie omdat de muis zowel links als rechts van de rand van de inventory kan staan. Als de muis links van de rand staat, is het verschil <code class="code python docutils literal notranslate"><span class="pre">pos[0]</span> <span class="pre">-</span> <span class="pre">inventory_width</span></code>  negatief en als de muis rechts van de rand staat, is het verschil positief. Door de absolute waarde te nemen, kunnen we beide gevallen op dezelfde manier behandelen.</p>
+</div>
+</details><p>In de <code class="code python docutils literal notranslate"><span class="pre">on_mouse_down()</span></code> functie moeten we nu checken of de muiscursor op de rand van de inventory staat. Als dat het geval is, zetten we de <code class="code python docutils literal notranslate"><span class="pre">resizing</span></code> variabele op <code class="code python docutils literal notranslate"><span class="pre">True</span></code> en verlaten meteen de functie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">110</span><span class="k">def</span> <span class="nf">on_mouse_down</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="hll"><span class="linenos">111</span>   <span class="k">global</span> <span class="n">dragged</span><span class="p">,</span> <span class="n">dragging</span><span class="p">,</span> <span class="n">resizing</span>
+</span><span class="hll"><span class="linenos">112</span>   <span class="k">if</span> <span class="n">mouse_on_resize</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">113</span>      <span class="n">resizing</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span class="hll"><span class="linenos">114</span>      <span class="k">return</span>
+</span><span class="linenos">115</span>   <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">inventory_width</span><span class="p">:</span>
+<span class="linenos">116</span>      <span class="c1"># Clicked in inventory</span>
+<span class="linenos">117</span>      <span class="o">...</span>
+</pre></div>
+</div>
+<p>In <code class="code python docutils literal notranslate"><span class="pre">on_mouse_move()</span></code> breiden we het <code class="code python docutils literal notranslate"><span class="pre">if</span></code> statement als volgt uit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">143</span><span class="k">def</span> <span class="nf">on_mouse_move</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="hll"><span class="linenos">144</span>   <span class="k">global</span> <span class="n">other</span><span class="p">,</span> <span class="n">inventory_width</span>
+</span><span class="linenos">145</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">146</span>      <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;click_pos&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">147</span>      <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;click_pos&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">148</span>      <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">workbench</span><span class="p">):</span>
+<span class="linenos">149</span>            <span class="k">if</span> <span class="n">dragged</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">colliderect</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]):</span>
+<span class="linenos">150</span>               <span class="n">other</span> <span class="o">=</span> <span class="n">index</span>
+<span class="linenos">151</span>               <span class="k">return</span>
+<span class="linenos">152</span>      <span class="n">other</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="hll"><span class="linenos">153</span>   <span class="k">elif</span> <span class="n">resizing</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">154</span>      <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">inventory_min_width</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">155</span>            <span class="n">inventory_width</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">156</span>            <span class="n">invalidate_window</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">157</span>   <span class="k">else</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">158</span>      <span class="k">if</span> <span class="n">mouse_on_resize</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">159</span>            <span class="n">pygame</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">set_cursor</span><span class="p">(</span><span class="n">pygame</span><span class="o">.</span><span class="n">SYSTEM_CURSOR_SIZEWE</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">160</span>      <span class="k">else</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">161</span>            <span class="n">pygame</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">set_cursor</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>Als de speler aan het resizen is, controleren we of de muiscursor zich rechts van de minimale breedte van de inventory bevindt. Als dat zo is, passen we de breedte van de inventory aan naar de x-coördinaat van de muiscursor en roepen we <code class="code python docutils literal notranslate"><span class="pre">invalidate_window()</span></code> aan. Deze functie, die we nog moeten maken, zorgt ervoor dat het venster opnieuw wordt getekend. <br/>
+Als de speler geen element aan het slepen is en ook niet bezig is met resizen, dan controleren we of de muiscursor op de rand van de inventory staat. Als dat zo is, veranderen we de vorm van de muiscursor om de speler te laten zien dat hij de breedte van de inventory kan aanpassen.</p>
+<p>Aan de <code class="code python docutils literal notranslate"><span class="pre">on_mouse_up()</span></code> functie voegen we de volgende code toe:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">163</span><span class="k">def</span> <span class="nf">on_mouse_up</span><span class="p">():</span>
+<span class="hll"><span class="linenos">164</span>   <span class="k">global</span> <span class="n">dragging</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">resizing</span>
+</span><span class="hll"><span class="linenos">165</span>   <span class="k">if</span> <span class="n">resizing</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">166</span>      <span class="n">resizing</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span class="hll"><span class="linenos">167</span>      <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">workbench</span><span class="o">.</span><span class="n">copy</span><span class="p">():</span>
+</span><span class="hll"><span class="linenos">168</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">workbench_rect</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]):</span>
+</span><span class="hll"><span class="linenos">169</span>               <span class="n">workbench</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">170</span>      <span class="k">return</span>
+</span><span class="linenos">171</span>   <span class="k">if</span> <span class="n">dragging</span><span class="p">:</span>
+<span class="linenos">172</span>      <span class="n">dragging</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">173</span>      <span class="o">...</span>
+</pre></div>
+</div>
+<p>Als de speler bezig was met resizen en de muisknop wordt losgelaten, zetten we de <code class="code python docutils literal notranslate"><span class="pre">resizing</span></code> variabele weer op <code class="code python docutils literal notranslate"><span class="pre">False</span></code>. We verwijderen ook alle cards uit de workbench die niet meer in het werkgebied passen. Met <code class="code python docutils literal notranslate"><span class="pre">return</span></code> zorgen we ervoor dat de rest van de functie niet wordt uitgevoerd.</p>
+<p>Zoals gezegd, moeten we nog de <code class="code python docutils literal notranslate"><span class="pre">invalidate_window()</span></code> functie maken. Deze functie zorgt ervoor dat de breedte van de inventory en de workbench worden aangepast aan de nieuwe breedte van het venster:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">105</span><span class="k">def</span> <span class="nf">invalidate_window</span><span class="p">():</span>
+<span class="linenos">106</span>   <span class="n">inventory_rect</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">inventory_width</span>
+<span class="linenos">107</span>   <span class="n">workbench_rect</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">inventory_width</span>
+<span class="linenos">108</span>   <span class="n">workbench_rect</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">-</span> <span class="n">inventory_rect</span><span class="o">.</span><span class="n">width</span>
+</pre></div>
+</div>
+<p>Run het spel. Als het goed is, kun je nu de breedte van de inventory veranderen.</p>
+<figure class="align-default">
+<img alt="../../_images/resize.png" src="../../_images/resize.png" />
+</figure>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10_combining_cards.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">4.10. </span>Elementen combineren</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../glossary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">Verklarende woordenlijst</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

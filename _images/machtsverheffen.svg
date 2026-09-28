@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Gegenereerd door Microsoft Visio, SVG Export machtsverheffen.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="2.8937in" height="0.492126in"
+		viewBox="0 0 208.346 35.4331" xml:space="preserve" color-interpolation-filters="sRGB" class="st6">
+	<v:documentProperties v:langID="1043" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#000000;font-family:Calibri;font-size:3em}
+		.st3 {baseline-shift:32.4951%;font-size:0.649902em}
+		.st4 {fill:#a5a5a5;stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+		.st5 {fill:#a5a5a5;font-family:Calibri;font-size:1.16666em}
+		.st6 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Pagina-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Algemene pictogrammen" v:index="0"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(80.7874,-3.74422)">
+			<title>Blad.1</title>
+			<desc>23</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="20.7971" cy="25.4331" width="41.6" height="20"/>
+			<rect x="0" y="15.4331" width="41.5941" height="20" class="st1"/>
+			<text x="5.75" y="36.23" class="st2" v:langID="1043"><v:paragraph v:horizAlign="1"/><v:tabList/>2<tspan dy="-0.234em"
+						class="st3" v:baseFontSize="36">3</tspan></text>		</g>
+		<g id="group2-5" transform="translate(123.307,-21.8465)" v:mID="2" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="BackStyle" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="visAltText" v:prompt="" v:val="VT4(Terug)"/>
+				<v:ud v:nameU="visAltDescription" v:prompt="" v:val="VT4(Pictogram Terug.)"/>
+				<v:ud v:nameU="Font" v:prompt="" v:val="VT0(201):26"/>
+			</v:userDefs>
+			<title>Terug</title>
+			<g id="group3-6" transform="translate(7.14286E-06,-1.20792E-13)" v:mID="3" v:groupContext="group" v:layerMember="0">
+				<title>Blad.3</title>
+				<g id="shape4-7" v:mID="4" v:groupContext="shape" v:layerMember="0">
+					<title>Blad.4</title>
+				</g>
+			</g>
+			<g id="group5-9" transform="translate(1.9984E-14,-1.99998)" v:mID="5" v:groupContext="group" v:layerMember="0">
+				<title>Blad.5</title>
+				<g id="shape6-10" v:mID="6" v:groupContext="shape" v:layerMember="0">
+					<title>Blad.6</title>
+					<path d="M23.18 30.19 L2.85 30.19 L5.27 27.85 C5.6 27.54 5.6 27.04 5.27 26.75 C4.95 26.43 4.43 26.43 4.13 26.75
+								 L0.33 30.42 C0 30.74 0 31.23 0.33 31.52 L4.13 35.2 C4.29 35.35 4.51 35.43 4.7 35.43 C4.89 35.43
+								 5.11 35.35 5.27 35.2 C5.6 34.88 5.6 34.38 5.27 34.09 L2.85 31.76 L23.18 31.76 C23.65 31.76 24 31.42
+								 24 30.97 C24 30.53 23.65 30.19 23.18 30.19 Z" class="st4"/>
+				</g>
+			</g>
+		</g>
+		<g id="group7-12" transform="translate(80.7874,-7.08661) scale(-1,1)" v:mID="7" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="BackStyle" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="visAltText" v:prompt="" v:val="VT4(Terug)"/>
+				<v:ud v:nameU="visAltDescription" v:prompt="" v:val="VT4(Pictogram Terug.)"/>
+				<v:ud v:nameU="Font" v:prompt="" v:val="VT0(201):26"/>
+			</v:userDefs>
+			<title>Terug.7</title>
+			<g id="group8-13" transform="translate(7.14286E-06,-1.20792E-13)" v:mID="8" v:groupContext="group" v:layerMember="0">
+				<title>Blad.8</title>
+				<g id="shape9-14" v:mID="9" v:groupContext="shape" v:layerMember="0">
+					<title>Blad.9</title>
+				</g>
+			</g>
+			<g id="group10-16" transform="translate(1.9984E-14,-1.99998)" v:mID="10" v:groupContext="group" v:layerMember="0">
+				<title>Blad.10</title>
+				<g id="shape11-17" v:mID="11" v:groupContext="shape" v:layerMember="0">
+					<title>Blad.11</title>
+					<path d="M23.18 30.19 L2.85 30.19 L5.27 27.85 C5.6 27.54 5.6 27.04 5.27 26.75 C4.95 26.43 4.43 26.43 4.13 26.75
+								 L0.33 30.42 C0 30.74 0 31.23 0.33 31.52 L4.13 35.2 C4.29 35.35 4.51 35.43 4.7 35.43 C4.89 35.43
+								 5.11 35.35 5.27 35.2 C5.6 34.88 5.6 34.38 5.27 34.09 L2.85 31.76 L23.18 31.76 C23.65 31.76 24 31.42
+								 24 30.97 C24 30.53 23.65 30.19 23.18 30.19 Z" class="st4"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape12-19" v:mID="12" v:groupContext="shape" transform="translate(145.493,-18.3465)">
+			<title>Blad.12</title>
+			<desc>exponent</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="34.9703" cy="25.4331" width="69.95" height="20"/>
+			<rect x="0" y="15.4331" width="69.9406" height="20" class="st1"/>
+			<text x="7.9" y="29.63" class="st5" v:langID="1043"><v:paragraph v:horizAlign="1"/><v:tabList/>exponent</text>		</g>
+		<g id="shape13-22" v:mID="13" v:groupContext="shape" transform="translate(-9.16536,-3.58661)">
+			<title>Blad.13</title>
+			<desc>grondtal</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="34.9703" cy="25.4331" width="69.95" height="20"/>
+			<rect x="0" y="15.4331" width="69.9406" height="20" class="st1"/>
+			<text x="10.88" y="29.63" class="st5" v:langID="1043"><v:paragraph v:horizAlign="1"/><v:tabList/>grondtal</text>		</g>
+	</g>
+</svg>

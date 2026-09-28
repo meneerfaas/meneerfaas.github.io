@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.7. Elementen tekenen &#8212; Programmeren in Python 0.1 documentatie</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9472647" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=cf3c8abc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=e4d38c6a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pygame_zero_tutorials/alchemy/07_drawing_elements';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+    <link rel="next" title="4.8. Drag and drop" href="08_drag_and_drop.html" />
+    <link rel="prev" title="4.6. Alchemy in Pygame" href="06_alchemy_pygame.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/programmer_128.png" class="logo__image only-light" alt="Programmeren in Python"/>
+    <img src="../../_static/programmer_128.png" class="logo__image only-dark pst-js-only" alt="Programmeren in Python"/>
+  
+  
+    <p class="title logo__title">Programmeren in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Voorbereidingen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/folder_structure.html">Mappenstructuur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/mu_editor.html">Mu Editor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/hello_world.html">1. Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/shell.html">2. Editor en Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/arithmetic.html">3. Berekeningen in de shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/datatypes.html">4. Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/variables.html">5. Variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/strings.html">6. Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/fstrings.html">7. Formatted strings (f-strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/input.html">8. Input van de gebruiker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_programming/basics/basic_functions.html">9. Functiebeginselen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python turtle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/turtle.html">1. Tekenen met Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/while_loops.html">2. While loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/for_loops.html">3. For loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/coordinates.html">4. Coördinaten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_turtle/functions.html">5. Functies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pygame_zero/01_alien/00_jumping_aliens.html">1. Jumping aliens</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/01_pygame.html">1.1. Pygame Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/02_sprites.html">1.2. Sprites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/03_movement.html">1.3. Beweging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/04_events.html">1.4. Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/05_score.html">1.5. Winnen en verliezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pygame_zero/01_alien/06_improvements.html">1.6. Extra uitbreidingen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pygame Zero Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fruit_catcher/00_fruitcatcher.html">1. Fruit Catcher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/01_preparations.html">1.1. Voorbereiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/02_basket.html">1.2. De basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/03_fruit.html">1.3. Het fruit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/04_score.html">1.4. Score en levens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/05_begin_end.html">1.5. Game start en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fruit_catcher/06_extras.html">1.6. Uitbreidingen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../endless_runner/00_endless_runner.html">2. Endless Runner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/01_preparations.html">2.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/02_background.html">2.2. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/03_animation.html">2.3. Animatie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/04_jumping.html">2.4. Springen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/05_obstacles.html">2.5. Obstakels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/06_scoring_dying.html">2.6. Score en game over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endless_runner/07_lives.html">2.7. Levens verliezen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../level_devil/00_level_devil.html">3. Level Devil</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/01_starter_code.html">3.1. Starter code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/02_rectangles.html">3.2. Kamer en valkuilen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/03_player.html">3.3. Player character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/04_player_control.html">3.4. Player besturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../level_devil/05_traps.html">3.5. Valkuilen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_alchemy.html">4. Alchemy game</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_preparations.html">4.1. Voorbereidingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_lists.html">4.2. Lijsten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alchemytxt.html">4.3. Alchemy tekstversie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_dictionaries.html">4.4. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_files.html">4.5. Bestanden lezen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_alchemy_pygame.html">4.6. Alchemy in Pygame</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.7. Elementen tekenen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_drag_and_drop.html">4.8. Drag and drop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_inventory_and_workbench.html">4.9. Venster in twee delen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_combining_cards.html">4.10. Elementen combineren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_resizing_inventory.html">4.11. Formaat inventory wijzigen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Verklarende woordenlijst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Links</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Zoeken</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/pygame_zero_tutorials/alchemy/07_drawing_elements.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elementen tekenen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uitbreiding-van-de-elements-dictionary">4.7.1. Uitbreiding van de elements dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#afbeeldingen-verkleinen">4.7.2. Afbeeldingen verkleinen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#afmetingen-van-de-rechthoek">4.7.3. Afmetingen van de rechthoek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tekenen">4.7.4. Tekenen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="elementen-tekenen">
+<h1><span class="section-number">4.7. </span>Elementen tekenen<a class="headerlink" href="#elementen-tekenen" title="Link to this heading">#</a></h1>
+<p>In de grafische versie van het spel worden de elementen weergegeven als rechthoekige blokjes waarin links de afbeelding van het element staat en rechts de naam.</p>
+<figure class="align-center">
+<img alt="../../_images/element_card_earth.png" src="../../_images/element_card_earth.png" />
+</figure>
+<p>Voor zo’n blokje - laten we het een <em>element card</em> noemen - kunnen we geen Actor gebruiken, omdat het uit meer dan een plaatje bestaat. We zullen de element cards dus zelf moeten tekenen en dat is niet eenvoudig. Ten eerste moeten we de afbeelding van het element verkleinen naar de juiste grootte. De afbeeldingen in de images map zijn namelijk 512 x 512 pixels groot, terwijl voor ons 32 x 32 pixels meer dan genoeg is. We zouden natuurlijk alle afbeeldingen in een grafisch programma zoals Paint.NET kunnen verkleinen, maar dat is veel werk, en daarom gaan we het in Python doen. Een tweede, nog uitdagender vraagstuk is het passend maken van de rechthoek. De breedte van de rechthoek is namelijk afhankelijk van de tekst die we erin willen zetten. We moeten dus eerst de tekst meten voordat we de rechthoek kunnen tekenen. Gelukkig kunnen we dat ook in Python doen, maar het vergt wel wat rekenwerk en een paar extra functies.</p>
+<section id="uitbreiding-van-de-elements-dictionary">
+<h2><span class="section-number">4.7.1. </span>Uitbreiding van de elements dictionary<a class="headerlink" href="#uitbreiding-van-de-elements-dictionary" title="Link to this heading">#</a></h2>
+<p>Tot nu toe staan in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary alleen de namen van de elementen. Om straks het juiste plaatje bij het juiste element te kunnen tekenen, breiden we de dictionary uit met de namen van de afbeeldingen. Vervang het bestand <code class="file docutils literal notranslate"><span class="pre">elements.json</span></code> in je <code class="file docutils literal notranslate"><span class="pre">alchemy</span></code> map dit nieuwe bestand: <a class="reference download internal" download="" href="../../_downloads/7dc16f14f0579ce2b0a11985787aa3ac/elements.json"><code class="xref download docutils literal notranslate"><span class="pre">elements.json</span></code></a>.</p>
+<p>Als je dit bestand opent, zie je dat de values van de dictionary niet meer eenvoudige strings zijn, maar <em>subdictionaries</em> met daarin het label (de naam die wordt getoond) van het element en de naam van de afbeelding.</p>
+<figure class="align-default">
+<img alt="../../_images/notepadplusplus_elements_2.png" src="../../_images/notepadplusplus_elements_2.png" />
+</figure>
+<p>Omdat de Pygame versie van het spel een andere structuur heeft dan de tekstversie, beginnen we weer helemaal ‘from scratch’ met de code. Maak in Mu Editor een nieuw bestand aan en typ de onderstaande code erin. Sla het bestand op in je <code class="file docutils literal notranslate"><span class="pre">alchemy</span></code> map onder de naam <code class="file docutils literal notranslate"><span class="pre">alchemy.py</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">alchemy.py</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">################</span>
+<span class="linenos"> 2</span><span class="c1"># ALCHEMY GAME #</span>
+<span class="linenos"> 3</span><span class="c1"># Pygame  Zero #</span>
+<span class="linenos"> 4</span><span class="c1">################</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="kn">import</span> <span class="nn">json</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># WINDOW SETTINGS</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="linenos">11</span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">450</span>
+<span class="linenos">12</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Alchemy&#39;</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># DICTIONARIES AND LISTS</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">17</span><span class="n">recipes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># HELPER FUNCTIONS</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="k">def</span> <span class="nf">load_elements</span><span class="p">():</span>
+<span class="linenos">22</span>   <span class="k">global</span> <span class="n">elements</span>
+<span class="linenos">23</span>   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;elements.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="linenos">24</span>      <span class="n">elements</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1"># DRAW FUNCTIONS</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="linenos">29</span>   <span class="k">pass</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="c1"># UPDATE FUNCTION</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="linenos">34</span>   <span class="k">pass</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="linenos">39</span><span class="nb">print</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Probeer te voorspellen wat deze code doet voordat je hem uitvoert. De inhoud van de functie <code class="code highlight python docutils literal highlight-python"><span class="n">load_elements</span><span class="p">()</span></code> zou je bekend moeten voorkomen van de tekstversie. Wat denk je dat er in de console verschijnt als je de code runt? Voer de code uit en kijk of je gelijk had. Verwijder vervolgens regel 40, want die was alleen om te testen of de dictionary goed werd geladen.</p>
+</section>
+<section id="afbeeldingen-verkleinen">
+<h2><span class="section-number">4.7.2. </span>Afbeeldingen verkleinen<a class="headerlink" href="#afbeeldingen-verkleinen" title="Link to this heading">#</a></h2>
+<p>Pygame Zero heeft geen voor ons geschikte functie om afbeeldingen te verkleinen, maar Pygame (zonder de Zero) heeft die wél. Voeg op regel 6 de <code class="code highlight python docutils literal highlight-python"><span class="n">pygame</span></code> module toe aan het <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span></code> statement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">6</span><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">pygame</span>
+</pre></div>
+</div>
+<p>Voor de element cards gaan we een aantal constanten gebruiken om de afmetingen te bepalen. De eerste is <code class="code highlight python docutils literal highlight-python"><span class="n">ICONSIZE</span></code>. Deze constante krijgt de waarde <code class="code highlight python docutils literal highlight-python"><span class="mi">32</span></code> omdat we de icoontjes op de element cards 32 x 32 pixels willen maken. Voeg de volgende code in tussen de <code class="code highlight python docutils literal highlight-python"><span class="c1"># WINDOW SETTINGS</span></code> en de <code class="code highlight python docutils literal highlight-python"><span class="c1"># DICTIONARIES AND LISTS</span></code> secties:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">12</span><span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Alchemy&#39;</span>
+<span class="linenos">13</span>
+<span class="hll"><span class="linenos">14</span><span class="c1"># CARD SETTINGS</span>
+</span><span class="hll"><span class="linenos">15</span>
+</span><span class="hll"><span class="linenos">16</span><span class="n">ICONSIZE</span> <span class="o">=</span> <span class="mi">32</span>
+</span><span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># DICTIONARIES AND LISTS</span>
+</pre></div>
+</div>
+<p>Voor het daadwerkelijk tekenen van een element card definiëren we een nieuwe functie <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">()</span></code>. Deze functie heeft de volgende parameters nodig:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">element_id</span></code>: de naam van het element dat we willen tekenen. Dit is de key waaronder het element in de dictionary vindbaar is, zoals <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;water&#39;</span></code> of <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;fire&#39;</span></code>.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">pos</span></code>: de positie waar we de element card willen tekenen. Dit is een tuple met de x- en y-coördinaten.</p></li>
+</ul>
+<p>Voeg de volgende code toe aan de <code class="code highlight python docutils literal highlight-python"><span class="c1"># DRAW FUNCTIONS</span></code> sectie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="c1"># DRAW FUNCTIONS</span>
+<span class="linenos">31</span>
+<span class="hll"><span class="linenos">32</span><span class="k">def</span> <span class="nf">draw_element_card</span><span class="p">(</span><span class="n">element_id</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+</span><span class="hll"><span class="linenos">33</span>   <span class="n">element</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">element_id</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">34</span>   <span class="n">lbl</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">35</span>   <span class="n">img_name</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">36</span>   <span class="n">img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;images.</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">ICONSIZE</span><span class="p">,</span> <span class="n">ICONSIZE</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">37</span>   <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+</span><span class="linenos">38</span>
+<span class="linenos">39</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="hll"><span class="linenos">40</span>   <span class="n">draw_element_card</span><span class="p">(</span><span class="s1">&#39;earth&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+</span><span class="linenos">41</span>
+<span class="linenos">42</span><span class="c1"># UPDATE FUNCTION</span>
+</pre></div>
+</div>
+<p>In regel 15 worden de gegevens van het element opgezocht in de dictionary. Vervolgens wordt op regel 16 het label van het element opgehaald en op regel 17 de naam van de bijbehorende afbeelding. <br/>
+In regel 18 gebeuren meerdere dingen tegelijk. De expressie <code class="code highlight python docutils literal highlight-python"><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;images.</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></code> is nodig omdat Pygame Zero alle afbeeldingen in de <code class="file docutils literal notranslate"><span class="pre">images</span></code> map in een object met de naam <code class="code highlight python docutils literal highlight-python"><span class="n">images</span></code> plaatst. Om bijvoorbeeld de afbeelding van aarde op te halen, moeten we <code class="code highlight python docutils literal highlight-python"><span class="n">images</span><span class="o">.</span><span class="n">earth</span></code> gebruiken. Maar onze <code class="code highlight python docutils literal highlight-python"><span class="n">img_name</span></code> is een string met aanhalingstekens (<code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;earth&#39;</span></code> ) en geen variabele (<code class="code highlight python docutils literal highlight-python"><span class="n">earth</span></code>).  De <code class="code highlight python docutils literal highlight-python"><span class="nb">eval</span><span class="p">()</span></code> functie lost dit probleem op. Het maakt van de string <code class="code highlight python docutils literal highlight-python"><span class="sa">f</span><span class="s1">&#39;images.</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span></code> Python code. Klinkt ingewikkeld en dat is het ook. Online kun je meer informatie vinden over de <code class="code highlight python docutils literal highlight-python"><span class="nb">eval</span><span class="p">()</span></code> functie (bijvoorbeeld <a class="reference external" href="https://www.w3schools.com/python/ref_func_eval.asp">hier</a>), maar voor nu is het voldoende om te weten dat het werkt. <br/>
+Ook verkleinen we in regel 18 de afbeelding naar de juiste grootte met de <code class="code highlight python docutils literal highlight-python"><span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span></code> functie. Deze functie heeft twee argumenten nodig: de afbeelding die we willen verkleinen en een tuple met de nieuwe breedte en hoogte. De nieuwe breedte en hoogte zijn beide gelijk aan de constante <code class="code highlight python docutils literal highlight-python"><span class="n">ICONSIZE</span></code>. De verkleinde afbeelding wordt opgeslagen in de variabele <code class="code highlight python docutils literal highlight-python"><span class="n">img</span></code>. In regel 19 tekenen we de afbeelding op het scherm met de <code class="code highlight python docutils literal highlight-python"><span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">()</span></code> functie, die je al eerder bent tegengekomen voor het tekenen van achtergronden. <br/>
+In regel 22 roepen we in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie de <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">()</span></code> functie aan om de element card van aarde te tekenen op positie (20, 20).</p>
+<p>Run de code en kijk of de afbeelding van het element aarde verschijnt. Uiteraard kun je ook de afbeelding van een ander element tekenen door de naam van het element in regel 22 te veranderen. Probeer dat eens uit.</p>
+<figure class="align-default">
+<img alt="../../_images/draw_element_card_01.png" src="../../_images/draw_element_card_01.png" />
+</figure>
+</section>
+<section id="afmetingen-van-de-rechthoek">
+<h2><span class="section-number">4.7.3. </span>Afmetingen van de rechthoek<a class="headerlink" href="#afmetingen-van-de-rechthoek" title="Link to this heading">#</a></h2>
+<p>Om te berekenen hoe groot de rechthoek van de element card moet zijn, definiëren we eerst een aantal constanten voor de marges: de afstanden tussen de inhoud van de rechthoek en de rand van de rechthoek. In onderstaande figuur zie je welke afstanden een rol spelen.</p>
+<figure class="align-default">
+<img alt="../../_images/element_card_margins.png" src="../../_images/element_card_margins.png" />
+</figure>
+<p>In de code noemen we deze afstanden <code class="code highlight python docutils literal highlight-python"><span class="n">LEFTMARGIN</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">RIGHTMARGIN</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">TOPMARGIN</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">BOTTOMMARGIN</span></code>. Voor de horizontale ruimte tussen de afbeelding en de tekst maken we de constante <code class="code highlight python docutils literal highlight-python"><span class="n">HSPACE</span></code>. Voeg deze constanten toe aan de <code class="code highlight python docutils literal highlight-python"><span class="c1"># CARD SETTINGS</span></code> sectie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span><span class="c1"># CARD SETTINGS</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">ICONSIZE</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="hll"><span class="linenos">17</span><span class="n">LEFTMARGIN</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="hll"><span class="linenos">18</span><span class="n">RIGHTMARGIN</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class="hll"><span class="linenos">19</span><span class="n">TOPMARGIN</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class="hll"><span class="linenos">20</span><span class="n">BOTTOMMARGIN</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class="hll"><span class="linenos">21</span><span class="n">HSPACE</span> <span class="o">=</span> <span class="mi">5</span>
+</span></pre></div>
+</div>
+<p>Om te berekenen hoe breed de rechthoek moet worden, hebben we informatie nodig over de breedte van de tekst. Die is afhankelijk van het lettertype en de lettergrootte en de tekst. Ook deze gegevens horen bij de <code class="code highlight python docutils literal highlight-python"><span class="c1"># CARD SETTINGS</span></code>. Voeg het volgende toe:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span><span class="c1"># CARD SETTINGS</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">ICONSIZE</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="linenos">17</span><span class="n">LEFTMARGIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">18</span><span class="n">RIGHTMARGIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos">19</span><span class="n">TOPMARGIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">20</span><span class="n">BOTTOMMARGIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="linenos">21</span><span class="n">HSPACE</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="hll"><span class="linenos">22</span><span class="n">FONTSIZE</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span class="hll"><span class="linenos">23</span><span class="n">card_font</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">SysFont</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">FONTSIZE</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">24</span><span class="n">CARD_HEIGHT</span> <span class="o">=</span> <span class="n">TOPMARGIN</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">ICONSIZE</span><span class="p">,</span> <span class="n">FONTSIZE</span><span class="p">)</span> <span class="o">+</span> <span class="n">BOTTOMMARGIN</span>
+</span></pre></div>
+</div>
+<p>In regel 22 kiezen we lettergrootte <code class="code highlight python docutils literal highlight-python"><span class="mi">30</span></code>. Dat betekent dat het lettertype 30 pixels hoog is. <br/> In regel 23 maken we een lettertype object aan met de <code class="code highlight python docutils literal highlight-python"><span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">SysFont</span><span class="p">()</span></code> functie (waarover je <a class="reference external" href="https://www.pygame.org/docs/ref/font.html#pygame.font.SysFont">hier</a> meer kunt vinden). Deze functie heeft twee argumenten nodig: het lettertype dat we willen gebruiken (in dit geval <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>, wat betekent dat we het standaard lettertype gebruiken) en de lettergrootte. Het resultaat wordt opgeslagen in de constante <code class="code highlight python docutils literal highlight-python"><span class="n">card_font</span></code>. <br/>
+In regel 24 berekenen we de hoogte van de rechthoek. Deze is gelijk aan de grootste waarde van de constante <code class="code highlight python docutils literal highlight-python"><span class="n">ICONSIZE</span></code> en de constante <code class="code highlight python docutils literal highlight-python"><span class="n">FONTSIZE</span></code>, plus de marges aan de boven- en onderkant. De hoogte van de rechthoek is dus altijd minimaal even hoog als het plaatje of de tekst, plus de marges.</p>
+<p>En nu begint het echte werk. We gaan een helper functie maken die:</p>
+<ul class="simple">
+<li><p>alle items in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary langsloopt;</p></li>
+<li><p>van elk element de breedte van de tekst berekent;</p></li>
+<li><p>de breedte van de rechthoek berekent;</p></li>
+<li><p>de afmetingen van de rechthoek opslaat in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary onder een nieuwe key.</p></li>
+</ul>
+<p>In code ziet dat er zo uit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">38</span><span class="k">def</span> <span class="nf">calc_card_rects</span><span class="p">():</span>
+<span class="linenos">39</span>   <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">40</span>      <span class="n">lbl_width</span><span class="p">,</span> <span class="n">lbl_height</span> <span class="o">=</span> <span class="n">card_font</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+<span class="linenos">41</span>      <span class="n">rect_width</span> <span class="o">=</span> <span class="n">LEFTMARGIN</span> <span class="o">+</span> <span class="n">ICONSIZE</span> <span class="o">+</span> <span class="n">HSPACE</span> <span class="o">+</span> <span class="n">lbl_width</span> <span class="o">+</span> <span class="n">RIGHTMARGIN</span>
+<span class="linenos">42</span>      <span class="n">rect_height</span> <span class="o">=</span> <span class="n">CARD_HEIGHT</span>
+<span class="linenos">43</span>      <span class="n">r</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">rect_width</span><span class="p">,</span> <span class="n">rect_height</span><span class="p">))</span>
+<span class="linenos">44</span>      <span class="n">elements</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>De code <code class="code highlight python docutils literal highlight-python"><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">()</span></code> in regel 40 is een handige manier om alle items in een dictionary langs te lopen. De regels 41 t/m 45 worden dus uitgevoerd voor elk item in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary. <br/>
+In regel 41 gebruiken we de <code class="code highlight python docutils literal highlight-python"><span class="n">card_font</span><span class="o">.</span><span class="n">size</span><span class="p">()</span></code> methode om de breedte en hoogte van de labeltekst te berekenen. De hoogte hebben we niet nodig, maar de <code class="code highlight python docutils literal highlight-python"><span class="n">size</span><span class="p">()</span></code> methode geeft altijd zowel de breedte als de hoogte terug, dus we moeten beide waarden opslaan in variabelen (meer info <a class="reference external" href="https://www.pygame.org/docs/ref/font.html#pygame.font.Font.size">hier</a>). <br/>
+Vervolgens berekenen we in regels 42 en 43 de breedte en hoogte van de rechthoek. De breedte is gelijk aan de som van de linker marge, de breedte van het plaatje, de horizontale ruimte tussen het plaatje en de tekst, de breedte van de tekst en de rechter marge. <br/>
+In regel 44 maken we een Rect object <code class="code highlight python docutils literal highlight-python"><span class="n">r</span></code> aan met de zojuist berekende afmetingen en in regel 45 voegen we dit Rect object toe aan de dictionary onder de key <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;rect&#39;</span></code>. Let op, <code class="code highlight python docutils literal highlight-python"><span class="n">key</span></code> in regel 45 is de key van het huidige element in de loop. Wanneer de loop met het element <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;fire&#39;</span></code> bezig is, worden de afmetingen dus opgeslagen in <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span><span class="p">[</span><span class="s1">&#39;fire&#39;</span><span class="p">][</span><span class="n">rect</span><span class="p">]</span></code>.</p>
+<p>Voeg aan je hoofdprogramma de functieaanroep <code class="code highlight python docutils literal highlight-python"><span class="n">calc_card_rects</span><span class="p">()</span></code> toe en een print statement om te controleren of de rechthoeken goed aan de dictionary zijn toegevoegd. Je hoofdprogramma ziet er dan zo uit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">63</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="hll"><span class="linenos">66</span><span class="n">calc_card_rects</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">67</span><span class="nb">print</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>De output in de console zou er zo moeten uitzien:</p>
+<figure class="align-default">
+<img alt="../../_images/element_card_rects.png" src="../../_images/element_card_rects.png" />
+</figure>
+<p>Elk element in de dictionary heeft nu een <code class="code highlight python docutils literal highlight-python"><span class="n">label</span></code> , een <code class="code highlight python docutils literal highlight-python"><span class="n">image</span></code> en een <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span></code> veld. Het element <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;earth&#39;</span></code> heeft bijvoorbeeld de volgende structuur:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;earth&#39;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;aarde&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="s1">&#39;earth&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;rect&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">38</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Voor dit element hebben we dus een rechthoek van 102 x 38 pixels nodig.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Pretty print</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De output in de console ziet er tamelijk chaotisch uit. Dat komt omdat de dictionary in één lange regel wordt geprint. Om de dictionary overzichtelijker weer te geven, kun je de module <code class="code highlight python docutils literal highlight-python"><span class="n">pprint</span></code> gebruiken. Doe daartoe het volgende:</p>
+<p class="sd-card-text">Voeg <code class="code highlight python docutils literal highlight-python"><span class="n">pprint</span></code> toe aan de import statement op regel 6.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">6</span><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">pygame</span><span class="o">,</span> <span class="nn">pprint</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Vervang het print statement in je hoofdprogramma door <code class="code highlight python docutils literal highlight-python"><span class="n">pprint</span><span class="o">.</span><span class="n">pp</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">64</span><span class="c1"># MAIN PROGRAM</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="n">load_elements</span><span class="p">()</span>
+<span class="linenos">67</span><span class="n">calc_card_rects</span><span class="p">()</span>
+<span class="hll"><span class="linenos">68</span><span class="n">pprint</span><span class="o">.</span><span class="n">pp</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p class="sd-card-text">De output in de console is nu een stuk overzichtelijker:</p>
+<figure class="align-default">
+<img alt="../../_images/element_card_rects_pprint.png" src="../../_images/element_card_rects_pprint.png" />
+</figure>
+</div>
+</details></section>
+<section id="tekenen">
+<h2><span class="section-number">4.7.4. </span>Tekenen<a class="headerlink" href="#tekenen" title="Link to this heading">#</a></h2>
+<p>Alle informatie voor de element cards is nu beschikbaar in de <code class="code highlight python docutils literal highlight-python"><span class="n">elements</span></code> dictionary. Breid de <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">()</span></code> als volgt uit om de gehele card te tekenen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">48</span><span class="k">def</span> <span class="nf">draw_element_card</span><span class="p">(</span><span class="n">element_id</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">bordercolor</span><span class="o">=</span><span class="s1">&#39;azure4&#39;</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontcolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">):</span>
+</span><span class="linenos">49</span>   <span class="n">element</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">element_id</span><span class="p">]</span>
+<span class="linenos">50</span>   <span class="n">lbl</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+<span class="linenos">51</span>   <span class="n">img_name</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+<span class="hll"><span class="linenos">52</span>   <span class="n">rect</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;rect&#39;</span><span class="p">]</span>
+</span><span class="linenos">53</span>   <span class="n">img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;images.</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">ICONSIZE</span><span class="p">,</span> <span class="n">ICONSIZE</span><span class="p">))</span>
+<span class="hll"><span class="linenos">54</span>   <span class="n">rect</span><span class="o">.</span><span class="n">topleft</span> <span class="o">=</span> <span class="n">pos</span>
+</span><span class="hll"><span class="linenos">55</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">filled_rect</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">bgcolor</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">56</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">bordercolor</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">57</span>   <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">left</span> <span class="o">+</span> <span class="n">LEFTMARGIN</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">top</span> <span class="o">+</span> <span class="n">TOPMARGIN</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">58</span>   <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">lbl</span><span class="p">,</span> <span class="n">midleft</span> <span class="o">=</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">midleft</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">LEFTMARGIN</span> <span class="o">+</span> <span class="n">ICONSIZE</span> <span class="o">+</span> <span class="n">HSPACE</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">midleft</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">FONTSIZE</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">fontcolor</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>In regel 49 zie je dat de parameters <code class="code highlight python docutils literal highlight-python"><span class="n">bordercolor</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">bgcolor</span></code> en <code class="code highlight python docutils literal highlight-python"><span class="n">fontcolor</span></code> zijn toegevoegd. Dit zijn de kleuren van de rand, de achtergrond en de tekst van de element card. Ze hebben alle drie een default waarde gekregen, die wordt gebruikt als in de aanroep het argument ontbreekt. <br/>
+In de regels 51 t/m 53 halen we de gegevens van het element op uit de dictionary. <br/>
+In regel 54 stellen we de positie van de rechthoek in op de positie die is meegegeven in de aanroep van <code class="code highlight python docutils literal highlight-python"><span class="n">draw_element_card</span><span class="p">()</span></code>. <br/>
+Tenslotte tekenen we in de regels 55 t/m 59 de rechthoek, de afbeelding en de tekst. De <code class="code highlight python docutils literal highlight-python"><span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">filled_rect</span><span class="p">()</span></code> functie tekent de rechthoek met de achtergrondkleur, de <code class="code highlight python docutils literal highlight-python"><span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">()</span></code> functie tekent de rand van de rechthoek en de <code class="code highlight python docutils literal highlight-python"><span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">()</span></code> functie tekent het plaatje. De <code class="code highlight python docutils literal highlight-python"><span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">()</span></code> functie tekent de tekst in het rechthoek. <br/>
+Kijk nog even goed naar de positionering van de tekst in regel 59. Met <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span><span class="o">.</span><span class="n">midleft</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code> krijgen we de x-coördinaat van het midden van de linkerkant van de rechthoek en met <code class="code highlight python docutils literal highlight-python"><span class="n">rect</span><span class="o">.</span><span class="n">midleft</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code> de y-coördinaat.</p>
+<p>Om de element card beter zichtbaar te maken, stellen we in de <code class="code highlight python docutils literal highlight-python"><span class="n">draw</span><span class="p">()</span></code> functie de achtergrondkleur in op <code class="code highlight python docutils literal highlight-python"><span class="n">azure</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">60</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+<span class="hll"><span class="linenos">61</span>   <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39;azure&#39;</span><span class="p">)</span>
+</span><span class="linenos">62</span>   <span class="n">draw_element_card</span><span class="p">(</span><span class="s1">&#39;earth&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Run de code en kijk of de element card van aarde goed wordt getekend.</p>
+<figure class="align-default">
+<img alt="../../_images/element_card_result.png" src="../../_images/element_card_result.png" />
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_alchemy_pygame.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Alchemy in Pygame</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08_drag_and_drop.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">4.8. </span>Drag and drop</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uitbreiding-van-de-elements-dictionary">4.7.1. Uitbreiding van de elements dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#afbeeldingen-verkleinen">4.7.2. Afbeeldingen verkleinen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#afmetingen-van-de-rechthoek">4.7.3. Afmetingen van de rechthoek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tekenen">4.7.4. Tekenen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door S. Faas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
