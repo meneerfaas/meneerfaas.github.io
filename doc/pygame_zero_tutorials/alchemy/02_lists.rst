@@ -64,7 +64,7 @@ Of een waarde in een list veranderen:
    :color: secondary
    :icon: pencil
 
-   Voeg twee regels aan je code in :file:`'alchemytxt.py'` toe, waarmee je het item :python:`'wind'` in de list :python:`elements` verandert in :python:`'air'` en de list nogmaals naar het scherm print. Je mag de code die al in :file:`'alchemytxt.py'` stond niet veranderen; je mag alleen regels toevoegen. Zorg ervoor dat je de juiste index gebruikt! |br|
+   Voeg twee regels aan je code in :file:`alchemytxt.py` toe, waarmee je het item :python:`'wind'` in de list :python:`elements` verandert in :python:`'air'` en de list nogmaals naar het scherm print. Je mag de code die al in :file:`alchemytxt.py` stond niet veranderen; je mag alleen regels toevoegen. Zorg ervoor dat je de juiste index gebruikt! |br|
    Run het programma en vergelijk de uitvoer met de afbeelding hieronder.
 
    .. figure:: images/elements_02.png
@@ -104,7 +104,7 @@ Python biedt echter een snellere manier om het laatste item in een list op te vr
    :color: secondary
    :icon: pencil
 
-   Voeg een regel toe aan je code in :file:`'alchemytxt.py'`, waarmee je het laatste item in de list :python:`elements` opvraagt en naar het scherm print. De uitvoer zou er zo moeten uitzien:
+   Voeg een regel toe aan je code in :file:`alchemytxt.py`, waarmee je het laatste item in de list :python:`elements` opvraagt en naar het scherm print. De uitvoer zou er zo moeten uitzien:
 
    .. figure:: images/elements_03.png
       :class: image-border
@@ -159,7 +159,7 @@ De functie :python:`pop()` geeft de verwijderde waarde ook terug. Dit kan handig
    :color: secondary
    :icon: pencil
 
-   Verwijder alle huidige code uit :file:`'alchemytxt.py'` en kopieer de onderstaande code naar het bestand.
+   Verwijder alle huidige code uit :file:`alchemytxt.py` en kopieer de onderstaande code naar het bestand.
 
    .. code-block:: python
       :linenos:
@@ -248,7 +248,7 @@ De uitvoer van dit programma is:
    :color: secondary
    :icon: pencil
 
-   Verwijder weer alle code uit :file:`'alchemytxt.py'` en kopieer de onderstaande code naar het bestand.
+   Verwijder weer alle code uit :file:`alchemytxt.py` en kopieer de onderstaande code naar het bestand.
 
    .. code-block:: python
       :linenos:
@@ -348,7 +348,7 @@ List comprehensions zijn heel handig om snel lijsten te maken. Bijvoorbeeld, wan
    :color: secondary
    :icon: pencil
 
-   Verwijder alle code uit :file:`'alchemytxt.py'` en kopieer de onderstaande code naar het bestand.
+   Verwijder alle code uit :file:`alchemytxt.py` en kopieer de onderstaande code naar het bestand.
 
    .. code-block:: python
       :linenos:
@@ -391,7 +391,7 @@ Hoe zou je de waarde :python:`'b'` uit de list :python:`my_list` kunnen ophalen?
    :color: secondary
    :icon: pencil
 
-   Verwijder alle code uit :file:`'alchemytxt.py'` en kopieer de onderstaande code naar het bestand.
+   Verwijder alle code uit :file:`alchemytxt.py` en kopieer de onderstaande code naar het bestand.
 
    .. code-block:: python
       :linenos:
